@@ -1,14 +1,15 @@
 """
-html_generator.py v3
+html_generator.py v4
 ====================
-v3 añade 5 filtros nuevos:
-- Insider holdings %
-- Rating de analistas
-- Revenue growth
-- Upside vs analistas
-- Cash runway saludable
+v4 añade en el modal:
+- Descripción larga de la empresa (en inglés)
+- Industry específica
+- País
+- Website (clicable)
+- Número de empleados
+- Dividend yield
 
-Más todos los filtros v2 (Carvana, drawdown, PER, IPO, short).
+Más todo lo de v3 (5 filtros fundamentales).
 """
 
 import os
@@ -28,10 +29,6 @@ OUTPUT_SUMMARY  = os.path.join(OUTPUT_DIR, "signals_summary.json")
 
 PASSWORD        = "1234"
 
-
-# ═══════════════════════════════════════════════════════════════════
-# TEMPLATE HTML
-# ═══════════════════════════════════════════════════════════════════
 
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="es">
@@ -80,8 +77,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .modal-overlay.open { display: flex; }
   .modal-content {
     background: #141414; border: 1px solid #404040;
-    border-radius: 12px; max-width: 700px; width: 100%;
-    max-height: 90vh; overflow-y: auto; padding: 24px;
+    border-radius: 12px; max-width: 800px; width: 100%;
+    max-height: 92vh; overflow-y: auto; padding: 24px;
   }
   .metric-good { color: #10b981; }
   .metric-bad  { color: #ef4444; }
@@ -111,8 +108,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     height: 100%; background: linear-gradient(90deg, #f97316, #fbbf24);
     transition: width 0.3s;
   }
-  .filter-section { background: #0f0f0f; padding: 10px 12px; border-radius: 8px; }
-  .filter-label { font-size: 11px; color: #737373; text-transform: uppercase; margin-bottom: 2px; }
+  .company-summary {
+    background: #0f0f0f; padding: 12px; border-radius: 8px;
+    border-left: 3px solid #fbbf24;
+    font-size: 13px; line-height: 1.6; color: #d4d4d4;
+    max-height: 240px; overflow-y: auto;
+  }
+  .company-summary::-webkit-scrollbar { width: 4px; }
+  .company-summary::-webkit-scrollbar-thumb { background: #404040; }
+  .info-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #1f1f1f; padding: 4px 10px; border-radius: 12px;
+    font-size: 11px; color: #a3a3a3; margin: 2px;
+  }
+  .info-pill a { color: #fbbf24; }
   .modal-content::-webkit-scrollbar { width: 6px; }
   .modal-content::-webkit-scrollbar-track { background: #0a0a0a; }
   .modal-content::-webkit-scrollbar-thumb { background: #404040; border-radius: 3px; }
@@ -161,7 +170,6 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <!-- FILTERS -->
   <div class="max-w-7xl mx-auto px-4 py-4">
     <div class="card rounded-lg p-3 mb-3">
-      <!-- Fila 1: Búsqueda y filtros principales -->
       <div class="flex gap-2 flex-wrap items-center">
         <input id="searchInput" type="text" placeholder="🔍 Ticker o nombre..."
           class="bg-neutral-800 text-white px-3 py-2 rounded outline-none flex-1 min-w-[180px]"
@@ -203,37 +211,29 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </button>
       </div>
 
-      <!-- Fila 2: Filtros técnicos -->
       <div class="mt-3 pt-3 border-t border-neutral-800">
         <div class="text-xs text-neutral-500 mb-2 uppercase">Filtros técnicos</div>
         <div class="flex gap-2 flex-wrap items-center text-sm">
-          <select id="drawdownFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="drawdownFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier drawdown</option>
             <option value="50">≥ 50% caída</option>
             <option value="70">≥ 70% caída</option>
             <option value="85">≥ 85% caída</option>
             <option value="95">≥ 95% caída</option>
           </select>
-
-          <select id="peFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="peFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier PER</option>
             <option value="15">PER &lt; 15</option>
             <option value="25">PER &lt; 25</option>
             <option value="50">PER &lt; 50</option>
           </select>
-
-          <select id="ipoFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="ipoFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier IPO</option>
             <option value="3">IPO &lt; 3 años</option>
             <option value="5">IPO 1-5 años</option>
             <option value="7">IPO 1-7 años</option>
           </select>
-
-          <select id="shortFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="shortFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier short</option>
             <option value="10">Short ≥ 10%</option>
             <option value="20">Short ≥ 20%</option>
@@ -243,55 +243,43 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Fila 3: Filtros fundamentales NUEVOS -->
       <div class="mt-3 pt-3 border-t border-neutral-800">
         <div class="text-xs text-neutral-500 mb-2 uppercase">Filtros fundamentales</div>
         <div class="flex gap-2 flex-wrap items-center text-sm">
-          <select id="insiderFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="insiderFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier insider %</option>
             <option value="5">Insiders ≥ 5%</option>
             <option value="10">Insiders ≥ 10%</option>
             <option value="20">Insiders ≥ 20%</option>
           </select>
-
-          <select id="ratingFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="ratingFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier rating</option>
             <option value="strong_buy">⭐ Strong Buy</option>
             <option value="buy">🟢 Buy o mejor</option>
             <option value="hold">🟡 Hold o mejor</option>
           </select>
-
-          <select id="revenueFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="revenueFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier rev growth</option>
             <option value="0">Revenue &gt; 0%</option>
             <option value="10">Revenue &gt; 10%</option>
             <option value="20">Revenue &gt; 20%</option>
             <option value="50">Revenue &gt; 50%</option>
           </select>
-
-          <select id="upsideFilter" onchange="applyFilters()"
-            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+          <select id="upsideFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
             <option value="">Cualquier upside</option>
             <option value="30">Upside &gt; 30%</option>
             <option value="50">Upside &gt; 50%</option>
             <option value="100">Upside &gt; 100%</option>
           </select>
-
           <label class="flex items-center gap-1 cursor-pointer">
-            <input id="safeRunwayOnly" type="checkbox" onchange="applyFilters()"
-              class="accent-green-500">
+            <input id="safeRunwayOnly" type="checkbox" onchange="applyFilters()" class="accent-green-500">
             <span class="text-xs">💰 Solo cash runway sano</span>
           </label>
-
           <span id="resultsCount" class="text-xs text-neutral-400 ml-auto"></span>
         </div>
       </div>
     </div>
 
-    <!-- TABLE -->
     <div class="card rounded-lg overflow-x-auto">
       <table class="w-full text-sm">
         <thead class="bg-neutral-900 text-xs text-neutral-400 uppercase">
@@ -323,11 +311,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
   <footer class="text-center py-6 text-xs text-neutral-600">
-    Generado el {{scan_date_human}} · CB Scanner v3.0
+    Generado el {{scan_date_human}} · CB Scanner v4.0
   </footer>
 </div>
 
-<!-- DETAIL MODAL -->
 <div id="detailModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
   <div class="modal-content" onclick="event.stopPropagation()">
     <div id="modalContent"></div>
@@ -341,7 +328,6 @@ const PWD_HASH = "{{password_hash}}";
 let currentSort = { col: 'carvana', dir: 'desc' };
 let filteredData = [];
 
-// ═══ LOGIN ═══
 async function hashPwd(pwd) {
   const buf = new TextEncoder().encode(pwd);
   const hash = await crypto.subtle.digest("SHA-256", buf);
@@ -370,17 +356,12 @@ if (sessionStorage.getItem("cb_auth") === "1") {
   showContent();
 }
 
-// ═══ FILTROS ═══
 function getActiveSignals() {
   return SIGNALS_DATA.results.filter(r => r.active_signal !== null);
 }
 
 const RATING_LEVELS = {
-  "strong_buy": 1,
-  "buy":        2,
-  "hold":       3,
-  "sell":       4,
-  "strong_sell": 5
+  "strong_buy": 1, "buy": 2, "hold": 3, "sell": 4, "strong_sell": 5
 };
 
 function applyFilters() {
@@ -393,7 +374,6 @@ function applyFilters() {
   const peMax = parseFloat(document.getElementById("peFilter").value) || Infinity;
   const ipoMax = parseFloat(document.getElementById("ipoFilter").value) || Infinity;
   const shortMin = parseFloat(document.getElementById("shortFilter").value) || 0;
-  // Filtros nuevos v3
   const insiderMin = parseFloat(document.getElementById("insiderFilter").value) || 0;
   const ratingMax = document.getElementById("ratingFilter").value;
   const revenueMin = document.getElementById("revenueFilter").value;
@@ -420,7 +400,6 @@ function applyFilters() {
       if (r.short_pct_float === null || r.short_pct_float === undefined) return false;
       if (r.short_pct_float < shortMin) return false;
     }
-    // Filtros nuevos v3
     if (insiderMin) {
       if (r.insider_pct === null || r.insider_pct === undefined) return false;
       if (r.insider_pct < insiderMin) return false;
@@ -441,7 +420,6 @@ function applyFilters() {
       if (r.upside_pct < upsideMin) return false;
     }
     if (safeRunwayOnly) {
-      // Sano: runway >= 2 años, runway === 999 (FCF+), o sin runway calculado (no quema cash)
       const rw = r.cash_runway_years;
       if (rw !== null && rw !== undefined && rw !== 999 && rw < 2) return false;
     }
@@ -469,7 +447,6 @@ function resetFilters() {
   applyFilters();
 }
 
-// ═══ ORDENAR ═══
 function sortBy(col) {
   if (currentSort.col === col) {
     currentSort.dir = currentSort.dir === "asc" ? "desc" : "asc";
@@ -509,7 +486,6 @@ function sortAndRender() {
   render();
 }
 
-// ═══ RENDER ═══
 const SIG_BADGE = {
   "BUY_GOLD":  {cls: "badge-gold",  icon: "🏆", label: "BUY GOLD"},
   "BUY":       {cls: "badge-buy",   icon: "🟢", label: "BUY"},
@@ -551,11 +527,21 @@ function fmtBig(n) {
   if (n >= 1e6) return "$" + (n/1e6).toFixed(1) + "M";
   return "$" + n.toFixed(0);
 }
+function fmtNumInt(n) {
+  if (n === null || n === undefined) return "—";
+  if (n >= 1e6) return (n/1e6).toFixed(1) + "M";
+  if (n >= 1e3) return (n/1e3).toFixed(0) + "K";
+  return n.toString();
+}
 function fmtTV(ticker) {
   if (ticker.endsWith("-USD")) {
     return "https://www.tradingview.com/chart/?symbol=CRYPTO%3A" + ticker.replace("-USD", "USD");
   }
   return "https://www.tradingview.com/chart/?symbol=" + ticker;
+}
+function escapeHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function render() {
@@ -610,9 +596,9 @@ function render() {
       + '<td class="px-2 py-2">' + carvanaCell + '</td>'
       + '<td class="px-2 py-2"><span class="badge ' + sb.cls + '">' + sb.icon + ' ' + sb.label + '</span></td>'
       + '<td class="px-2 py-2 font-bold">' + r.ticker + '</td>'
-      + '<td class="px-2 py-2 text-neutral-400 max-w-[160px] truncate">' + (r.name || '') + '</td>'
+      + '<td class="px-2 py-2 text-neutral-400 max-w-[160px] truncate">' + escapeHtml(r.name || '') + '</td>'
       + '<td class="px-2 py-2"><span class="badge ' + tb.cls + '">' + tb.label + '</span></td>'
-      + '<td class="px-2 py-2 text-neutral-400 text-xs max-w-[120px] truncate">' + (r.sector || '') + '</td>'
+      + '<td class="px-2 py-2 text-neutral-400 text-xs max-w-[120px] truncate">' + escapeHtml(r.sector || '') + '</td>'
       + '<td class="px-2 py-2 text-right">' + fmtPrice(r.current_price) + '</td>'
       + '<td class="px-2 py-2 text-right ' + (sig.wt2 < 0 ? 'text-green-400' : 'text-red-400') + '">' + sig.wt2.toFixed(1) + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400">' + r.drawdown_from_ath_pct.toFixed(0) + '%</td>'
@@ -627,7 +613,6 @@ function render() {
   }).join("");
 }
 
-// ═══ MODAL DETALLE ═══
 function openDetail(idx) {
   const r = filteredData[idx];
   const sig = r.active_signal;
@@ -637,10 +622,10 @@ function openDetail(idx) {
   const ratingDisplay = r.recommendation ? (RATING_LABEL[r.recommendation.toLowerCase()] || r.recommendation) : '—';
 
   const reasonsHtml = (cs.reasons || []).map(rs =>
-    '<div class="reason-item">✓ ' + rs + '</div>'
+    '<div class="reason-item">✓ ' + escapeHtml(rs) + '</div>'
   ).join("");
   const warningsHtml = (cs.warnings || []).map(w =>
-    '<div class="warning-item">' + w + '</div>'
+    '<div class="warning-item">' + escapeHtml(w) + '</div>'
   ).join("");
 
   const scorePct = Math.round((cs.score / (cs.max_score || 19)) * 100);
@@ -653,19 +638,42 @@ function openDetail(idx) {
       + '</div>';
   }).join("");
 
+  // NUEVO v4: Pills de información de empresa
+  const pills = [];
+  if (r.industry)  pills.push('<span class="info-pill">🏭 ' + escapeHtml(r.industry) + '</span>');
+  if (r.country)   pills.push('<span class="info-pill">🌍 ' + escapeHtml(r.country) + '</span>');
+  if (r.employees) pills.push('<span class="info-pill">👥 ' + fmtNumInt(r.employees) + ' empleados</span>');
+  if (r.website)   pills.push('<span class="info-pill">🔗 <a href="' + escapeHtml(r.website) + '" target="_blank" class="hover:underline">Web oficial</a></span>');
+  if (r.dividend_yield && r.dividend_yield > 0) {
+    pills.push('<span class="info-pill">💵 Div ' + r.dividend_yield.toFixed(2) + '%</span>');
+  }
+  const pillsHtml = pills.length ? '<div class="mt-3">' + pills.join('') + '</div>' : '';
+
+  // NUEVO v4: Descripción de la empresa
+  const summaryHtml = r.long_summary
+    ? `<div class="mb-4">
+         <div class="text-xs text-neutral-500 uppercase mb-2">📖 Sobre la empresa</div>
+         <div class="company-summary">${escapeHtml(r.long_summary)}</div>
+         <p class="text-xs text-neutral-600 mt-1 italic">Descripción en inglés (fuente: Yahoo Finance)</p>
+       </div>`
+    : '';
+
   const html = `
     <div class="flex justify-between items-start mb-4">
-      <div>
-        <h2 class="text-2xl font-bold">${r.ticker}</h2>
-        <p class="text-sm text-neutral-400">${r.name || ''}</p>
+      <div class="flex-1">
+        <h2 class="text-2xl font-bold">${escapeHtml(r.ticker)}</h2>
+        <p class="text-sm text-neutral-400">${escapeHtml(r.name || '')}</p>
         <div class="flex gap-2 mt-2 flex-wrap">
           <span class="badge ${sb.cls}">${sb.icon} ${sb.label}</span>
           <span class="badge ${tb.cls}">${tb.label}</span>
           ${cs.is_carvana_setup ? '<span class="badge badge-carvana">⭐ CARVANA SETUP</span>' : ''}
         </div>
+        ${pillsHtml}
       </div>
-      <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-xl">✕</button>
+      <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-xl ml-2">✕</button>
     </div>
+
+    ${summaryHtml}
 
     <div class="grid grid-cols-2 gap-3 mb-4">
       <div class="card p-3 rounded">
@@ -843,6 +851,6 @@ def generate_html():
 
 if __name__ == "__main__":
     print("═" * 60)
-    print("  CB SCANNER — Generador HTML v3")
+    print("  CB SCANNER — Generador HTML v4")
     print("═" * 60 + "\n")
     generate_html()

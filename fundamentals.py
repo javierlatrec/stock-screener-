@@ -1,17 +1,24 @@
 """
-fundamentals.py — v2
+fundamentals.py — v3
 ====================
 Enriquece el universo con datos fundamentales para análisis Carvana-like.
 
+CAMBIOS v3:
+- Añade descripción de empresa (longBusinessSummary)
+- Añade industry (industria específica)
+- Añade country (país de origen)
+- Añade website (URL oficial)
+- Añade employees (número de empleados)
+- Añade dividend_yield (rentabilidad por dividendo)
+
 CAMBIOS v2 (bugfixes):
-- IPO date: prueba varios campos de yfinance (firstTradeDateEpochUtc,
-  firstTradeDateMilliseconds, startDate) — antes solo cubría 1%, ahora >80%
-- Cash runway: solo aplica a Small/Mid Cap NO utility/finance — antes
-  daba falsos positivos en utilities (Alliant, AWK, etc.)
-- Datetime: usa timezone-aware (compatible Python 3.14, sin warnings)
+- IPO date: prueba varios campos de yfinance
+- Cash runway: solo aplica a Small/Mid Cap NO utility/finance
+- Datetime: timezone-aware (Python 3.14)
 
 USO:
-    python3 fundamentals.py
+    python3 fundamentals.py            # Solo nuevos
+    python3 fundamentals.py --force    # Re-procesa todo
 """
 
 import os
@@ -37,20 +44,17 @@ BATCH_SIZE            = 25
 DELAY_BETWEEN_BATCHES = 1.5
 SAVE_EVERY_N_BATCHES  = 4
 
-# Sectores donde el "cash runway" NO aplica (tienen ingresos estables/
-# acceso fácil al capital o están regulados)
 SECTORS_NO_RUNWAY = {
     "Utilities", "Financial Services", "Financials", "Real Estate",
-    "Banks", "Insurance", "Energy"  # Energy también: refinerías estables
+    "Banks", "Insurance", "Energy"
 }
 
 
 # ═══════════════════════════════════════════════════════════════════
-# EXTRACCIÓN DE FUNDAMENTALES
+# UTILIDADES
 # ═══════════════════════════════════════════════════════════════════
 
 def _safe(value, default=None):
-    """Convierte yfinance values en algo serializable."""
     if value is None:
         return default
     try:
@@ -63,8 +67,22 @@ def _safe(value, default=None):
         return default
 
 
+def _safe_str(value, max_length: int = None) -> Optional[str]:
+    """Convierte a string. Si max_length, trunca."""
+    if value is None:
+        return None
+    try:
+        s = str(value).strip()
+        if not s or s.lower() in ("nan", "none", "null"):
+            return None
+        if max_length and len(s) > max_length:
+            s = s[:max_length - 3] + "..."
+        return s
+    except Exception:
+        return None
+
+
 def _now_utc_iso() -> str:
-    """ISO UTC timestamp compatible con Python 3.12+/3.14 (sin deprecation)."""
     return datetime.now(timezone.utc).isoformat()
 
 
@@ -73,11 +91,6 @@ def _now_utc() -> datetime:
 
 
 def _extract_ipo_date(info: dict) -> Optional[datetime]:
-    """
-    Extrae fecha de IPO probando varios campos de yfinance.
-    Returns: datetime UTC o None.
-    """
-    # Campo 1: firstTradeDateEpochUtc (segundos)
     ts = info.get("firstTradeDateEpochUtc")
     if ts and isinstance(ts, (int, float)) and ts > 0:
         try:
@@ -85,7 +98,6 @@ def _extract_ipo_date(info: dict) -> Optional[datetime]:
         except (TypeError, ValueError, OSError):
             pass
 
-    # Campo 2: firstTradeDateMilliseconds (milisegundos)
     ts_ms = info.get("firstTradeDateMilliseconds")
     if ts_ms and isinstance(ts_ms, (int, float)) and ts_ms > 0:
         try:
@@ -93,7 +105,6 @@ def _extract_ipo_date(info: dict) -> Optional[datetime]:
         except (TypeError, ValueError, OSError):
             pass
 
-    # Campo 3: startDate (algunos cripto/forex)
     sd = info.get("startDate")
     if sd:
         try:
@@ -107,13 +118,13 @@ def _extract_ipo_date(info: dict) -> Optional[datetime]:
     return None
 
 
+# ═══════════════════════════════════════════════════════════════════
+# EXTRACCIÓN
+# ═══════════════════════════════════════════════════════════════════
+
 def extract_fundamentals(ticker: str, sector: str = "",
                          is_crypto: bool = False,
                          cap_tier: str = "") -> dict:
-    """
-    Extrae todos los fundamentales de un ticker.
-    `sector` y `cap_tier` se pasan para aplicar lógica de runway correcta.
-    """
     out = {
         "ticker": ticker,
         # Valoración
@@ -143,8 +154,14 @@ def extract_fundamentals(ticker: str, sector: str = "",
         # IPO
         "first_trade_date": None,
         "years_since_ipo": None,
-        # Earnings
         "next_earnings_date": None,
+        # ─── NUEVOS v3 ──────────────────────────────────────────
+        "long_summary":    None,   # Descripción larga de la empresa
+        "industry":        None,   # Industry específica
+        "country":         None,   # País
+        "website":         None,   # URL oficial
+        "employees":       None,   # Número de empleados
+        "dividend_yield":  None,   # % anual
         # Meta
         "fundamentals_fetched_at": _now_utc_iso(),
         "error": None,
@@ -169,7 +186,7 @@ def extract_fundamentals(ticker: str, sector: str = "",
         out["price_to_book"]   = _safe(info.get("priceToBook"))
         out["price_to_sales"]  = _safe(info.get("priceToSalesTrailing12Months"))
 
-        # ─── Crecimiento (% YoY) ───────────────────────────────
+        # ─── Crecimiento ───────────────────────────────────────
         rg = _safe(info.get("revenueGrowth"))
         out["revenue_growth"]  = rg * 100 if rg is not None else None
         eg = _safe(info.get("earningsGrowth"))
@@ -184,14 +201,11 @@ def extract_fundamentals(ticker: str, sector: str = "",
         pm = _safe(info.get("profitMargins"))
         out["profit_margin"]    = pm * 100 if pm is not None else None
 
-        # ─── Cash runway: SOLO para growth small/mid no-utility/finance ──
-        # Solo tiene sentido para empresas que queman cash de verdad
-        # NO para utilities ni bancos ni inmobiliarias
         should_calc_runway = (
             sector not in SECTORS_NO_RUNWAY
             and cap_tier in ("micro", "small", "mid")
             and out["operating_margin"] is not None
-            and out["operating_margin"] < 0  # pierde dinero operativo
+            and out["operating_margin"] < 0
             and out["total_cash"] is not None
             and out["free_cashflow"] is not None
         )
@@ -201,19 +215,18 @@ def extract_fundamentals(ticker: str, sector: str = "",
                 burn = abs(out["free_cashflow"])
                 if burn > 0:
                     runway = round(out["total_cash"] / burn, 1)
-                    # Clamp a [0, 50] para evitar valores absurdos
                     out["cash_runway_years"] = max(0, min(runway, 50))
             else:
-                out["cash_runway_years"] = 999  # genera cash, no aplica
+                out["cash_runway_years"] = 999
 
-        # ─── Sentimiento ───────────────────────────────────────
+        # ─── Sentimiento ──────────────────────────────────────
         spf = _safe(info.get("shortPercentOfFloat"))
         out["short_pct_float"] = spf * 100 if spf is not None else None
         ip = _safe(info.get("heldPercentInsiders"))
         out["insider_pct"]     = ip * 100 if ip is not None else None
         out["beta"]            = _safe(info.get("beta"))
 
-        # ─── Analistas ─────────────────────────────────────────
+        # ─── Analistas ────────────────────────────────────────
         tp = _safe(info.get("targetMeanPrice"))
         out["target_price"]    = tp
         current_price          = _safe(info.get("currentPrice") or info.get("regularMarketPrice"))
@@ -221,14 +234,14 @@ def extract_fundamentals(ticker: str, sector: str = "",
             out["upside_pct"] = round(((tp - current_price) / current_price) * 100, 1)
         out["recommendation"]  = info.get("recommendationKey", None)
 
-        # ─── IPO (con campos múltiples) ────────────────────────
+        # ─── IPO ──────────────────────────────────────────────
         ipo_date = _extract_ipo_date(info)
         if ipo_date:
             out["first_trade_date"] = ipo_date.strftime("%Y-%m-%d")
             years = (_now_utc() - ipo_date).days / 365.25
             out["years_since_ipo"] = round(years, 1)
 
-        # ─── Earnings ──────────────────────────────────────────
+        # ─── Earnings ─────────────────────────────────────────
         ed = info.get("earningsDate") or info.get("earningsTimestamp")
         if ed:
             try:
@@ -242,6 +255,25 @@ def extract_fundamentals(ticker: str, sector: str = "",
             except Exception:
                 pass
 
+        # ─── NUEVOS v3: Descripción y datos de empresa ────────
+        # Descripción larga (truncada a 1500 chars para no inflar el JSON)
+        out["long_summary"]   = _safe_str(info.get("longBusinessSummary"), max_length=1500)
+        out["industry"]       = _safe_str(info.get("industry"))
+        out["country"]        = _safe_str(info.get("country"))
+        out["website"]        = _safe_str(info.get("website"))
+
+        emp = _safe(info.get("fullTimeEmployees"))
+        out["employees"]      = int(emp) if emp is not None else None
+
+        dy = _safe(info.get("dividendYield"))
+        # yfinance devuelve dividend_yield como decimal (0.025 = 2.5%)
+        # pero a veces ya viene como %. Detección heurística:
+        if dy is not None:
+            if dy < 1:
+                out["dividend_yield"] = dy * 100  # decimal → %
+            else:
+                out["dividend_yield"] = dy        # ya es %
+
         return out
 
     except Exception as e:
@@ -250,7 +282,7 @@ def extract_fundamentals(ticker: str, sector: str = "",
 
 
 # ═══════════════════════════════════════════════════════════════════
-# PROCESO EN BATCHES (resume)
+# PROCESO EN BATCHES
 # ═══════════════════════════════════════════════════════════════════
 
 def _save_progress(rows: list[dict]):
@@ -282,10 +314,6 @@ def fetch_all_fundamentals(tickers_df: pd.DataFrame,
                             save_every: int = SAVE_EVERY_N_BATCHES,
                             resume: bool = True,
                             force_refresh: bool = False) -> list[dict]:
-    """
-    Recorre el CSV de universo y enriquece con fundamentales.
-    force_refresh=True ignora progreso anterior (útil tras bugfix).
-    """
     existing = _load_existing() if (resume and not force_refresh) else {}
     if existing and not force_refresh:
         print(f"📂 Encontrado progreso anterior: {len(existing)} tickers ya procesados")
@@ -371,6 +399,13 @@ def merge_universe_and_fundamentals():
 
     universe_df = pd.read_csv(UNIVERSE_CSV)
     fund_df = pd.read_csv(FUNDAMENTALS_CSV)
+
+    # Para evitar columnas duplicadas (industry está en ambos), priorizamos fundamentals
+    # Eliminamos industry del universe si existe (porque fundamentals tiene una mejor)
+    if "industry" in universe_df.columns and "industry" in fund_df.columns:
+        # Renombramos la del universe para no perderla
+        universe_df = universe_df.rename(columns={"industry": "industry_universe"})
+
     merged = universe_df.merge(fund_df, on="ticker", how="left",
                                 suffixes=("", "_fund"))
     merged.to_csv(UNIVERSE_FULL_CSV, index=False)
@@ -393,65 +428,27 @@ def summarize_fundamentals(df: pd.DataFrame):
     print("\n📋 Cobertura por dato:")
     fields = [
         ("PER trailing", "pe_trailing"),
-        ("PER forward", "pe_forward"),
         ("Revenue growth", "revenue_growth"),
-        ("Debt/Equity", "debt_to_equity"),
         ("Short % float", "short_pct_float"),
         ("Insider %", "insider_pct"),
-        ("Beta", "beta"),
         ("Target price", "target_price"),
         ("Years since IPO", "years_since_ipo"),
-        ("Operating margin", "operating_margin"),
+        ("─── NUEVOS v3 ───", None),
+        ("Descripción", "long_summary"),
+        ("Industry", "industry"),
+        ("País", "country"),
+        ("Website", "website"),
+        ("Empleados", "employees"),
+        ("Dividend yield", "dividend_yield"),
     ]
     for label, col in fields:
+        if col is None:
+            print(f"   {label}")
+            continue
         if col in df.columns:
             coverage = df[col].notna().sum()
             pct = coverage / len(df) * 100
             print(f"   {label:20s}: {coverage:>4} ({pct:5.1f}%)")
-
-    print("\n🎯 Hallazgos de tu universo:")
-
-    if "upside_pct" in df.columns:
-        top_upside = df.nlargest(5, "upside_pct")[["ticker", "upside_pct"]].dropna()
-        if len(top_upside):
-            print("\n   📈 Top 5 mayor upside vs analistas:")
-            for _, r in top_upside.iterrows():
-                print(f"      {r['ticker']:6s}  +{r['upside_pct']:.0f}%")
-
-    if "short_pct_float" in df.columns:
-        top_short = df.nlargest(5, "short_pct_float")[["ticker", "short_pct_float"]].dropna()
-        if len(top_short):
-            print("\n   🔥 Top 5 short interest (squeeze potencial):")
-            for _, r in top_short.iterrows():
-                print(f"      {r['ticker']:6s}  {r['short_pct_float']:.1f}% float en corto")
-
-    if "years_since_ipo" in df.columns:
-        recent_ipos = df[(df["years_since_ipo"] >= 1) &
-                         (df["years_since_ipo"] <= 5)]
-        recent_ipos = recent_ipos.nsmallest(10, "years_since_ipo")[["ticker", "years_since_ipo"]]
-        if len(recent_ipos):
-            print("\n   🆕 IPOs recientes (1-5 años, target Carvana pattern):")
-            for _, r in recent_ipos.iterrows():
-                print(f"      {r['ticker']:6s}  {r['years_since_ipo']:.1f} años")
-
-    if "cash_runway_years" in df.columns:
-        burning = df[(df["cash_runway_years"] > 0) &
-                     (df["cash_runway_years"] < 5) &
-                     (df["cash_runway_years"] != 999)]
-        burning = burning.nsmallest(5, "cash_runway_years")[["ticker", "cash_runway_years"]]
-        if len(burning):
-            print("\n   ⚠️  Top 5 cash runway bajo (growth small/mid, riesgo real):")
-            for _, r in burning.iterrows():
-                print(f"      {r['ticker']:6s}  {r['cash_runway_years']:.1f} años")
-
-    # NUEVO: PER bajo (value plays)
-    if "pe_trailing" in df.columns:
-        cheap = df[(df["pe_trailing"] > 0) & (df["pe_trailing"] < 15)]
-        cheap = cheap.nsmallest(5, "pe_trailing")[["ticker", "pe_trailing"]]
-        if len(cheap):
-            print("\n   💰 Top 5 PER más bajo (value plays):")
-            for _, r in cheap.iterrows():
-                print(f"      {r['ticker']:6s}  PER {r['pe_trailing']:.1f}")
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -460,7 +457,7 @@ def summarize_fundamentals(df: pd.DataFrame):
 
 if __name__ == "__main__":
     print("═" * 60)
-    print("  CB SCANNER — Enriquecimiento Fundamentales v2")
+    print("  CB SCANNER — Enriquecimiento Fundamentales v3")
     print("═" * 60 + "\n")
 
     if not os.path.exists(UNIVERSE_CSV):
@@ -468,7 +465,6 @@ if __name__ == "__main__":
         print("   Ejecuta primero: python3 universe.py")
         sys.exit(1)
 
-    # IMPORTANTE: --force para re-procesar todo (tras bugfix)
     force = "--force" in sys.argv
 
     print(f"📂 Cargando {UNIVERSE_CSV}...")
@@ -487,3 +483,7 @@ if __name__ == "__main__":
     print(f"\n{'═' * 60}")
     print("  ✅ COMPLETADO")
     print(f"{'═' * 60}\n")
+    print("Próximos pasos:")
+    print("  1. python3 main.py")
+    print("  2. python3 html_generator.py")
+    print("  3. open docs/index.html\n")
