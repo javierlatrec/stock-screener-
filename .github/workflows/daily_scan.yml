@@ -1,0 +1,75 @@
+name: Daily CB Scanner
+
+# ─── CUÁNDO SE EJECUTA ──────────────────────────────────────────
+on:
+  schedule:
+    # 22:00 Madrid = 20:00 UTC (en verano) / 21:00 UTC (en invierno)
+    # Usamos 21:00 UTC que cubre razonablemente bien todo el año
+    # Cron format: minuto hora día-mes mes día-semana (UTC)
+    # 1-5 = lunes a viernes
+    - cron: '0 21 * * 1-5'
+
+  # También permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# ─── PERMISOS ───────────────────────────────────────────────────
+permissions:
+  contents: write  # Necesario para hacer commit + push
+
+# ─── JOBS ────────────────────────────────────────────────────────
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Si tarda más de 30 min, cancela (protección)
+
+    steps:
+      # 1. Descargar el repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 2. Configurar Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Ejecutar el scan completo
+      - name: Run scan
+        run: |
+          echo "🔍 Iniciando scan de mercado..."
+          python main.py
+          echo "✅ Scan completado"
+
+      # 5. Generar el HTML actualizado
+      - name: Generate HTML
+        run: |
+          echo "📄 Generando HTML..."
+          python html_generator.py
+          echo "✅ HTML generado"
+
+      # 6. Commit y push de los cambios
+      - name: Commit and push results
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/ docs/
+          # Si no hay cambios, no commitea (evita error)
+          git diff --staged --quiet || git commit -m "🤖 Auto-scan $(date +'%Y-%m-%d')"
+          git push
+
+      # 7. Resumen al final (útil para el log de Actions)
+      - name: Summary
+        if: always()
+        run: |
+          echo "📊 Scan finalizado en $(date)"
+          if [ -f data/signals_summary.json ]; then
+            echo "Resumen:"
+            cat data/signals_summary.json | python -c "import json,sys; d=json.load(sys.stdin); print(f'  Total: {d[\"total_scanned\"]}'); print(f'  Señales activas: {d[\"total_active\"]}'); print(f'  Carvana Setups: {d.get(\"total_carvana_setups\", 0)}')"
+          fi
