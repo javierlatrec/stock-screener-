@@ -343,13 +343,6 @@ def analyze_single_ticker(ticker_data: dict,
             "first_trade_date": _safe_str(ticker_data.get("first_trade_date")),
             "years_since_ipo": _safe_float(ticker_data.get("years_since_ipo")),
             "next_earnings_date": _safe_str(ticker_data.get("next_earnings_date")),
-            # ─── NUEVOS v4: Datos de empresa ──────────────
-            "long_summary":   _safe_str(ticker_data.get("long_summary")),
-            "industry":       _safe_str(ticker_data.get("industry")) or _safe_str(ticker_data.get("industry_universe")),
-            "country":        _safe_str(ticker_data.get("country")),
-            "website":        _safe_str(ticker_data.get("website")),
-            "employees":      _safe_float(ticker_data.get("employees")),
-            "dividend_yield": _safe_float(ticker_data.get("dividend_yield")),
         }
 
         result["carvana_setup"] = detect_carvana_setup(result)
