@@ -1,0 +1,65 @@
+[
+  {
+    "scan_date": "2026-06-21T21:20:36.536875Z",
+    "scan_date_human": "2026-06-21 23:20",
+    "total_scanned": 30,
+    "total_active": 5,
+    "by_signal": {
+      "BUY_GOLD": 0,
+      "BUY": 4,
+      "SELL_PLUS": 0,
+      "SELL": 1
+    }
+  },
+  {
+    "scan_date": "2026-06-21T21:25:38.022870Z",
+    "scan_date_human": "2026-06-21 23:25",
+    "total_scanned": 144,
+    "total_active": 30,
+    "by_signal": {
+      "BUY_GOLD": 3,
+      "BUY": 18,
+      "SELL_PLUS": 0,
+      "SELL": 9
+    }
+  },
+  {
+    "scan_date": "2026-06-21T21:59:12.547460+00:00",
+    "scan_date_human": "2026-06-21 23:59",
+    "total_scanned": 50,
+    "total_active": 12,
+    "total_carvana_setups": 0,
+    "by_signal": {
+      "BUY_GOLD": 1,
+      "BUY": 7,
+      "SELL_PLUS": 0,
+      "SELL": 4
+    }
+  },
+  {
+    "scan_date": "2026-06-21T22:06:47.892078+00:00",
+    "scan_date_human": "2026-06-22 00:06",
+    "total_scanned": 100,
+    "total_active": 21,
+    "total_carvana_setups": 1,
+    "by_signal": {
+      "BUY_GOLD": 2,
+      "BUY": 9,
+      "SELL_PLUS": 0,
+      "SELL": 10
+    }
+  },
+  {
+    "scan_date": "2026-06-21T22:13:59.953491+00:00",
+    "scan_date_human": "2026-06-22 00:13",
+    "total_scanned": 490,
+    "total_active": 119,
+    "total_carvana_setups": 59,
+    "by_signal": {
+      "BUY_GOLD": 20,
+      "BUY": 72,
+      "SELL_PLUS": 0,
+      "SELL": 27
+    }
+  }
+]
