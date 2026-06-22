@@ -76,7 +76,8 @@
     height: 100%; background: linear-gradient(90deg, #f97316, #fbbf24);
     transition: width 0.3s;
   }
-  /* Hide scrollbar in modal for cleaner look */
+  .filter-section { background: #0f0f0f; padding: 10px 12px; border-radius: 8px; }
+  .filter-label { font-size: 11px; color: #737373; text-transform: uppercase; margin-bottom: 2px; }
   .modal-content::-webkit-scrollbar { width: 6px; }
   .modal-content::-webkit-scrollbar-track { background: #0a0a0a; }
   .modal-content::-webkit-scrollbar-thumb { background: #404040; border-radius: 3px; }
@@ -125,6 +126,7 @@
   <!-- FILTERS -->
   <div class="max-w-7xl mx-auto px-4 py-4">
     <div class="card rounded-lg p-3 mb-3">
+      <!-- Fila 1: Búsqueda y filtros principales -->
       <div class="flex gap-2 flex-wrap items-center">
         <input id="searchInput" type="text" placeholder="🔍 Ticker o nombre..."
           class="bg-neutral-800 text-white px-3 py-2 rounded outline-none flex-1 min-w-[180px]"
@@ -172,56 +174,102 @@
 <option value="Utilities">Utilities</option>
         </select>
 
+        <label class="flex items-center gap-2 cursor-pointer bg-neutral-800 px-3 py-2 rounded">
+          <input id="carvanaOnly" type="checkbox" onchange="applyFilters()" class="accent-yellow-500">
+          <span class="text-sm">⭐ Solo Carvana</span>
+        </label>
+
         <button onclick="resetFilters()"
           class="bg-neutral-700 text-white px-3 py-2 rounded hover:bg-neutral-600">
           Reset
         </button>
       </div>
 
-      <!-- Filtros avanzados -->
-      <div class="mt-3 pt-3 border-t border-neutral-800 flex gap-2 flex-wrap items-center text-sm">
-        <span class="text-neutral-500">Filtros avanzados:</span>
+      <!-- Fila 2: Filtros técnicos -->
+      <div class="mt-3 pt-3 border-t border-neutral-800">
+        <div class="text-xs text-neutral-500 mb-2 uppercase">Filtros técnicos</div>
+        <div class="flex gap-2 flex-wrap items-center text-sm">
+          <select id="drawdownFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier drawdown</option>
+            <option value="50">≥ 50% caída</option>
+            <option value="70">≥ 70% caída</option>
+            <option value="85">≥ 85% caída</option>
+            <option value="95">≥ 95% caída</option>
+          </select>
 
-        <label class="flex items-center gap-1 cursor-pointer">
-          <input id="carvanaOnly" type="checkbox" onchange="applyFilters()"
-            class="accent-yellow-500">
-          <span>⭐ Solo Carvana Setups</span>
-        </label>
+          <select id="peFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier PER</option>
+            <option value="15">PER &lt; 15</option>
+            <option value="25">PER &lt; 25</option>
+            <option value="50">PER &lt; 50</option>
+          </select>
 
-        <select id="drawdownFilter" onchange="applyFilters()"
-          class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
-          <option value="">Cualquier drawdown</option>
-          <option value="50">≥ 50% caída</option>
-          <option value="70">≥ 70% caída</option>
-          <option value="85">≥ 85% caída</option>
-          <option value="95">≥ 95% caída</option>
-        </select>
+          <select id="ipoFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier IPO</option>
+            <option value="3">IPO &lt; 3 años</option>
+            <option value="5">IPO 1-5 años</option>
+            <option value="7">IPO 1-7 años</option>
+          </select>
 
-        <select id="peFilter" onchange="applyFilters()"
-          class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
-          <option value="">Cualquier PER</option>
-          <option value="15">PER &lt; 15</option>
-          <option value="25">PER &lt; 25</option>
-          <option value="50">PER &lt; 50</option>
-        </select>
+          <select id="shortFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier short</option>
+            <option value="10">Short ≥ 10%</option>
+            <option value="20">Short ≥ 20%</option>
+            <option value="30">Short ≥ 30%</option>
+            <option value="50">Short ≥ 50%</option>
+          </select>
+        </div>
+      </div>
 
-        <select id="ipoFilter" onchange="applyFilters()"
-          class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
-          <option value="">Cualquier IPO</option>
-          <option value="3">IPO &lt; 3 años</option>
-          <option value="5">IPO 1-5 años</option>
-          <option value="7">IPO 1-7 años</option>
-        </select>
+      <!-- Fila 3: Filtros fundamentales NUEVOS -->
+      <div class="mt-3 pt-3 border-t border-neutral-800">
+        <div class="text-xs text-neutral-500 mb-2 uppercase">Filtros fundamentales</div>
+        <div class="flex gap-2 flex-wrap items-center text-sm">
+          <select id="insiderFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier insider %</option>
+            <option value="5">Insiders ≥ 5%</option>
+            <option value="10">Insiders ≥ 10%</option>
+            <option value="20">Insiders ≥ 20%</option>
+          </select>
 
-        <select id="shortFilter" onchange="applyFilters()"
-          class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
-          <option value="">Cualquier short</option>
-          <option value="10">Short ≥ 10%</option>
-          <option value="20">Short ≥ 20%</option>
-          <option value="30">Short ≥ 30%</option>
-        </select>
+          <select id="ratingFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier rating</option>
+            <option value="strong_buy">⭐ Strong Buy</option>
+            <option value="buy">🟢 Buy o mejor</option>
+            <option value="hold">🟡 Hold o mejor</option>
+          </select>
 
-        <span id="resultsCount" class="text-xs text-neutral-400 ml-auto"></span>
+          <select id="revenueFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier rev growth</option>
+            <option value="0">Revenue &gt; 0%</option>
+            <option value="10">Revenue &gt; 10%</option>
+            <option value="20">Revenue &gt; 20%</option>
+            <option value="50">Revenue &gt; 50%</option>
+          </select>
+
+          <select id="upsideFilter" onchange="applyFilters()"
+            class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier upside</option>
+            <option value="30">Upside &gt; 30%</option>
+            <option value="50">Upside &gt; 50%</option>
+            <option value="100">Upside &gt; 100%</option>
+          </select>
+
+          <label class="flex items-center gap-1 cursor-pointer">
+            <input id="safeRunwayOnly" type="checkbox" onchange="applyFilters()"
+              class="accent-green-500">
+            <span class="text-xs">💰 Solo cash runway sano</span>
+          </label>
+
+          <span id="resultsCount" class="text-xs text-neutral-400 ml-auto"></span>
+        </div>
       </div>
     </div>
 
@@ -242,6 +290,8 @@
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('pe')">PER</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('ipo')">IPO</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('short')">Short</th>
+            <th class="px-2 py-2 text-right sortable" onclick="sortBy('insider')">Ins</th>
+            <th class="px-2 py-2 text-right sortable" onclick="sortBy('upside')">Up</th>
             <th class="px-2 py-2 text-center">Chart</th>
           </tr>
         </thead>
@@ -255,7 +305,7 @@
   </div>
 
   <footer class="text-center py-6 text-xs text-neutral-600">
-    Generado el 2026-06-22 00:13 · CB Scanner v2.0
+    Generado el 2026-06-22 00:13 · CB Scanner v3.0
   </footer>
 </div>
 
@@ -307,6 +357,14 @@ function getActiveSignals() {
   return SIGNALS_DATA.results.filter(r => r.active_signal !== null);
 }
 
+const RATING_LEVELS = {
+  "strong_buy": 1,
+  "buy":        2,
+  "hold":       3,
+  "sell":       4,
+  "strong_sell": 5
+};
+
 function applyFilters() {
   const search = document.getElementById("searchInput").value.toLowerCase();
   const sig = document.getElementById("signalFilter").value;
@@ -317,6 +375,12 @@ function applyFilters() {
   const peMax = parseFloat(document.getElementById("peFilter").value) || Infinity;
   const ipoMax = parseFloat(document.getElementById("ipoFilter").value) || Infinity;
   const shortMin = parseFloat(document.getElementById("shortFilter").value) || 0;
+  // Filtros nuevos v3
+  const insiderMin = parseFloat(document.getElementById("insiderFilter").value) || 0;
+  const ratingMax = document.getElementById("ratingFilter").value;
+  const revenueMin = document.getElementById("revenueFilter").value;
+  const upsideMin = parseFloat(document.getElementById("upsideFilter").value) || -Infinity;
+  const safeRunwayOnly = document.getElementById("safeRunwayOnly").checked;
 
   filteredData = getActiveSignals().filter(r => {
     if (search && !r.ticker.toLowerCase().includes(search)
@@ -338,6 +402,31 @@ function applyFilters() {
       if (r.short_pct_float === null || r.short_pct_float === undefined) return false;
       if (r.short_pct_float < shortMin) return false;
     }
+    // Filtros nuevos v3
+    if (insiderMin) {
+      if (r.insider_pct === null || r.insider_pct === undefined) return false;
+      if (r.insider_pct < insiderMin) return false;
+    }
+    if (ratingMax) {
+      if (!r.recommendation) return false;
+      const userLvl = RATING_LEVELS[ratingMax];
+      const stockLvl = RATING_LEVELS[r.recommendation.toLowerCase()] || 99;
+      if (stockLvl > userLvl) return false;
+    }
+    if (revenueMin !== "") {
+      const minVal = parseFloat(revenueMin);
+      if (r.revenue_growth === null || r.revenue_growth === undefined) return false;
+      if (r.revenue_growth <= minVal) return false;
+    }
+    if (upsideMin > -Infinity) {
+      if (r.upside_pct === null || r.upside_pct === undefined) return false;
+      if (r.upside_pct < upsideMin) return false;
+    }
+    if (safeRunwayOnly) {
+      // Sano: runway >= 2 años, runway === 999 (FCF+), o sin runway calculado (no quema cash)
+      const rw = r.cash_runway_years;
+      if (rw !== null && rw !== undefined && rw !== 999 && rw < 2) return false;
+    }
     return true;
   });
 
@@ -354,6 +443,11 @@ function resetFilters() {
   document.getElementById("peFilter").value = "";
   document.getElementById("ipoFilter").value = "";
   document.getElementById("shortFilter").value = "";
+  document.getElementById("insiderFilter").value = "";
+  document.getElementById("ratingFilter").value = "";
+  document.getElementById("revenueFilter").value = "";
+  document.getElementById("upsideFilter").value = "";
+  document.getElementById("safeRunwayOnly").checked = false;
   applyFilters();
 }
 
@@ -380,6 +474,8 @@ function getVal(r, col) {
     case 'pe':       return r.pe_trailing === null ? Infinity : r.pe_trailing;
     case 'ipo':      return r.years_since_ipo === null ? Infinity : r.years_since_ipo;
     case 'short':    return r.short_pct_float === null ? -1 : r.short_pct_float;
+    case 'insider':  return r.insider_pct === null ? -1 : r.insider_pct;
+    case 'upside':   return r.upside_pct === null ? -1000 : r.upside_pct;
     default: return 0;
   }
 }
@@ -408,6 +504,13 @@ const TIER_BADGE = {
   "mid":    {cls: "tier-mid",    label: "Mid"},
   "large":  {cls: "tier-large",  label: "Large"},
   "crypto": {cls: "tier-crypto", label: "Crypto"}
+};
+const RATING_LABEL = {
+  "strong_buy":  "⭐ Strong Buy",
+  "buy":         "🟢 Buy",
+  "hold":        "🟡 Hold",
+  "sell":        "🔴 Sell",
+  "strong_sell": "🔴 Strong Sell"
 };
 
 function fmtPrice(p) {
@@ -474,19 +577,32 @@ function render() {
       : (sh >= 20 ? '<span class="text-orange-400">' + sh.toFixed(0) + '%</span>'
                   : sh.toFixed(0) + '%');
 
+    const ins = r.insider_pct;
+    const insTxt = ins === null || ins === undefined ? '—'
+      : (ins >= 10 ? '<span class="text-green-400">' + ins.toFixed(0) + '%</span>'
+                   : ins.toFixed(0) + '%');
+
+    const up = r.upside_pct;
+    const upTxt = up === null || up === undefined ? '—'
+      : (up >= 50 ? '<span class="text-green-400">+' + up.toFixed(0) + '%</span>'
+        : up < 0  ? '<span class="text-red-400">' + up.toFixed(0) + '%</span>'
+                  : '+' + up.toFixed(0) + '%');
+
     return '<tr class="border-t border-neutral-800 row-clickable ' + (isCarvana ? 'row-carvana' : '') + '" onclick="openDetail(' + idx + ')">'
       + '<td class="px-2 py-2">' + carvanaCell + '</td>'
       + '<td class="px-2 py-2"><span class="badge ' + sb.cls + '">' + sb.icon + ' ' + sb.label + '</span></td>'
       + '<td class="px-2 py-2 font-bold">' + r.ticker + '</td>'
-      + '<td class="px-2 py-2 text-neutral-400 max-w-[180px] truncate">' + (r.name || '') + '</td>'
+      + '<td class="px-2 py-2 text-neutral-400 max-w-[160px] truncate">' + (r.name || '') + '</td>'
       + '<td class="px-2 py-2"><span class="badge ' + tb.cls + '">' + tb.label + '</span></td>'
-      + '<td class="px-2 py-2 text-neutral-400 text-xs max-w-[140px] truncate">' + (r.sector || '') + '</td>'
+      + '<td class="px-2 py-2 text-neutral-400 text-xs max-w-[120px] truncate">' + (r.sector || '') + '</td>'
       + '<td class="px-2 py-2 text-right">' + fmtPrice(r.current_price) + '</td>'
       + '<td class="px-2 py-2 text-right ' + (sig.wt2 < 0 ? 'text-green-400' : 'text-red-400') + '">' + sig.wt2.toFixed(1) + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400">' + r.drawdown_from_ath_pct.toFixed(0) + '%</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + peTxt + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + ipoTxt + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + shTxt + '</td>'
+      + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + insTxt + '</td>'
+      + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + upTxt + '</td>'
       + '<td class="px-2 py-2 text-center">'
       + '<a href="' + fmtTV(r.ticker) + '" target="_blank" onclick="event.stopPropagation()" class="text-yellow-500 hover:text-yellow-300">📊</a>'
       + '</td></tr>';
@@ -500,6 +616,7 @@ function openDetail(idx) {
   const sb = SIG_BADGE[sig.type] || {cls:"", icon:"?", label: sig.type};
   const tb = TIER_BADGE[r.cap_tier] || {cls:"", label: r.cap_tier};
   const cs = r.carvana_setup || {score: 0, max_score: 19, reasons: [], warnings: []};
+  const ratingDisplay = r.recommendation ? (RATING_LABEL[r.recommendation.toLowerCase()] || r.recommendation) : '—';
 
   const reasonsHtml = (cs.reasons || []).map(rs =>
     '<div class="reason-item">✓ ' + rs + '</div>'
@@ -523,7 +640,7 @@ function openDetail(idx) {
       <div>
         <h2 class="text-2xl font-bold">${r.ticker}</h2>
         <p class="text-sm text-neutral-400">${r.name || ''}</p>
-        <div class="flex gap-2 mt-2">
+        <div class="flex gap-2 mt-2 flex-wrap">
           <span class="badge ${sb.cls}">${sb.icon} ${sb.label}</span>
           <span class="badge ${tb.cls}">${tb.label}</span>
           ${cs.is_carvana_setup ? '<span class="badge badge-carvana">⭐ CARVANA SETUP</span>' : ''}
@@ -606,7 +723,7 @@ function openDetail(idx) {
         </div>
         <div>
           <div class="text-xs text-neutral-500">Rating</div>
-          <div class="text-sm font-bold uppercase">${r.recommendation || '—'}</div>
+          <div class="text-sm font-bold">${ratingDisplay}</div>
         </div>
       </div>
     </div>
