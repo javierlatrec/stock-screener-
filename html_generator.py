@@ -54,6 +54,27 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .badge-sellp { background: #f97316; color: #fff; }
   .badge-carvana { background: linear-gradient(135deg, #fbbf24, #f97316);
                    color: #000; font-weight: 700; }
+  .badge-ch-high { background: linear-gradient(135deg, #a855f7, #ec4899);
+                   color: #fff; font-weight: 700; }
+  .badge-ch-buy  { background: #8b5cf6; color: #fff; font-weight: 600; }
+  .badge-ch-gold { background: linear-gradient(135deg, #14b8a6, #fbbf24);
+                   color: #000; font-weight: 700; }
+  .badge-ch-exit { background: #dc2626; color: #fff; font-weight: 600; }
+  tr.row-ch-entry { background: rgba(168, 85, 247, 0.06); }
+  tr.row-ch-entry:hover { background: rgba(168, 85, 247, 0.12); }
+  .tab-active { background: #fbbf24; color: #000; }
+  .tab-inactive { background: transparent; color: #a3a3a3; }
+  .tab-inactive:hover { color: #fff; }
+  .sector-card {
+    background: #141414; border: 1px solid #262626;
+    border-left-width: 4px; border-radius: 8px; padding: 12px;
+    transition: background 0.1s;
+  }
+  .sector-card:hover { background: #1a1a1a; }
+  .sec-green      { border-left-color: #10b981; background: rgba(16,185,129,0.06); }
+  .sec-greenlight { border-left-color: #65a30d; }
+  .sec-red        { border-left-color: #ef4444; background: rgba(239,68,68,0.06); }
+  .sec-gray       { border-left-color: #525252; }
   .tier-micro  { background: #7f1d1d; color: #fecaca; }
   .tier-small  { background: #9a3412; color: #fed7aa; }
   .tier-mid    { background: #854d0e; color: #fef3c7; }
@@ -156,8 +177,23 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <h1 class="text-xl font-bold">📊 CB Scanner</h1>
           <p class="text-xs text-neutral-500">{{scan_date_human}} · {{total_scanned}} tickers</p>
         </div>
+        <div class="flex items-center gap-1 bg-neutral-800 rounded-lg p-1">
+          <button id="tabWeekly" onclick="setView('weekly')"
+            class="px-4 py-1.5 rounded-md text-sm font-semibold transition">
+            📅 Semanal
+          </button>
+          <button id="tabMonthly" onclick="setView('monthly')"
+            class="px-4 py-1.5 rounded-md text-sm font-semibold transition">
+            🗓️ Mensual
+          </button>
+          <button id="tabSectors" onclick="setView('sectors')"
+            class="px-4 py-1.5 rounded-md text-sm font-semibold transition">
+            🗺️ Sectores
+          </button>
+        </div>
         <div class="flex gap-2 items-center text-sm flex-wrap">
           <span class="badge badge-carvana">⭐ {{count_carvana}}</span>
+          <span class="badge badge-ch-high">🎯 {{count_ch}}</span>
           <span class="badge badge-gold">🏆 {{count_gold}}</span>
           <span class="badge badge-buy">🟢 {{count_buy}}</span>
           <span class="badge badge-sellp">🔥 {{count_sellp}}</span>
@@ -168,7 +204,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </header>
 
   <!-- FILTERS -->
-  <div class="max-w-7xl mx-auto px-4 py-4">
+  <div id="stocksView" class="max-w-7xl mx-auto px-4 py-4">
     <div class="card rounded-lg p-3 mb-3">
       <div class="flex gap-2 flex-wrap items-center">
         <input id="searchInput" type="text" placeholder="🔍 Ticker o nombre..."
@@ -204,6 +240,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <input id="carvanaOnly" type="checkbox" onchange="applyFilters()" class="accent-yellow-500">
           <span class="text-sm">⭐ Solo Carvana</span>
         </label>
+
+        <span id="chControls" class="flex gap-2 flex-wrap items-center">
+        <label class="flex items-center gap-2 cursor-pointer bg-neutral-800 px-3 py-2 rounded">
+          <input id="chEntryOnly" type="checkbox" onchange="applyFilters()" class="accent-purple-500">
+          <span class="text-sm">🎯 Solo CH entrada</span>
+        </label>
+
+        <select id="chFilter" onchange="applyFilters()"
+          class="bg-neutral-800 text-white px-3 py-2 rounded outline-none text-sm">
+          <option value="">CH: cualquiera</option>
+          <option value="ASH_HIGH">💎 ASH HIGH</option>
+          <option value="WT_SELL_PLUS">🔴 WT SELL+ (salida)</option>
+        </select>
+        </span>
 
         <button onclick="resetFilters()"
           class="bg-neutral-700 text-white px-3 py-2 rounded hover:bg-neutral-600">
@@ -278,6 +328,43 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
           <span id="resultsCount" class="text-xs text-neutral-400 ml-auto"></span>
         </div>
       </div>
+
+      <div class="mt-3 pt-3 border-t border-neutral-800">
+        <div class="text-xs text-neutral-500 mb-2 uppercase">Filtros avanzados (Mejora 2)</div>
+        <div class="flex gap-2 flex-wrap items-center text-sm">
+          <select id="instFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier institucional</option>
+            <option value="30">Inst. ≥ 30%</option>
+            <option value="50">Inst. ≥ 50%</option>
+            <option value="70">Inst. ≥ 70%</option>
+          </select>
+          <select id="w52Filter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier 52w</option>
+            <option value="-30">52w &lt; -30%</option>
+            <option value="-50">52w &lt; -50%</option>
+            <option value="-70">52w &lt; -70%</option>
+            <option value="up">52w &gt; 0% (recuperando)</option>
+          </select>
+          <select id="volFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier volumen</option>
+            <option value="500000">Vol ≥ 500K</option>
+            <option value="1000000">Vol ≥ 1M</option>
+            <option value="5000000">Vol ≥ 5M</option>
+          </select>
+          <select id="floatFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier float</option>
+            <option value="50000000">Float &lt; 50M (squeeze)</option>
+            <option value="20000000">Float &lt; 20M (squeeze fuerte)</option>
+            <option value="10000000">Float &lt; 10M (micro float)</option>
+          </select>
+          <select id="earningsFilter" onchange="applyFilters()" class="bg-neutral-800 text-white px-2 py-1 rounded text-xs">
+            <option value="">Cualquier earnings</option>
+            <option value="0">Earnings &gt; 0% (beat)</option>
+            <option value="20">Earnings &gt; 20%</option>
+            <option value="50">Earnings &gt; 50%</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="card rounded-lg overflow-x-auto">
@@ -285,14 +372,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <thead class="bg-neutral-900 text-xs text-neutral-400 uppercase">
           <tr>
             <th class="px-2 py-2 text-left">⭐</th>
+            <th id="thCH" class="px-2 py-2 text-left">🎯CH</th>
             <th class="px-2 py-2 text-left sortable" onclick="sortBy('type')">Señal</th>
             <th class="px-2 py-2 text-left sortable" onclick="sortBy('ticker')">Ticker</th>
             <th class="px-2 py-2 text-left">Nombre</th>
             <th class="px-2 py-2 text-left sortable" onclick="sortBy('tier')">Cap</th>
             <th class="px-2 py-2 text-left">Sector</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('price')">Precio</th>
-            <th class="px-2 py-2 text-right sortable" onclick="sortBy('wt2')">wt2</th>
+            <th id="thMetric" class="px-2 py-2 text-right sortable" onclick="sortBy('wt2')">wt2</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('drawdown')">ATH↓</th>
+            <th class="px-2 py-2 text-right sortable" onclick="sortBy('w52')">52w</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('pe')">PER</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('ipo')">IPO</th>
             <th class="px-2 py-2 text-right sortable" onclick="sortBy('short')">Short</th>
@@ -310,8 +399,17 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- SECTORS VIEW -->
+  <div id="sectorsView" class="max-w-7xl mx-auto px-4 py-4 hidden">
+    <p class="text-sm text-neutral-400 mb-4">
+      🗺️ Mapa de mercado por sectores y temáticas. Verde = momento alcista (entrada/zona baja girando), Rojo = momento de techo/salida, Gris = neutral.
+      Úsalo para ver dónde buscar acciones: si un sector está girando al alza, busca sus tickers en las pestañas Semanal/Mensual.
+    </p>
+    <div id="sectorsContent"></div>
+  </div>
+
   <footer class="text-center py-6 text-xs text-neutral-600">
-    Generado el {{scan_date_human}} · CB Scanner v4.0
+    Generado el {{scan_date_human}} · CB Scanner v5.0
   </footer>
 </div>
 
@@ -323,10 +421,45 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 <script>
 const SIGNALS_DATA = {{signals_json}};
+const SECTORS_DATA = {{sectors_json}};
 const PWD_HASH = "{{password_hash}}";
 
 let currentSort = { col: 'carvana', dir: 'desc' };
 let filteredData = [];
+let currentView = 'weekly';   // 'weekly' (ASH+MFI) | 'monthly' (WT CB)
+
+function setView(view) {
+  currentView = view;
+  document.getElementById('tabWeekly').className =
+    'px-4 py-1.5 rounded-md text-sm font-semibold transition ' +
+    (view === 'weekly' ? 'tab-active' : 'tab-inactive');
+  document.getElementById('tabMonthly').className =
+    'px-4 py-1.5 rounded-md text-sm font-semibold transition ' +
+    (view === 'monthly' ? 'tab-active' : 'tab-inactive');
+  const tabSectors = document.getElementById('tabSectors');
+  if (tabSectors) tabSectors.className =
+    'px-4 py-1.5 rounded-md text-sm font-semibold transition ' +
+    (view === 'sectors' ? 'tab-active' : 'tab-inactive');
+
+  const stocksView = document.getElementById('stocksView');
+  const sectorsView = document.getElementById('sectorsView');
+  if (view === 'sectors') {
+    if (stocksView) stocksView.classList.add('hidden');
+    if (sectorsView) sectorsView.classList.remove('hidden');
+    renderSectors();
+    return;
+  }
+  if (stocksView) stocksView.classList.remove('hidden');
+  if (sectorsView) sectorsView.classList.add('hidden');
+
+  const chControls = document.getElementById('chControls');
+  if (chControls) chControls.style.display = view === 'weekly' ? '' : 'none';
+  const thCH = document.getElementById('thCH');
+  if (thCH) thCH.style.display = view === 'weekly' ? '' : 'none';
+  const thMetric = document.getElementById('thMetric');
+  if (thMetric) thMetric.textContent = view === 'weekly' ? 'MFI' : 'wt2';
+  applyFilters();
+}
 
 async function hashPwd(pwd) {
   const buf = new TextEncoder().encode(pwd);
@@ -349,7 +482,7 @@ async function checkPassword() {
 function showContent() {
   document.getElementById("loginOverlay").style.display = "none";
   document.getElementById("content").classList.remove("hidden");
-  applyFilters();
+  setView('weekly');
 }
 
 if (sessionStorage.getItem("cb_auth") === "1") {
@@ -357,8 +490,32 @@ if (sessionStorage.getItem("cb_auth") === "1") {
 }
 
 function getActiveSignals() {
-  return SIGNALS_DATA.results.filter(r => r.active_signal !== null);
+  if (currentView === 'monthly') {
+    return SIGNALS_DATA.results.filter(r => r.active_signal !== null);
+  }
+  return SIGNALS_DATA.results.filter(r =>
+    r.carvana_hunter && (r.carvana_hunter.active_entry || r.carvana_hunter.active_exit)
+  );
 }
+
+// Señal "efectiva" del ticker según la vista activa
+function effSignal(r) {
+  if (currentView === 'monthly') return r.active_signal;
+  const ch = r.carvana_hunter;
+  if (!ch) return null;
+  if (ch.active_entry === 'ASH_HIGH')
+    return { type: 'ASH_HIGH', wt2: ch.mfi_value, date: '', price: r.current_price };
+  if (ch.active_exit === 'WT_SELL_PLUS')
+    return { type: 'WT_SELL_PLUS', wt2: ch.mfi_value, date: '', price: r.current_price };
+  return null;
+}
+
+const CH_BADGE = {
+  "ASH_HIGH":       {cls: "badge-ch-high", icon: "💎", label: "ASH HIGH"},
+  "ASH_BUY_STRONG": {cls: "badge-ch-buy",  icon: "🟣", label: "ASH BUY"},
+  "WT_BUY_GOLD":    {cls: "badge-ch-gold", icon: "🎯", label: "WT GOLD"},
+  "WT_SELL_PLUS":   {cls: "badge-ch-exit", icon: "🔴", label: "WT SELL+"}
+};
 
 const RATING_LEVELS = {
   "strong_buy": 1, "buy": 2, "hold": 3, "sell": 4, "strong_sell": 5
@@ -370,6 +527,8 @@ function applyFilters() {
   const tier = document.getElementById("tierFilter").value;
   const sector = document.getElementById("sectorFilter").value;
   const carvanaOnly = document.getElementById("carvanaOnly").checked;
+  const chEntryOnly = document.getElementById("chEntryOnly").checked;
+  const chType = document.getElementById("chFilter").value;
   const drawdownMin = parseFloat(document.getElementById("drawdownFilter").value) || 0;
   const peMax = parseFloat(document.getElementById("peFilter").value) || Infinity;
   const ipoMax = parseFloat(document.getElementById("ipoFilter").value) || Infinity;
@@ -379,14 +538,31 @@ function applyFilters() {
   const revenueMin = document.getElementById("revenueFilter").value;
   const upsideMin = parseFloat(document.getElementById("upsideFilter").value) || -Infinity;
   const safeRunwayOnly = document.getElementById("safeRunwayOnly").checked;
+  const instMin = parseFloat(document.getElementById("instFilter").value) || 0;
+  const w52Raw = document.getElementById("w52Filter").value;
+  const volMin = parseFloat(document.getElementById("volFilter").value) || 0;
+  const floatMax = parseFloat(document.getElementById("floatFilter").value) || Infinity;
+  const earningsRaw = document.getElementById("earningsFilter").value;
 
   filteredData = getActiveSignals().filter(r => {
     if (search && !r.ticker.toLowerCase().includes(search)
         && !(r.name || "").toLowerCase().includes(search)) return false;
-    if (sig && r.active_signal.type !== sig) return false;
+    if (sig) { const es = effSignal(r); if (!es || es.type !== sig) return false; }
     if (tier && r.cap_tier !== tier) return false;
     if (sector && r.sector !== sector) return false;
     if (carvanaOnly && !(r.carvana_setup && r.carvana_setup.is_carvana_setup)) return false;
+    if (chEntryOnly && !(r.carvana_hunter && r.carvana_hunter.active_entry)) return false;
+    if (chType) {
+      const ch = r.carvana_hunter;
+      if (!ch) return false;
+      if (chType === "WT_SELL_PLUS") {
+        if (ch.active_exit !== "WT_SELL_PLUS") return false;
+      } else if (chType === "ASH_BUY_STRONG") {
+        if (!ch.ash_buy_strong) return false;
+      } else {
+        if (ch.active_entry !== chType) return false;
+      }
+    }
     if (drawdownMin && Math.abs(r.drawdown_from_ath_pct) < drawdownMin) return false;
     if (peMax !== Infinity) {
       if (r.pe_trailing === null || r.pe_trailing === undefined) return false;
@@ -423,6 +599,32 @@ function applyFilters() {
       const rw = r.cash_runway_years;
       if (rw !== null && rw !== undefined && rw !== 999 && rw < 2) return false;
     }
+    if (instMin) {
+      if (r.institutional_pct === null || r.institutional_pct === undefined) return false;
+      if (r.institutional_pct < instMin) return false;
+    }
+    if (w52Raw) {
+      const v = r.fiftytwo_week_change;
+      if (v === null || v === undefined) return false;
+      if (w52Raw === "up") {
+        if (v <= 0) return false;
+      } else {
+        if (v > parseFloat(w52Raw)) return false;
+      }
+    }
+    if (volMin) {
+      if (r.avg_volume === null || r.avg_volume === undefined) return false;
+      if (r.avg_volume < volMin) return false;
+    }
+    if (floatMax !== Infinity) {
+      if (r.float_shares === null || r.float_shares === undefined) return false;
+      if (r.float_shares > floatMax) return false;
+    }
+    if (earningsRaw !== "") {
+      const minVal = parseFloat(earningsRaw);
+      if (r.earnings_beat_pct === null || r.earnings_beat_pct === undefined) return false;
+      if (r.earnings_beat_pct <= minVal) return false;
+    }
     return true;
   });
 
@@ -435,6 +637,8 @@ function resetFilters() {
   document.getElementById("tierFilter").value = "";
   document.getElementById("sectorFilter").value = "";
   document.getElementById("carvanaOnly").checked = false;
+  document.getElementById("chEntryOnly").checked = false;
+  document.getElementById("chFilter").value = "";
   document.getElementById("drawdownFilter").value = "";
   document.getElementById("peFilter").value = "";
   document.getElementById("ipoFilter").value = "";
@@ -444,6 +648,11 @@ function resetFilters() {
   document.getElementById("revenueFilter").value = "";
   document.getElementById("upsideFilter").value = "";
   document.getElementById("safeRunwayOnly").checked = false;
+  document.getElementById("instFilter").value = "";
+  document.getElementById("w52Filter").value = "";
+  document.getElementById("volFilter").value = "";
+  document.getElementById("floatFilter").value = "";
+  document.getElementById("earningsFilter").value = "";
   applyFilters();
 }
 
@@ -458,14 +667,16 @@ function sortBy(col) {
 }
 
 function getVal(r, col) {
+  const es = effSignal(r);
   switch(col) {
     case 'carvana':  return (r.carvana_setup && r.carvana_setup.score) || 0;
-    case 'type':     return r.active_signal.type;
+    case 'type':     return es ? es.type : 'zzz';
     case 'ticker':   return r.ticker;
     case 'tier':     return r.cap_tier;
     case 'price':    return r.current_price;
-    case 'wt2':      return r.active_signal.wt2;
+    case 'wt2':      return es && es.wt2 !== null && es.wt2 !== undefined ? es.wt2 : 999;
     case 'drawdown': return r.drawdown_from_ath_pct;
+    case 'w52':      return r.fiftytwo_week_change === null || r.fiftytwo_week_change === undefined ? Infinity : r.fiftytwo_week_change;
     case 'pe':       return r.pe_trailing === null ? Infinity : r.pe_trailing;
     case 'ipo':      return r.years_since_ipo === null ? Infinity : r.years_since_ipo;
     case 'short':    return r.short_pct_float === null ? -1 : r.short_pct_float;
@@ -490,7 +701,10 @@ const SIG_BADGE = {
   "BUY_GOLD":  {cls: "badge-gold",  icon: "🏆", label: "BUY GOLD"},
   "BUY":       {cls: "badge-buy",   icon: "🟢", label: "BUY"},
   "SELL_PLUS": {cls: "badge-sellp", icon: "🔥", label: "SELL+"},
-  "SELL":      {cls: "badge-sell",  icon: "🔴", label: "SELL"}
+  "SELL":      {cls: "badge-sell",  icon: "🔴", label: "SELL"},
+  "ASH_HIGH":    {cls: "badge-ch-high", icon: "💎", label: "ASH HIGH"},
+  "WT_BUY_GOLD": {cls: "badge-ch-gold", icon: "🎯", label: "WT GOLD"},
+  "WT_SELL_PLUS":{cls: "badge-ch-exit", icon: "🔴", label: "WT SELL+"}
 };
 const TIER_BADGE = {
   "micro":  {cls: "tier-micro",  label: "Micro"},
@@ -559,11 +773,27 @@ function render() {
   empty.classList.add("hidden");
 
   tbody.innerHTML = filteredData.map((r, idx) => {
-    const sig = r.active_signal;
-    const sb = SIG_BADGE[sig.type] || {cls:"", icon:"?", label: sig.type};
+    const sig = effSignal(r);
+    const sb = sig ? (SIG_BADGE[sig.type] || {cls:"", icon:"?", label: sig.type})
+                   : {cls:"", icon:"·", label:"—"};
     const tb = TIER_BADGE[r.cap_tier] || {cls:"", label: r.cap_tier};
     const isCarvana = r.carvana_setup && r.carvana_setup.is_carvana_setup;
     const score = (r.carvana_setup && r.carvana_setup.score) || 0;
+    const weekly = currentView === 'weekly';
+
+    const ch = r.carvana_hunter;
+    const chEntry = ch && ch.active_entry;
+    const chExit = ch && ch.active_exit;
+    let chCell = '<span class="text-neutral-700 text-xs">—</span>';
+    if (chEntry) {
+      const cb = CH_BADGE[chEntry] || {cls:"", icon:"?", label: chEntry};
+      chCell = '<span class="badge ' + cb.cls + '">' + cb.icon + ' ' + cb.label + '</span>';
+    } else if (chExit) {
+      const cb = CH_BADGE["WT_SELL_PLUS"];
+      chCell = '<span class="badge ' + cb.cls + '">' + cb.icon + ' ' + cb.label + '</span>';
+    } else if (ch && ch.ash_buy_strong) {
+      chCell = '<span class="text-neutral-500 text-xs" title="ASH BUY STRONG sin convicción MFI">🔵 buy</span>';
+    }
 
     const carvanaCell = isCarvana
       ? '<span class="badge badge-carvana" title="Score ' + score + '/19">⭐ ' + score + '</span>'
@@ -592,16 +822,38 @@ function render() {
         : up < 0  ? '<span class="text-red-400">' + up.toFixed(0) + '%</span>'
                   : '+' + up.toFixed(0) + '%');
 
-    return '<tr class="border-t border-neutral-800 row-clickable ' + (isCarvana ? 'row-carvana' : '') + '" onclick="openDetail(' + idx + ')">'
+    const w52 = r.fiftytwo_week_change;
+    const w52Txt = w52 === null || w52 === undefined ? '—'
+      : (w52 < 0 ? '<span class="text-red-400">' + w52.toFixed(0) + '%</span>'
+                 : '<span class="text-green-400">+' + w52.toFixed(0) + '%</span>');
+
+    // Columna WT2/MFI: en semanal muestra MFI; en mensual muestra wt2
+    let metricVal = '—', metricCls = 'text-neutral-400';
+    if (weekly) {
+      const m = ch ? ch.mfi_value : null;
+      if (m !== null && m !== undefined) {
+        metricVal = m.toFixed(1);
+        metricCls = m < 0 ? 'text-green-400' : 'text-red-400';
+      }
+    } else if (sig && sig.wt2 !== null && sig.wt2 !== undefined) {
+      metricVal = sig.wt2.toFixed(1);
+      metricCls = sig.wt2 < 0 ? 'text-green-400' : 'text-red-400';
+    }
+
+    const chCol = weekly ? ('<td class="px-2 py-2">' + chCell + '</td>') : '';
+
+    return '<tr class="border-t border-neutral-800 row-clickable ' + (isCarvana ? 'row-carvana ' : '') + (chEntry ? 'row-ch-entry' : '') + '" onclick="openDetail(' + idx + ')">'
       + '<td class="px-2 py-2">' + carvanaCell + '</td>'
+      + chCol
       + '<td class="px-2 py-2"><span class="badge ' + sb.cls + '">' + sb.icon + ' ' + sb.label + '</span></td>'
       + '<td class="px-2 py-2 font-bold">' + r.ticker + '</td>'
       + '<td class="px-2 py-2 text-neutral-400 max-w-[160px] truncate">' + escapeHtml(r.name || '') + '</td>'
       + '<td class="px-2 py-2"><span class="badge ' + tb.cls + '">' + tb.label + '</span></td>'
       + '<td class="px-2 py-2 text-neutral-400 text-xs max-w-[120px] truncate">' + escapeHtml(r.sector || '') + '</td>'
       + '<td class="px-2 py-2 text-right">' + fmtPrice(r.current_price) + '</td>'
-      + '<td class="px-2 py-2 text-right ' + (sig.wt2 < 0 ? 'text-green-400' : 'text-red-400') + '">' + sig.wt2.toFixed(1) + '</td>'
+      + '<td class="px-2 py-2 text-right ' + metricCls + '">' + metricVal + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400">' + r.drawdown_from_ath_pct.toFixed(0) + '%</td>'
+      + '<td class="px-2 py-2 text-right text-xs">' + w52Txt + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + peTxt + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + ipoTxt + '</td>'
       + '<td class="px-2 py-2 text-right text-neutral-400 text-xs">' + shTxt + '</td>'
@@ -615,8 +867,13 @@ function render() {
 
 function openDetail(idx) {
   const r = filteredData[idx];
+  if (r) openDetailObj(r);
+}
+
+function openDetailObj(r) {
   const sig = r.active_signal;
-  const sb = SIG_BADGE[sig.type] || {cls:"", icon:"?", label: sig.type};
+  const sb = sig ? (SIG_BADGE[sig.type] || {cls:"", icon:"?", label: sig.type})
+                 : {cls:"", icon:"·", label:"Sin señal CB"};
   const tb = TIER_BADGE[r.cap_tier] || {cls:"", label: r.cap_tier};
   const cs = r.carvana_setup || {score: 0, max_score: 19, reasons: [], warnings: []};
   const ratingDisplay = r.recommendation ? (RATING_LABEL[r.recommendation.toLowerCase()] || r.recommendation) : '—';
@@ -638,6 +895,18 @@ function openDetail(idx) {
       + '</div>';
   }).join("");
 
+  // MEJORA 3: Empresas similares
+  const similarHtml = (r.similar_tickers || []).map(s => {
+    const icon = s.carvana ? '⭐' : (s.active ? '🟢' : '');
+    return '<button onclick="openDetailByTicker(\'' + s.ticker + '\')" '
+      + 'class="info-pill hover:bg-neutral-700 cursor-pointer" '
+      + 'style="border:1px solid #404040;">'
+      + '<span class="font-bold text-yellow-500">' + s.ticker + '</span> '
+      + '<span class="text-neutral-400">' + escapeHtml((s.name || '').slice(0, 18)) + '</span> '
+      + (icon ? '<span>' + icon + '</span>' : '')
+      + '</button>';
+  }).join("");
+
   // NUEVO v4: Pills de información de empresa
   const pills = [];
   if (r.industry)  pills.push('<span class="info-pill">🏭 ' + escapeHtml(r.industry) + '</span>');
@@ -646,6 +915,13 @@ function openDetail(idx) {
   if (r.website)   pills.push('<span class="info-pill">🔗 <a href="' + escapeHtml(r.website) + '" target="_blank" class="hover:underline">Web oficial</a></span>');
   if (r.dividend_yield && r.dividend_yield > 0) {
     pills.push('<span class="info-pill">💵 Div ' + r.dividend_yield.toFixed(2) + '%</span>');
+  }
+  if (r.institutional_pct && r.institutional_pct > 0) {
+    pills.push('<span class="info-pill">🏛️ Inst ' + r.institutional_pct.toFixed(0) + '%</span>');
+  }
+  if (r.earnings_beat_pct !== null && r.earnings_beat_pct !== undefined) {
+    const sign = r.earnings_beat_pct >= 0 ? '+' : '';
+    pills.push('<span class="info-pill">📈 Earn ' + sign + r.earnings_beat_pct.toFixed(0) + '%</span>');
   }
   const pillsHtml = pills.length ? '<div class="mt-3">' + pills.join('') + '</div>' : '';
 
@@ -657,6 +933,71 @@ function openDetail(idx) {
          <p class="text-xs text-neutral-600 mt-1 italic">Descripción en inglés (fuente: Yahoo Finance)</p>
        </div>`
     : '';
+
+  // NUEVO: Bloque Carvana Hunter
+  const ch = r.carvana_hunter;
+  let chHtml = '';
+  if (ch && (ch.active_entry || ch.active_exit || ch.weekly_checked || ch.wt_buy_gold)) {
+    const fmtBars = (b) => b === null || b === undefined ? '' :
+      (b === 0 ? ' (esta barra)' : ' (hace ' + b + ' barra' + (b > 1 ? 's' : '') + ')');
+    const rows = [];
+    // Entrada destacada
+    if (ch.active_entry) {
+      const cb = CH_BADGE[ch.active_entry] || {icon:'?', label: ch.active_entry};
+      rows.push('<div class="reason-item" style="background:rgba(168,85,247,0.12);border-left-color:#a855f7;">'
+        + '🎯 <b>ENTRADA: ' + cb.icon + ' ' + cb.label + '</b></div>');
+    }
+    if (ch.active_exit) {
+      rows.push('<div class="warning-item">🔴 <b>SALIDA: WT SELL+</b>'
+        + fmtBars(ch.wt_sell_plus_bars) + ' — cerrar posición</div>');
+    }
+    // Detalle ASH semanal
+    const ashDetail = [];
+    if (ch.ash_buy_strong) {
+      ashDetail.push('<div class="metric-row"><span class="metric-label">ASH BUY STRONG</span>'
+        + '<span class="metric-value metric-good">✓' + fmtBars(ch.ash_buy_strong_bars) + '</span></div>');
+    }
+    if (ch.high_conviction) {
+      ashDetail.push('<div class="metric-row"><span class="metric-label">💎 HIGH CONVICTION</span>'
+        + '<span class="metric-value metric-good">✓ MFI confirmando</span></div>');
+    }
+    if (ch.ash_value !== null && ch.ash_value !== undefined) {
+      ashDetail.push('<div class="metric-row"><span class="metric-label">Histograma ASH</span>'
+        + '<span class="metric-value ' + (ch.ash_value > 0 ? 'metric-good' : 'metric-bad') + '">'
+        + ch.ash_value.toFixed(3) + '</span></div>');
+    }
+    if (ch.mfi_value !== null && ch.mfi_value !== undefined) {
+      ashDetail.push('<div class="metric-row"><span class="metric-label">MFI (centrado)</span>'
+        + '<span class="metric-value ' + (ch.mfi_value < 0 ? 'metric-bad' : 'metric-good') + '">'
+        + ch.mfi_value.toFixed(1) + '</span></div>');
+    }
+    // Detalle WT mensual
+    const wtDetail = [];
+    if (ch.wt_buy_gold) {
+      wtDetail.push('<div class="metric-row"><span class="metric-label">WT BUY GOLD (mensual)</span>'
+        + '<span class="metric-value metric-good">✓ wt2≤-60' + fmtBars(ch.wt_buy_gold_bars) + '</span></div>');
+    }
+    if (ch.wt_sell_plus) {
+      wtDetail.push('<div class="metric-row"><span class="metric-label">WT SELL+ (mensual)</span>'
+        + '<span class="metric-value metric-bad">✓ wt2≥60' + fmtBars(ch.wt_sell_plus_bars) + '</span></div>');
+    }
+
+    const weeklyNote = ch.weekly_checked
+      ? ''
+      : '<p class="text-xs text-neutral-600 mt-2 italic">Semanal no evaluado (drawdown por encima del gate ' + '−50%). Solo señales WaveTrend mensuales.</p>';
+
+    chHtml = `
+    <div class="card p-3 rounded mb-4" style="border-color:#a855f7;">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-semibold">🎯 Carvana Hunter</span>
+        <span class="text-xs text-neutral-500">393 trades · PF 3.50 · 58% WR</span>
+      </div>
+      ${rows.join('')}
+      ${ashDetail.length ? '<div class="mt-2"><div class="text-xs text-neutral-500 uppercase mb-1">Entrada semanal (ASH L21 S3)</div>' + ashDetail.join('') + '</div>' : ''}
+      ${wtDetail.length ? '<div class="mt-2"><div class="text-xs text-neutral-500 uppercase mb-1">WaveTrend mensual</div>' + wtDetail.join('') + '</div>' : ''}
+      ${weeklyNote}
+    </div>`;
+  }
 
   const html = `
     <div class="flex justify-between items-start mb-4">
@@ -702,6 +1043,8 @@ function openDetail(idx) {
     </div>
     ` : ''}
 
+    ${chHtml}
+
     <div class="grid grid-cols-2 gap-3 mb-4">
       <div>
         <div class="text-xs text-neutral-500 uppercase mb-2">Valoración</div>
@@ -731,8 +1074,23 @@ function openDetail(idx) {
         <div class="text-xs text-neutral-500 uppercase mb-2">Mercado</div>
         <div class="metric-row"><span class="metric-label">Short % float</span><span class="metric-value">${fmtPct(r.short_pct_float, 1)}</span></div>
         <div class="metric-row"><span class="metric-label">Insider %</span><span class="metric-value">${fmtPct(r.insider_pct, 1)}</span></div>
+        <div class="metric-row"><span class="metric-label">Institucional %</span><span class="metric-value">${fmtPct(r.institutional_pct, 1)}</span></div>
         <div class="metric-row"><span class="metric-label">Beta</span><span class="metric-value">${fmtNum(r.beta, 2)}</span></div>
         <div class="metric-row"><span class="metric-label">Years IPO</span><span class="metric-value">${fmtNum(r.years_since_ipo)}</span></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <div>
+        <div class="text-xs text-neutral-500 uppercase mb-2">Liquidez & Float</div>
+        <div class="metric-row"><span class="metric-label">Volumen medio</span><span class="metric-value">${fmtNumInt(r.avg_volume)}</span></div>
+        <div class="metric-row"><span class="metric-label">Float shares</span><span class="metric-value">${fmtNumInt(r.float_shares)}</span></div>
+      </div>
+      <div>
+        <div class="text-xs text-neutral-500 uppercase mb-2">Momentum & Earnings</div>
+        <div class="metric-row"><span class="metric-label">52w change</span><span class="metric-value ${r.fiftytwo_week_change > 0 ? 'metric-good' : 'metric-bad'}">${fmtPct(r.fiftytwo_week_change, 1)}</span></div>
+        <div class="metric-row"><span class="metric-label">Earnings beat</span><span class="metric-value ${r.earnings_beat_pct > 0 ? 'metric-good' : 'metric-bad'}">${fmtPct(r.earnings_beat_pct, 1)}</span></div>
+        <div class="metric-row"><span class="metric-label">Ex-dividend</span><span class="metric-value">${r.ex_dividend_date || '—'}</span></div>
       </div>
     </div>
 
@@ -761,6 +1119,14 @@ function openDetail(idx) {
     </div>
     ` : ''}
 
+    ${similarHtml ? `
+    <div class="card p-3 rounded mb-4">
+      <div class="text-xs text-neutral-500 uppercase mb-2">🔗 Empresas similares</div>
+      <div class="flex flex-wrap gap-1">${similarHtml}</div>
+      <p class="text-xs text-neutral-600 mt-2 italic">Mismo sector, cap y perfil de caída · ⭐ Carvana setup · 🟢 con señal activa</p>
+    </div>
+    ` : ''}
+
     <div class="flex gap-2">
       <a href="${fmtTV(r.ticker)}" target="_blank"
         class="flex-1 bg-yellow-500 text-black font-semibold py-2 rounded text-center hover:bg-yellow-400">
@@ -775,6 +1141,100 @@ function openDetail(idx) {
 
   document.getElementById("modalContent").innerHTML = html;
   document.getElementById("detailModal").classList.add("open");
+}
+
+// MEJORA 3: abrir detalle de un ticker por su símbolo (no por índice).
+// No modifica filteredData (no rompe la tabla al cerrar el modal).
+function openDetailByTicker(ticker) {
+  let r = filteredData.find(x => x.ticker === ticker);
+  if (!r) {
+    r = getActiveSignals().find(x => x.ticker === ticker);
+  }
+  if (!r) {
+    r = SIGNALS_DATA.results.find(x => x.ticker === ticker);
+  }
+  if (r) openDetailObj(r);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// VISTA SECTORES — Mapa de mercado
+// ═══════════════════════════════════════════════════════════════════
+function sectorMomentum(e) {
+  // Devuelve {label, cls, color} resumiendo el momento del ETF.
+  // Prioridad: salida (techo) > entrada semanal > señal mensual > ASH estado.
+  if (e.weekly_exit === 'WT_SELL_PLUS')
+    return { label: '🔴 Techo / salida', cls: 'sec-red' };
+  if (e.monthly_signal && (e.monthly_signal.type === 'SELL' || e.monthly_signal.type === 'SELL_PLUS'))
+    return { label: '🔴 SELL mensual', cls: 'sec-red' };
+  if (e.weekly_entry === 'ASH_HIGH')
+    return { label: '💎 Girando (ASH HIGH)', cls: 'sec-green' };
+  if (e.monthly_signal && (e.monthly_signal.type === 'BUY' || e.monthly_signal.type === 'BUY_GOLD'))
+    return { label: '🟢 ' + (e.monthly_signal.type === 'BUY_GOLD' ? 'BUY GOLD' : 'BUY') + ' mensual', cls: 'sec-green' };
+  if (e.ash_bullish === true)
+    return { label: '🟢 ASH alcista', cls: 'sec-greenlight' };
+  if (e.ash_bullish === false)
+    return { label: '⚪ Neutral / bajista', cls: 'sec-gray' };
+  return { label: '⚪ Sin datos', cls: 'sec-gray' };
+}
+
+function renderSectors() {
+  const cont = document.getElementById('sectorsContent');
+  if (!SECTORS_DATA || !SECTORS_DATA.results || SECTORS_DATA.results.length === 0) {
+    cont.innerHTML = '<div class="text-center py-12 text-neutral-500">No hay datos de sectores. Ejecuta <code>python3 sectors.py</code> y regenera la web.</div>';
+    return;
+  }
+
+  const groups = {};
+  SECTORS_DATA.results.forEach(e => {
+    const g = e.group || 'Otros';
+    (groups[g] = groups[g] || []).push(e);
+  });
+
+  const order = ['Sectorial', 'Índice', 'ARK', 'Tecnología', 'Energía limpia',
+                 'Cripto', 'Espacio', 'Cannabis', 'Biotech', 'Materias primas',
+                 'Otros temáticos', 'Otros'];
+  // Añadir cualquier grupo presente en los datos que no esté en `order`
+  Object.keys(groups).forEach(g => { if (!order.includes(g)) order.push(g); });
+  let html = '';
+  if (SECTORS_DATA.scan_date_human) {
+    html += '<p class="text-xs text-neutral-600 mb-4">Datos de sectores: ' + SECTORS_DATA.scan_date_human + '</p>';
+  }
+
+  order.forEach(g => {
+    if (!groups[g]) return;
+    html += '<div class="mb-6"><div class="text-sm font-semibold text-neutral-300 uppercase mb-3">' + g + '</div>';
+    html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">';
+    groups[g].forEach(e => {
+      const mom = sectorMomentum(e);
+      const dd = e.drawdown_from_ath_pct;
+      const ddTxt = dd === null || dd === undefined ? '—' : dd.toFixed(0) + '%';
+      const w52 = e.fiftytwo_week_change;
+      const w52Txt = w52 === null || w52 === undefined ? '—'
+        : (w52 >= 0 ? '<span class="text-green-400">+' + w52.toFixed(0) + '%</span>'
+                    : '<span class="text-red-400">' + w52.toFixed(0) + '%</span>');
+      const wt2 = e.monthly_wt2;
+      const wt2Txt = wt2 === null || wt2 === undefined ? '—' : wt2.toFixed(0);
+      const mfi = e.weekly_mfi;
+      const mfiTxt = mfi === null || mfi === undefined ? '—' : mfi.toFixed(0);
+
+      html += '<div class="sector-card ' + mom.cls + '">'
+        + '<div class="flex justify-between items-start mb-2">'
+        + '<div><span class="font-bold text-base">' + e.ticker + '</span>'
+        + '<span class="text-xs text-neutral-400 ml-2">' + escapeHtml(e.name || '') + '</span></div>'
+        + '<a href="' + fmtTV(e.ticker) + '" target="_blank" class="text-yellow-500 hover:text-yellow-300 text-sm">📊</a>'
+        + '</div>'
+        + '<div class="text-sm font-semibold mb-2">' + mom.label + '</div>'
+        + '<div class="grid grid-cols-2 gap-1 text-xs text-neutral-400">'
+        + '<div>Precio: <span class="text-neutral-200">' + fmtPrice(e.current_price) + '</span></div>'
+        + '<div>52s: ' + w52Txt + '</div>'
+        + '<div>ATH: ' + ddTxt + '</div>'
+        + '<div>WT2/MFI: ' + wt2Txt + ' / ' + mfiTxt + '</div>'
+        + '</div></div>';
+    });
+    html += '</div></div>';
+  });
+
+  cont.innerHTML = html;
 }
 
 function closeModal() {
@@ -811,6 +1271,7 @@ def generate_html():
     count_sellp = by_sig.get("SELL_PLUS", 0)
     count_sell  = by_sig.get("SELL", 0)
     count_carvana = summary_data.get("total_carvana_setups", 0)
+    count_ch      = summary_data.get("total_carvana_hunter", 0)
 
     sectors = set()
     for r in signals_data["results"]:
@@ -821,16 +1282,28 @@ def generate_html():
 
     pwd_hash = hashlib.sha256(PASSWORD.encode()).hexdigest()
 
+    # Cargar mapa de sectores (opcional: solo si existe sectors.json)
+    sectors_data = {"results": [], "scan_date_human": ""}
+    sectors_path = os.path.join(DATA_DIR, "sectors.json")
+    if os.path.exists(sectors_path):
+        try:
+            with open(sectors_path) as f:
+                sectors_data = json.load(f)
+        except Exception:
+            pass
+
     html = HTML_TEMPLATE
     html = html.replace("{{scan_date_human}}", signals_data["scan_date_human"])
     html = html.replace("{{total_scanned}}",   str(signals_data["total_scanned"]))
     html = html.replace("{{count_carvana}}",   str(count_carvana))
+    html = html.replace("{{count_ch}}",         str(count_ch))
     html = html.replace("{{count_gold}}",      str(count_gold))
     html = html.replace("{{count_buy}}",       str(count_buy))
     html = html.replace("{{count_sellp}}",     str(count_sellp))
     html = html.replace("{{count_sell}}",      str(count_sell))
     html = html.replace("{{sector_options}}",  sector_options)
     html = html.replace("{{signals_json}}",    json.dumps(signals_data))
+    html = html.replace("{{sectors_json}}",    json.dumps(sectors_data))
     html = html.replace("{{password_hash}}",   pwd_hash)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -851,6 +1324,6 @@ def generate_html():
 
 if __name__ == "__main__":
     print("═" * 60)
-    print("  CB SCANNER — Generador HTML v4")
+    print("  CB SCANNER — Generador HTML v5")
     print("═" * 60 + "\n")
     generate_html()

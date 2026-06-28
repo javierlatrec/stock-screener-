@@ -32,6 +32,9 @@ from cb_scanner import (
     calculate_wavetrend,
     detect_signals,
     Signal,
+    detect_ash_signals_weekly,
+    detect_wt_signals_monthly,
+    build_carvana_hunter,
 )
 from universe import (
     load_universe_csv,
@@ -81,6 +84,16 @@ LONG_PAUSE_EVERY      = 100           # Pausa larga cada 100 tickers
 LONG_PAUSE_SECS       = 5             # Segundos de pausa larga
 SAVE_EVERY_N          = 50
 MAX_RETRIES           = 2             # Reintentos por ticker fallido
+
+# ─── CARVANA HUNTER ────────────────────────────────────────────────
+# El ASH BUY STRONG es SEMANAL → requiere una descarga 1wk extra por
+# ticker. Para no duplicar todas las llamadas, solo descargamos el
+# semanal de tickers con caída relevante desde ATH (los candidatos
+# reales a reversión "Carvana universe").
+CARVANA_HUNTER_ENABLED      = True
+CH_DRAWDOWN_GATE_PCT        = -50.0   # solo 1wk si drawdown ≤ este valor
+CH_WEEKLY_PERIOD            = "max"   # histórico semanal
+CH_RECENT_BARS             = 3        # ventana de "señal activa"
 
 DATA_DIR              = "data"
 UNIVERSE_FULL_CSV     = os.path.join(DATA_DIR, "universe_full.csv")
@@ -288,6 +301,65 @@ def analyze_single_ticker(ticker_data: dict,
                     "bars_ago": int(bars_since),
                 }
 
+        # ─── CARVANA HUNTER (VISTA SEMANAL) ────────────────────────
+        # Descarga semanal SIEMPRE (vista semanal completa para los 548).
+        # Entrada: 💎 ASH HIGH (ASH+MFI). Salida: WT SELL+ semanal.
+        carvana_hunter = None
+        if CARVANA_HUNTER_ENABLED:
+            ash_part = {
+                "ash_value": None, "ash_buy_strong": False,
+                "ash_buy_strong_recent_bars": None,
+                "high_conviction": False, "mfi_value": None,
+            }
+            wt_part = {
+                "wt_buy_gold": False, "wt_buy_gold_recent_bars": None,
+                "wt_sell_plus": False, "wt_sell_plus_recent_bars": None,
+            }
+            ch_weekly_checked = False
+            ch_week_price = None
+            ch_week_drawdown = None
+            try:
+                df_w = yf.download(
+                    ticker, interval="1wk", period=CH_WEEKLY_PERIOD,
+                    progress=False, auto_adjust=True, threads=False
+                )
+                if df_w is not None and not df_w.empty and len(df_w) >= 80:
+                    if isinstance(df_w.columns, pd.MultiIndex):
+                        df_w.columns = df_w.columns.get_level_values(0)
+                    # Entradas ASH+MFI (semanal)
+                    ash_part = detect_ash_signals_weekly(
+                        df_w, recent_bars=CH_RECENT_BARS
+                    )
+                    # Salidas WT SELL+ (semanal, smooth 4)
+                    wt_part = detect_wt_signals_monthly(
+                        df_w, recent_bars=CH_RECENT_BARS
+                    )
+                    ch_weekly_checked = True
+                    ch_week_price = float(df_w["Close"].iloc[-1])
+                    w_ath = float(df_w["Close"].max())
+                    ch_week_drawdown = ((ch_week_price - w_ath) / w_ath) * 100
+                    del df_w
+            except Exception:
+                pass
+
+            chr_ = build_carvana_hunter(ash_part, wt_part)
+            carvana_hunter = {
+                "ash_value":          chr_.ash_value,
+                "ash_buy_strong":     chr_.ash_buy_strong,
+                "ash_buy_strong_bars": chr_.ash_buy_strong_recent_bars,
+                "high_conviction":    chr_.high_conviction,
+                "mfi_value":          chr_.mfi_value,
+                "wt_buy_gold":        chr_.wt_buy_gold,
+                "wt_buy_gold_bars":   chr_.wt_buy_gold_recent_bars,
+                "wt_sell_plus":       chr_.wt_sell_plus,
+                "wt_sell_plus_bars":  chr_.wt_sell_plus_recent_bars,
+                "active_entry":       chr_.active_entry,
+                "active_exit":        chr_.active_exit,
+                "weekly_checked":     ch_weekly_checked,
+                "week_price":         ch_week_price,
+                "week_drawdown_pct":  ch_week_drawdown,
+            }
+
         cap_tier_str = _safe_str(ticker_data.get("cap_tier")) or "unknown"
         try:
             cap_label = CapTier(cap_tier_str).label
@@ -315,6 +387,7 @@ def analyze_single_ticker(ticker_data: dict,
             "position_52w_pct": pos_52w,
             "total_signals_history": len(signals),
             "active_signal":   active_signal,
+            "carvana_hunter":  carvana_hunter,
             "recent_signals": [
                 {"type": s.type, "date": s.date.strftime("%Y-%m"),
                  "price": float(s.price), "wt2": float(s.wt2)}
@@ -350,6 +423,13 @@ def analyze_single_ticker(ticker_data: dict,
             "website":        _safe_str(ticker_data.get("website")),
             "employees":      _safe_float(ticker_data.get("employees")),
             "dividend_yield": _safe_float(ticker_data.get("dividend_yield")),
+            # ─── NUEVOS v5 (Mejora 2): más capas de análisis ──
+            "earnings_beat_pct":    _safe_float(ticker_data.get("earnings_beat_pct")),
+            "institutional_pct":    _safe_float(ticker_data.get("institutional_pct")),
+            "fiftytwo_week_change": _safe_float(ticker_data.get("fiftytwo_week_change")),
+            "avg_volume":           _safe_float(ticker_data.get("avg_volume")),
+            "float_shares":         _safe_float(ticker_data.get("float_shares")),
+            "ex_dividend_date":     _safe_str(ticker_data.get("ex_dividend_date")),
         }
 
         result["carvana_setup"] = detect_carvana_setup(result)
@@ -382,6 +462,7 @@ def scan_universe(tickers_data: list[dict],
     failed = []
     active_signals = 0
     carvana_setups = 0
+    ch_entries = 0       # tickers con entrada Carvana Hunter activa
     start = time.time()
 
     # ─── PRIMERA PASADA ────────────────────────────────────────
@@ -412,6 +493,8 @@ def scan_universe(tickers_data: list[dict],
             active_signals += 1
         if analysis["carvana_setup"]["is_carvana_setup"]:
             carvana_setups += 1
+        if analysis.get("carvana_hunter") and analysis["carvana_hunter"].get("active_entry"):
+            ch_entries += 1
 
         results.append(analysis)
 
@@ -451,6 +534,8 @@ def scan_universe(tickers_data: list[dict],
                         active_signals += 1
                     if analysis["carvana_setup"]["is_carvana_setup"]:
                         carvana_setups += 1
+                    if analysis.get("carvana_hunter") and analysis["carvana_hunter"].get("active_entry"):
+                        ch_entries += 1
                     results.append(analysis)
                 time.sleep(BATCH_DELAY * 2)  # Más lento en retry
             failed = still_failed
@@ -467,6 +552,10 @@ def scan_universe(tickers_data: list[dict],
     print(f"   Errores definitivos:   {len(failed)}")
     print(f"   Señales activas:       {active_signals}")
     print(f"   ⭐ Carvana Setups:     {carvana_setups}")
+    print(f"   🎯 Carvana Hunter:     {ch_entries} entradas activas")
+
+    # ─── MEJORA 3: tickers similares (coste cero) ──────────────
+    compute_similar_tickers(results)
 
     return {
         "scan_date":       datetime.now(timezone.utc).isoformat(),
@@ -475,6 +564,7 @@ def scan_universe(tickers_data: list[dict],
         "total_scanned":   len(results),
         "total_active":    active_signals,
         "total_carvana_setups": carvana_setups,
+        "total_carvana_hunter": ch_entries,
         "results":         results,
     }
 
@@ -490,6 +580,92 @@ def _save_partial(results):
 
 
 # ═══════════════════════════════════════════════════════════════════
+# MEJORA 3 — DETECTOR DE TICKERS SIMILARES
+# ═══════════════════════════════════════════════════════════════════
+#
+# Para cada ticker calcula sus "primos": empresas más parecidas por
+# sector, cap tier, perfil de drawdown e IPO. Coste cero (solo cálculo
+# sobre datos ya en memoria, sin llamadas a yfinance).
+#
+
+def compute_similar_tickers(results: list[dict], top_n: int = 6) -> None:
+    """Añade in-place result['similar_tickers'] = [ {ticker, name, score}, ... ]"""
+    print(f"\n🔗 Calculando tickers similares ({len(results)} tickers)...")
+
+    # Pre-extraer features de cada ticker
+    feats = []
+    for r in results:
+        feats.append({
+            "ticker": r["ticker"],
+            "name": r.get("name", r["ticker"]),
+            "sector": (r.get("sector") or "").strip().lower(),
+            "cap_tier": (r.get("cap_tier") or "unknown").lower(),
+            "is_crypto": bool(r.get("is_crypto", False)),
+            "drawdown": _safe_float(r.get("drawdown_from_ath_pct")),
+            "years_ipo": _safe_float(r.get("years_since_ipo")),
+            "active": r.get("active_signal") is not None,
+            "carvana": bool(r.get("carvana_setup", {}).get("is_carvana_setup", False)),
+        })
+
+    CAP_ORDER = {"micro": 0, "small": 1, "mid": 2, "large": 3, "mega": 4}
+
+    def similarity(a, b) -> float:
+        # No comparar consigo mismo ni cruzar crypto con acciones
+        if a["ticker"] == b["ticker"]:
+            return -1
+        if a["is_crypto"] != b["is_crypto"]:
+            return -1
+
+        score = 0.0
+        # Mismo sector: peso fuerte
+        if a["sector"] and a["sector"] == b["sector"]:
+            score += 4
+        # Mismo cap tier (o adyacente)
+        ca, cb = CAP_ORDER.get(a["cap_tier"], 9), CAP_ORDER.get(b["cap_tier"], 9)
+        if ca != 9 and cb != 9:
+            diff = abs(ca - cb)
+            if diff == 0:
+                score += 2.5
+            elif diff == 1:
+                score += 1
+        # Perfil de drawdown parecido (dentro de 15 puntos)
+        if a["drawdown"] is not None and b["drawdown"] is not None:
+            dd = abs(a["drawdown"] - b["drawdown"])
+            if dd <= 15:
+                score += 2 * (1 - dd / 15)
+        # Antigüedad de IPO parecida (dentro de 4 años)
+        if a["years_ipo"] is not None and b["years_ipo"] is not None:
+            yd = abs(a["years_ipo"] - b["years_ipo"])
+            if yd <= 4:
+                score += 1.5 * (1 - yd / 4)
+        # Bonus pequeño si ambos son setups Carvana (mismo perfil de oportunidad)
+        if a["carvana"] and b["carvana"]:
+            score += 0.5
+        return score
+
+    for i, r in enumerate(results):
+        a = feats[i]
+        scored = []
+        for j, b in enumerate(feats):
+            s = similarity(a, b)
+            if s > 0:
+                scored.append((s, j))
+        scored.sort(key=lambda x: -x[0])
+        similar = []
+        for s, j in scored[:top_n]:
+            similar.append({
+                "ticker": feats[j]["ticker"],
+                "name": feats[j]["name"],
+                "score": round(s, 1),
+                "active": feats[j]["active"],
+                "carvana": feats[j]["carvana"],
+            })
+        r["similar_tickers"] = similar
+
+    print(f"   ✅ Similares calculados")
+
+
+# ═══════════════════════════════════════════════════════════════════
 # RESUMEN
 # ═══════════════════════════════════════════════════════════════════
 
@@ -500,9 +676,12 @@ def build_summary(scan_data: dict) -> dict:
         "total_scanned":        scan_data["total_scanned"],
         "total_active":         scan_data["total_active"],
         "total_carvana_setups": scan_data.get("total_carvana_setups", 0),
+        "total_carvana_hunter": scan_data.get("total_carvana_hunter", 0),
         "by_signal":            {},
         "by_tier":              {},
         "by_signal_and_tier":   {},
+        "by_carvana_hunter":    {"ASH_HIGH": 0, "ASH_BUY_STRONG": 0,
+                                 "WT_BUY_GOLD": 0, "WT_SELL_PLUS": 0},
     }
 
     for st in ["BUY_GOLD", "BUY", "SELL_PLUS", "SELL"]:
@@ -515,6 +694,14 @@ def build_summary(scan_data: dict) -> dict:
         summary["by_tier"][tier] = 0
 
     for r in scan_data["results"]:
+        ch = r.get("carvana_hunter")
+        if ch:
+            entry = ch.get("active_entry")
+            if entry in summary["by_carvana_hunter"]:
+                summary["by_carvana_hunter"][entry] += 1
+            if ch.get("active_exit") == "WT_SELL_PLUS":
+                summary["by_carvana_hunter"]["WT_SELL_PLUS"] += 1
+
         if not r.get("active_signal"):
             continue
         st = r["active_signal"]["type"]
