@@ -3,12 +3,10 @@ name: Daily CB Scanner
 # ─── CUÁNDO SE EJECUTA ──────────────────────────────────────────
 on:
   schedule:
-    # 22:00 Madrid = 20:00 UTC (en verano) / 21:00 UTC (en invierno)
-    # Usamos 21:00 UTC que cubre razonablemente bien todo el año
+    # 22:00 Madrid = 20:00 UTC (verano) / 21:00 UTC (invierno)
     # Cron format: minuto hora día-mes mes día-semana (UTC)
     # 1-5 = lunes a viernes
     - cron: '0 21 * * 1-5'
-
   # También permite ejecutarlo manualmente desde la pestaña Actions
   workflow_dispatch:
 
@@ -20,8 +18,7 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Si tarda más de 30 min, cancela (protección)
-
+    timeout-minutes: 90  # semanal + mensual + ETFs tarda más que antes
     steps:
       # 1. Descargar el repo
       - name: Checkout repo
@@ -40,12 +37,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. Ejecutar el scan completo
+      # 4. Ejecutar el scan completo de acciones (mensual + semanal)
       - name: Run scan
         run: |
           echo "🔍 Iniciando scan de mercado..."
           python main.py
           echo "✅ Scan completado"
+
+      # 4b. Escanear ETFs sectoriales y temáticos (mapa de sectores)
+      - name: Run sectors scan
+        run: |
+          echo "🗺️ Escaneando ETFs sectoriales..."
+          python sectors.py
+          echo "✅ Sectores completados"
 
       # 5. Generar el HTML actualizado
       - name: Generate HTML
