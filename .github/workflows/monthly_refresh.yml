@@ -13,8 +13,7 @@ permissions:
 jobs:
   refresh-fundamentals:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # Más tiempo: hasta 1 hora
-
+    timeout-minutes: 120  # universe + fundamentals + scan + sectores
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -44,6 +43,12 @@ jobs:
 
       - name: Run scan
         run: python main.py
+
+      - name: Run sectors scan
+        run: |
+          echo "🗺️ Escaneando ETFs sectoriales..."
+          python sectors.py
+          echo "✅ Sectores completados"
 
       - name: Generate HTML
         run: python html_generator.py
