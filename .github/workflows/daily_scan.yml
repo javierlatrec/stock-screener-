@@ -58,6 +58,16 @@ jobs:
           python html_generator.py
           echo "✅ HTML generado"
 
+      # 5b. Enviar alertas de Telegram (solo HIGH nuevos)
+      - name: Send Telegram alerts
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          echo "📲 Comprobando HIGH nuevos para alertar..."
+          python telegram_alert.py
+          echo "✅ Alertas procesadas"
+
       # 6. Commit y push de los cambios
       - name: Commit and push results
         run: |
