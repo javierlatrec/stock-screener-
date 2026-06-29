@@ -92,7 +92,7 @@ MAX_RETRIES           = 2             # Reintentos por ticker fallido
 # reales a reversión "Carvana universe").
 CARVANA_HUNTER_ENABLED      = True
 CH_DRAWDOWN_GATE_PCT        = -50.0   # solo 1wk si drawdown ≤ este valor
-CH_WEEKLY_PERIOD            = "max"   # histórico semanal
+CH_WEEKLY_PERIOD            = "7y"    # histórico semanal
 CH_RECENT_BARS             = 3        # ventana de "señal activa"
 
 DATA_DIR              = "data"

@@ -160,7 +160,7 @@ def analyze_etf(etf: dict) -> dict | None:
 
     # ─── SEMANAL ───
     try:
-        dfw = yf.download(ticker, interval="1wk", period="max",
+        dfw = yf.download(ticker, interval="1wk", period="7y",
                           progress=False, auto_adjust=True, threads=False)
         if dfw is not None and not dfw.empty and len(dfw) >= 80:
             if isinstance(dfw.columns, pd.MultiIndex):
