@@ -295,5 +295,18 @@
       "SELL_PLUS": 0,
       "SELL": 21
     }
+  },
+  {
+    "scan_date": "2026-07-08T22:22:15.226422+00:00",
+    "scan_date_human": "2026-07-08 22:22",
+    "total_scanned": 487,
+    "total_active": 128,
+    "total_carvana_setups": 64,
+    "by_signal": {
+      "BUY_GOLD": 24,
+      "BUY": 83,
+      "SELL_PLUS": 0,
+      "SELL": 21
+    }
   }
 ]
