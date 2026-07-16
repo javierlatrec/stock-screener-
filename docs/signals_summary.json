@@ -1,21 +1,21 @@
 {
-  "scan_date": "2026-07-15T22:14:27.119108+00:00",
-  "scan_date_human": "2026-07-15 22:14",
+  "scan_date": "2026-07-16T22:16:25.074406+00:00",
+  "scan_date_human": "2026-07-16 22:16",
   "total_scanned": 484,
-  "total_active": 126,
-  "total_carvana_setups": 61,
-  "total_carvana_hunter": 7,
+  "total_active": 131,
+  "total_carvana_setups": 63,
+  "total_carvana_hunter": 6,
   "by_signal": {
-    "BUY_GOLD": 24,
-    "BUY": 81,
+    "BUY_GOLD": 25,
+    "BUY": 85,
     "SELL_PLUS": 0,
     "SELL": 21
   },
   "by_tier": {
     "micro": 2,
-    "small": 18,
-    "mid": 23,
-    "large": 64,
+    "small": 19,
+    "mid": 24,
+    "large": 67,
     "mega": 0,
     "crypto": 19,
     "unknown": 0
@@ -24,7 +24,7 @@
     "BUY_GOLD": {
       "micro": 0,
       "small": 7,
-      "mid": 4,
+      "mid": 5,
       "large": 7,
       "mega": 0,
       "crypto": 6,
@@ -32,9 +32,9 @@
     },
     "BUY": {
       "micro": 2,
-      "small": 11,
+      "small": 12,
       "mid": 18,
-      "large": 38,
+      "large": 41,
       "mega": 0,
       "crypto": 12,
       "unknown": 0
@@ -59,9 +59,9 @@
     }
   },
   "by_carvana_hunter": {
-    "ASH_HIGH": 7,
+    "ASH_HIGH": 6,
     "ASH_BUY_STRONG": 0,
     "WT_BUY_GOLD": 0,
-    "WT_SELL_PLUS": 9
+    "WT_SELL_PLUS": 10
   }
 }
