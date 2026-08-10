@@ -1,10 +1,14 @@
 {
   "tickers": [
-    "AMWL",
+    "ASAN",
+    "FDS",
     "GTLB",
+    "PAYX",
     "PTON",
     "PYPL",
     "ROP",
-    "TEAM"
+    "TEAM",
+    "WDAY",
+    "YMM"
   ]
 }
