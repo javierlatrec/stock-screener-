@@ -1,10 +1,10 @@
 {
-  "scan_date": "2026-08-25T21:40:28.995959+00:00",
-  "scan_date_human": "2026-08-25 21:40",
+  "scan_date": "2026-08-27T00:42:48.972291+00:00",
+  "scan_date_human": "2026-08-27 00:42",
   "total_scanned": 418,
   "total_active": 124,
   "total_carvana_setups": 57,
-  "total_carvana_hunter": 10,
+  "total_carvana_hunter": 9,
   "by_signal": {
     "BUY_GOLD": 18,
     "BUY": 81,
@@ -59,9 +59,9 @@
     }
   },
   "by_carvana_hunter": {
-    "ASH_HIGH": 10,
+    "ASH_HIGH": 9,
     "ASH_BUY_STRONG": 0,
     "WT_BUY_GOLD": 0,
-    "WT_SELL_PLUS": 14
+    "WT_SELL_PLUS": 13
   }
 }
