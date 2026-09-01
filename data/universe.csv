@@ -1,387 +1,442 @@
 ticker,name,sector,industry,market_cap,avg_volume_usd,cap_tier,is_crypto,source
-AOS,A. O. Smith,Industrials,Building Products,8172183040.0,118464518.2,mid,False,sp500
-AES,AES Corporation,Utilities,Independent Power Producers & Energy Traders,10469154816.0,94203762.0,large,False,sp500
-A,Agilent Technologies,Health Care,Life Sciences Tools & Services,39080103936.0,299122731.2,large,False,sp500
-AKAM,Akamai Technologies,Information Technology,Internet Services & Infrastructure,16745496576.0,388890296.6,large,False,sp500
-ALB,Albemarle Corporation,Materials,Specialty Chemicals,13873831936.0,280613750.4,large,False,sp500
-ALGN,Align Technology,Health Care,Health Care Supplies,12114922496.0,180473420.79999998,large,False,sp500
-ALLE,Allegion,Industrials,Building Products,13384788992.0,265415750.0,large,False,sp500
-LNT,Alliant Energy,Utilities,Electric Utilities,18280849408.0,182206122.8,large,False,sp500
-AMCR,Amcor,Materials,Paper & Plastic Packaging Products & Materials,20750075904.0,184371976.8,large,False,sp500
-AWK,American Water Works,Utilities,Water Utilities,26663469056.0,347081689.59999996,large,False,sp500
-AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,48252260352.0,315200766.40000004,large,False,sp500
-APTV,Aptiv,Consumer Discretionary,Automotive Parts & Equipment,11950211072.0,130246360.89999999,large,False,sp500
-ACGL,Arch Capital Group,Financials,Property & Casualty Insurance,34280728576.0,210002143.5,large,False,sp500
-ARES,Ares Management,Financials,Asset Management & Custody Banks,42250051584.0,307316089.8,large,False,sp500
-ATO,Atmos Energy,Utilities,Gas Utilities,28840407040.0,155204818.4,large,False,sp500
-ADSK,Autodesk,Information Technology,Application Software,49450217472.0,563855236.0,large,False,sp500
-AVB,AvalonBay Communities,Real Estate,Multi-Family Residential REITs,26504730624.0,132042954.00000001,large,False,sp500
-AXON,Axon Enterprise,Industrials,Aerospace & Defense,42538553344.0,374419332.0,large,False,sp500
-BALL,Ball Corporation,Materials,"Metal, Glass & Plastic Containers",17279399936.0,122342341.00000001,large,False,sp500
-BAX,Baxter International,Health Care,Health Care Equipment,13524615168.0,201136392.0,large,False,sp500
-TECH,Bio-Techne,Health Care,Life Sciences Tools & Services,11232389120.0,302821254.0,large,False,sp500
-BIIB,Biogen,Health Care,Biotechnology,29986674688.0,223949236.5,large,False,sp500
-XYZ,"Block, Inc.",Financials,Transaction & Payment Processing Services,48352501760.0,348919300.79999995,large,False,sp500
-BRO,Brown & Brown,Financials,Insurance Brokers,23556571136.0,235417600.00000003,large,False,sp500
-BF-B,Brown–Forman,Consumer Staples,Distillers & Vintners,13183169536.0,74618705.2,large,False,sp500
-BLDR,Builders FirstSource,Industrials,Building Products,7148708864.0,184576964.0,mid,False,sp500
-BG,Bunge Global,Consumer Staples,Agricultural Products & Services,20408815616.0,157304321.70000002,large,False,sp500
-BXP,"BXP, Inc.",Real Estate,Office REITs,12503197696.0,130662309.2,large,False,sp500
-CHRW,C.H. Robinson,Industrials,Air Freight & Logistics,17413384192.0,454574073.79999995,large,False,sp500
-CCL,Carnival Corporation,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",38089940992.0,575641136.6999999,large,False,sp500
-CASY,Casey's,Consumer Staples,Food Retail,32231278592.0,247956280.0,large,False,sp500
-CBOE,Cboe Global Markets,Financials,Financial Exchanges & Data,32466745344.0,351171053.1,large,False,sp500
-CBRE,CBRE Group,Real Estate,Real Estate Services,42512547840.0,298046321.5,large,False,sp500
-CNC,Centene Corporation,Health Care,Managed Health Care,30736369664.0,356217588.59999996,large,False,sp500
-CNP,CenterPoint Energy,Utilities,Multi-Utilities,27692599296.0,264661979.2,large,False,sp500
-CF,CF Industries,Materials,Fertilizers & Agricultural Chemicals,19232849920.0,260750739.6,large,False,sp500
-CHTR,Charter Communications,Communication Services,Cable & Satellite,19540039680.0,594863088.5999999,large,False,sp500
-CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,47188930560.0,662824926.0,large,False,sp500
-CINF,Cincinnati Financial,Financials,Property & Casualty Insurance,27269978112.0,156234024.0,large,False,sp500
-CFG,Citizens Financial Group,Financials,Regional Banks,30284855296.0,298200851.5,large,False,sp500
-CMS,CMS Energy,Utilities,Multi-Utilities,22574417920.0,296527529.9,large,False,sp500
-CTSH,Cognizant,Information Technology,IT Consulting & Other Services,24932087808.0,529307622.0,large,False,sp500
-COIN,Coinbase,Financials,Financial Exchanges & Data,38588788736.0,1240368168.1999998,large,False,sp500
-STZ,Constellation Brands,Consumer Staples,Distillers & Vintners,22243850240.0,255826416.6,large,False,sp500
-CPRT,Copart,Industrials,Diversified Support Services,26959630336.0,368254432.0,large,False,sp500
-CPAY,Corpay,Financials,Transaction & Payment Processing Services,24975441920.0,217168397.4,large,False,sp500
-CSGP,CoStar Group,Real Estate,Real Estate Services,11653483520.0,256361175.60000002,large,False,sp500
-CCI,Crown Castle,Real Estate,Telecom Tower REITs,33343100928.0,378783720.0,large,False,sp500
-DRI,Darden Restaurants,Consumer Discretionary,Restaurants,23317035008.0,290681703.0,large,False,sp500
-DVA,DaVita,Health Care,Health Care Services,15410176000.0,139098542.4,large,False,sp500
-DECK,Deckers Brands,Consumer Discretionary,Footwear,13193297920.0,282116497.59999996,large,False,sp500
-DXCM,Dexcom,Health Care,Health Care Equipment,31490754560.0,418495074.0,large,False,sp500
-DG,Dollar General,Consumer Staples,Consumer Staples Merchandise Retail,28025532416.0,255500091.0,large,False,sp500
-DLTR,Dollar Tree,Consumer Staples,Consumer Staples Merchandise Retail,24446529536.0,300163443.9,large,False,sp500
-DPZ,Domino's,Consumer Discretionary,Restaurants,11493918720.0,390668484.8,large,False,sp500
-DOV,Dover Corporation,Industrials,Industrial Machinery & Supplies & Components,27558266880.0,323297553.8,large,False,sp500
-DOW,Dow Inc.,Materials,Commodity Chemicals,21879701504.0,343494355.09999996,large,False,sp500
-DHI,D. R. Horton,Consumer Discretionary,Homebuilding,40014065664.0,459975095.6,large,False,sp500
-DTE,DTE Energy,Utilities,Multi-Utilities,29521453056.0,196565141.1,large,False,sp500
-ECHO,EchoStar,Communication Services,Wireless Telecommunication Services,24370415616.0,474367667.1,large,False,sp500
-EIX,Edison International,Utilities,Electric Utilities,28233803776.0,203577537.9,large,False,sp500
-EW,Edwards Lifesciences,Health Care,Health Care Equipment,49559105536.0,490821060.59999996,large,False,sp500
-EME,Emcor,Industrials,Construction & Engineering,35174555648.0,392207971.2,large,False,sp500
-EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,33333749760.0,444837209.2,large,False,sp500
-EFX,Equifax,Industrials,Research & Consulting Services,20280242176.0,417597125.40000004,large,False,sp500
-ERIE,Erie Indemnity,Financials,Insurance Brokers,12656239616.0,71297722.8,large,False,sp500
-ESS,Essex Property Trust,Real Estate,Multi-Family Residential REITs,19584690176.0,150457812.79999998,large,False,sp500
-EG,Everest Group,Financials,Reinsurance,14479604736.0,157389939.0,large,False,sp500
-EVRG,Evergy,Utilities,Electric Utilities,19134885888.0,159117718.5,large,False,sp500
-ES,Eversource Energy,Utilities,Electric Utilities,26923567104.0,175507896.3,large,False,sp500
-EXC,Exelon,Utilities,Electric Utilities,47206236160.0,448416055.4,large,False,sp500
-EXE,Expand Energy,Energy,Oil & Gas Exploration & Production,21768300544.0,383067876.7,large,False,sp500
-EXPE,Expedia Group,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",35375304704.0,442964746.0,large,False,sp500
-EXPD,Expeditors International,Industrials,Air Freight & Logistics,21958522880.0,184338183.29999998,large,False,sp500
-EXR,Extra Space Storage,Real Estate,Self-Storage REITs,32673325056.0,242223048.0,large,False,sp500
-FFIV,"F5, Inc.",Information Technology,Communications Equipment,22876442624.0,331182261.9,large,False,sp500
-FDS,FactSet,Financials,Financial Exchanges & Data,9360851968.0,263194736.0,mid,False,sp500
-FICO,Fair Isaac,Information Technology,Application Software,24253497344.0,447222802.5,large,False,sp500
-FRT,Federal Realty Investment Trust,Real Estate,Retail REITs,10785703936.0,113522495.60000001,large,False,sp500
-FDXF,FedEx Freight,Industrials,Cargo Ground Transportation,20925782016.0,140860245.5,large,False,sp500
-FIS,Fidelity National Information Services,Financials,Transaction & Payment Processing Services,23140679680.0,265425660.50000003,large,False,sp500
-FSLR,First Solar,Information Technology,Semiconductors,22679349248.0,406783538.3,large,False,sp500
-FE,FirstEnergy,Utilities,Electric Utilities,27954096128.0,240257224.4,large,False,sp500
-FISV,Fiserv,Financials,Transaction & Payment Processing Services,28763719680.0,305179035.0,large,False,sp500
-FLEX,Flex Ltd.,Information Technology,Electronic Manufacturing Services,41676812288.0,683812675.0,large,False,sp500
-FTV,Fortive,Industrials,Industrial Machinery & Supplies & Components,17882429440.0,205886196.2,large,False,sp500
-FOXA,Fox Corporation (Class A),Communication Services,Broadcasting,24450813952.0,204896230.2,large,False,sp500
-FOX,Fox Corporation (Class B),Communication Services,Broadcasting,21809639424.0,60946915.4,large,False,sp500
-BEN,Franklin Resources,Financials,Asset Management & Custody Banks,17594914816.0,173295818.6,large,False,sp500
-IT,Gartner,Information Technology,IT Consulting & Other Services,10111074304.0,201321741.60000002,large,False,sp500
-GEHC,GE HealthCare,Health Care,Health Care Equipment,30723696640.0,453224742.2,large,False,sp500
-GEN,Gen Digital,Information Technology,Systems Software,16430941184.0,108025083.0,large,False,sp500
-GNRC,Generac,Industrials,Heavy Electrical Equipment,11630602240.0,260646437.4,large,False,sp500
-GPC,Genuine Parts Company,Consumer Discretionary,Distributors,17145618432.0,225120893.3,large,False,sp500
-GL,Globe Life,Financials,Life & Health Insurance,14150757376.0,151847055.0,large,False,sp500
-GDDY,GoDaddy,Information Technology,Internet Services & Infrastructure,10955590656.0,170969799.0,large,False,sp500
-HAL,Halliburton,Energy,Oil & Gas Equipment & Services,26941577216.0,488523645.0,large,False,sp500
-HIG,Hartford (The),Financials,Property & Casualty Insurance,38901903360.0,261801244.4,large,False,sp500
-HAS,Hasbro,Consumer Discretionary,Leisure Products,13249717248.0,302546921.59999996,large,False,sp500
-HSIC,Henry Schein,Health Care,Health Care Distributors,9768361984.0,114529415.0,mid,False,sp500
-HSY,Hershey Company (The),Consumer Staples,Packaged Foods & Meats,35172036608.0,331915806.0,large,False,sp500
-HUBB,Hubbell Incorporated,Industrials,Industrial Machinery & Supplies & Components,24966031360.0,352117797.2,large,False,sp500
-HUM,Humana,Health Care,Managed Health Care,43692417024.0,579927345.2,large,False,sp500
-HBAN,Huntington Bancshares,Financials,Regional Banks,34427871232.0,533024320.79999995,large,False,sp500
-HII,Huntington Ingalls Industries,Industrials,Aerospace & Defense,12863632384.0,213743137.5,large,False,sp500
-IEX,IDEX Corporation,Industrials,Industrial Machinery & Supplies & Components,16988749824.0,212018609.0,large,False,sp500
-IDXX,Idexx Laboratories,Health Care,Health Care Equipment,44101120000.0,266687571.40000004,large,False,sp500
-INCY,Incyte,Health Care,Biotechnology,24226433024.0,267042340.79999998,large,False,sp500
-PODD,Insulet Corporation,Health Care,Health Care Equipment,11452913664.0,207180243.0,large,False,sp500
-IVZ,Invesco,Financials,Asset Management & Custody Banks,13068400640.0,156972944.0,large,False,sp500
-INVH,Invitation Homes,Real Estate,Single-Family Residential REITs,17654927360.0,127524656.39999999,large,False,sp500
-IQV,IQVIA,Health Care,Life Sciences Tools & Services,38684291072.0,419193423.0,large,False,sp500
-IRM,Iron Mountain,Real Estate,Other Specialized REITs,36393218048.0,221678089.6,large,False,sp500
-JBHT,J.B. Hunt,Industrials,Cargo Ground Transportation,25521383424.0,288614805.0,large,False,sp500
-JBL,Jabil,Information Technology,Electronic Manufacturing Services,33013170176.0,334835140.0,large,False,sp500
-JKHY,Jack Henry & Associates,Financials,Transaction & Payment Processing Services,10944662528.0,139692714.4,large,False,sp500
-J,Jacobs Solutions,Industrials,Construction & Engineering,15932652544.0,109382353.80000001,large,False,sp500
-KVUE,Kenvue,Consumer Staples,Personal Care Products,36940967936.0,341387248.79999995,large,False,sp500
-KDP,Keurig Dr Pepper,Consumer Staples,Soft Drinks & Non-alcoholic Beverages,42340614144.0,373243321.6,large,False,sp500
-KEY,KeyCorp,Financials,Regional Banks,24217270272.0,269322272.1,large,False,sp500
-KMB,Kimberly-Clark,Consumer Staples,Household Products,36284399616.0,322965139.8,large,False,sp500
-KHC,Kraft Heinz,Consumer Staples,Packaged Foods & Meats,30652352512.0,364643460.5,large,False,sp500
-LH,Labcorp,Health Care,Health Care Services,25014280192.0,319199528.0,large,False,sp500
-LVS,Las Vegas Sands,Consumer Discretionary,Casinos & Gaming,31666110464.0,320862136.6,large,False,sp500
-LDOS,Leidos,Industrials,Diversified Support Services,14540798976.0,154061276.0,large,False,sp500
-LEN,Lennar,Consumer Discretionary,Homebuilding,19837714432.0,222195122.99999997,large,False,sp500
-LII,Lennox International,Industrials,Building Products,14373094400.0,281467584.0,large,False,sp500
-LYV,Live Nation Entertainment,Communication Services,Movies & Entertainment,40565239808.0,394636042.9,large,False,sp500
-L,Loews Corporation,Financials,Multi-line Insurance,23871248384.0,90246499.2,large,False,sp500
-LULU,Lululemon Athletica,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",13498155008.0,293623164.40000004,large,False,sp500
-MTB,M&T Bank,Financials,Regional Banks,35695546368.0,291311812.0,large,False,sp500
-MLM,Martin Marietta Materials,Materials,Construction Materials,31542976512.0,367640011.2,large,False,sp500
-MAS,Masco,Industrials,Building Products,14094957568.0,247109219.20000002,large,False,sp500
-MKC,McCormick & Company,Consumer Staples,Packaged Foods & Meats,13684544512.0,185129917.0,large,False,sp500
-MCHP,Microchip Technology,Information Technology,Semiconductors,40340094976.0,835887307.2,large,False,sp500
-MAA,Mid-America Apartment Communities,Real Estate,Multi-Family Residential REITs,15791686656.0,171634392.8,large,False,sp500
-MRNA,Moderna,Health Care,Biotechnology,21751822336.0,270735148.4,large,False,sp500
-TAP,Molson Coors Beverage Company,Consumer Staples,Brewers,7794634752.0,124513760.0,mid,False,sp500
-MOS,Mosaic Company (The),Materials,Fertilizers & Agricultural Chemicals,7030768128.0,160151896.8,mid,False,sp500
-MSCI,MSCI Inc.,Financials,Financial Exchanges & Data,41601847296.0,560840979.2,large,False,sp500
-NTAP,NetApp,Information Technology,"Technology Hardware, Storage & Peripherals",35027816448.0,360951990.0,large,False,sp500
-NWSA,News Corp (Class A),Communication Services,Publishing,14916644864.0,93664864.8,large,False,sp500
-NWS,News Corp (Class B),Communication Services,Publishing,16924654592.0,29938210.7,large,False,sp500
-NI,NiSource,Utilities,Multi-Utilities,21301485568.0,198841577.7,large,False,sp500
-NDSN,Nordson Corporation,Industrials,Industrial Machinery & Supplies & Components,16591690752.0,86356199.99999999,large,False,sp500
-NTRS,Northern Trust,Financials,Asset Management & Custody Banks,33332690944.0,235744750.5,large,False,sp500
-NCLH,Norwegian Cruise Line Holdings,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",8508207616.0,316892277.40000004,mid,False,sp500
-NVR,"NVR, Inc.",Consumer Discretionary,Homebuilding,16462739456.0,209491464.0,large,False,sp500
-ODFL,Old Dominion,Industrials,Cargo Ground Transportation,44118392832.0,396627551.0,large,False,sp500
-OMC,Omnicom Group,Communication Services,Advertising,21591025664.0,291352909.0,large,False,sp500
-ON,ON Semiconductor,Information Technology,Semiconductors,31761436672.0,697765500.0,large,False,sp500
-OTIS,Otis Worldwide,Industrials,Industrial Machinery & Supplies & Components,27389157376.0,328493481.0,large,False,sp500
-PKG,Packaging Corporation of America,Materials,Paper & Plastic Packaging Products & Materials,21904011264.0,232623641.6,large,False,sp500
-PSKY,Paramount Skydance Corporation,Communication Services,Movies & Entertainment,8908617728.0,97406599.6,mid,False,sp500
-PAYX,Paychex,Industrials,Human Resource & Employment Services,41557983232.0,419399516.8,large,False,sp500
-PYPL,PayPal,Financials,Transaction & Payment Processing Services,48940916736.0,891479973.9,large,False,sp500
-PNR,Pentair,Industrials,Industrial Machinery & Supplies & Components,10444224512.0,230112561.6,large,False,sp500
-PCG,PG&E Corporation,Utilities,Multi-Utilities,38277136384.0,436512430.2,large,False,sp500
-PPG,PPG Industries,Materials,Specialty Chemicals,24568594432.0,262879556.39999998,large,False,sp500
-PFG,Principal Financial Group,Financials,Life & Health Insurance,24343697408.0,229556889.0,large,False,sp500
-PEG,Public Service Enterprise Group,Utilities,Electric Utilities,38211284992.0,211883709.60000002,large,False,sp500
-PTC,PTC Inc.,Information Technology,Application Software,15847394304.0,266091167.99999997,large,False,sp500
-DGX,Quest Diagnostics,Health Care,Health Care Services,25718095872.0,330620219.09999996,large,False,sp500
-Q,Qnity Electronics,Information Technology,Semiconductor Materials & Equipment,27461113856.0,251697689.60000002,large,False,sp500
-RL,Ralph Lauren Corporation,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",22636445696.0,177744292.2,large,False,sp500
-RJF,Raymond James Financial,Financials,Investment Banking & Brokerage,33805756416.0,236371056.6,large,False,sp500
-RMD,ResMed,Health Care,Health Care Equipment,30603995136.0,230999892.2,large,False,sp500
-RVTY,Revvity,Health Care,Health Care Equipment,12552706048.0,179057576.79999998,large,False,sp500
-ROL,"Rollins, Inc.",Industrials,Environmental & Facilities Services,18269091840.0,301931744.5,large,False,sp500
-ROP,Roper Technologies,Information Technology,Electronic Equipment & Instruments,38765834240.0,390213974.40000004,large,False,sp500
-SBAC,SBA Communications,Real Estate,Telecom Tower REITs,19195283456.0,199021896.2,large,False,sp500
-SWKS,Skyworks Solutions,Information Technology,Semiconductors,9371445248.0,427631295.6,mid,False,sp500
-SJM,J.M. Smucker Company (The),Consumer Staples,Packaged Foods & Meats,12746591232.0,193289452.4,large,False,sp500
-SW,Smurfit Westrock,Materials,Paper & Plastic Packaging Products & Materials,24112318464.0,281523038.2,large,False,sp500
-SNA,Snap-on,Industrials,Industrial Machinery & Supplies & Components,21229328384.0,184897913.20000002,large,False,sp500
-SOLV,Solventum,Health Care,Health Care Technology,14796048384.0,94878556.8,large,False,sp500
-LUV,Southwest Airlines,Industrials,Passenger Airlines,21999693824.0,269778627.59999996,large,False,sp500
-SWK,Stanley Black & Decker,Industrials,Industrial Machinery & Supplies & Components,14283154432.0,223451870.6,large,False,sp500
-STLD,Steel Dynamics,Materials,Steel,36012617728.0,326474681.0,large,False,sp500
-STE,Steris,Health Care,Health Care Equipment,22259333120.0,163251184.0,large,False,sp500
-SMCI,Supermicro,Information Technology,"Technology Hardware, Storage & Peripherals",18371192832.0,1596781480.0,large,False,sp500
-SYF,Synchrony Financial,Financials,Consumer Finance,24659857408.0,344939237.5,large,False,sp500
-SYY,Sysco,Consumer Staples,Food Distributors,40807825408.0,229986896.39999998,large,False,sp500
-TROW,T. Rowe Price,Financials,Asset Management & Custody Banks,23944294400.0,235959007.5,large,False,sp500
-TTWO,Take-Two Interactive,Communication Services,Interactive Home Entertainment,45421289472.0,421259718.0,large,False,sp500
-TPR,"Tapestry, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",30785552384.0,293479857.0,large,False,sp500
-TPL,Texas Pacific Land Corporation,Energy,Oil & Gas Exploration & Production,27767726080.0,109972778.6,large,False,sp500
-TXT,Textron,Industrials,Aerospace & Defense,14663604224.0,193169319.0,large,False,sp500
-TKO,TKO Group Holdings,Communication Services,Movies & Entertainment,34748669952.0,152847667.0,large,False,sp500
-TTD,Trade Desk (The),Communication Services,Advertising,8480755200.0,290402868.8,mid,False,sp500
-TSCO,Tractor Supply,Consumer Discretionary,Other Specialty Retail,16137314304.0,363328159.9,large,False,sp500
-TRMB,Trimble Inc.,Information Technology,Application Software,13189449728.0,153059650.2,large,False,sp500
-TYL,Tyler Technologies,Information Technology,Application Software,12678823936.0,305451360.0,large,False,sp500
-UDR,"UDR, Inc.",Real Estate,Multi-Family Residential REITs,14018618368.0,149719615.2,large,False,sp500
-ULTA,Ulta Beauty,Consumer Discretionary,Other Specialty Retail,22046210048.0,284543725.5,large,False,sp500
-UAL,United Airlines Holdings,Industrials,Passenger Airlines,39380045824.0,493683276.9,large,False,sp500
-UHS,Universal Health Services,Health Care,Health Care Facilities,10196743168.0,205860630.4,large,False,sp500
-VEEV,Veeva Systems,Health Care,Health Care Technology,33102694400.0,296575298.6,large,False,sp500
-VTR,Ventas,Real Estate,Health Care REITs,47965614080.0,345952401.3,large,False,sp500
-VLTO,Veralto,Industrials,Environmental & Facilities Services,22958018560.0,179875058.70000002,large,False,sp500
-VRSN,Verisign,Information Technology,Internet Services & Infrastructure,26217807872.0,290112806.4,large,False,sp500
-VRSK,Verisk Analytics,Industrials,Research & Consulting Services,25360900096.0,385594510.5,large,False,sp500
-VTRS,Viatris,Health Care,Pharmaceuticals,20449544192.0,170443330.39999998,large,False,sp500
-VICI,Vici Properties,Real Estate,Hotel & Resort REITs,29013393408.0,215886867.5,large,False,sp500
-VST,Vistra Corp.,Utilities,Electric Utilities,49967071232.0,582220727.2,large,False,sp500
-VMC,Vulcan Materials Company,Materials,Construction Materials,34800963584.0,333056342.7,large,False,sp500
-WRB,W. R. Berkley Corporation,Financials,Property & Casualty Insurance,26916546560.0,144073144.8,large,False,sp500
-WAB,Wabtec,Industrials,Construction Machinery & Heavy Transportation Equipment,49129406464.0,398422936.6,large,False,sp500
-WAT,Waters Corporation,Health Care,Life Sciences Tools & Services,37046505472.0,347370451.5,large,False,sp500
-WEC,WEC Energy Group,Utilities,Electric Utilities,35654438912.0,222698149.20000002,large,False,sp500
-WST,West Pharmaceutical Services,Health Care,Health Care Supplies,23995318272.0,362119977.59999996,large,False,sp500
-WY,Weyerhaeuser,Real Estate,Timber REITs,18047696896.0,129937237.80000001,large,False,sp500
-WSM,"Williams-Sonoma, Inc.",Consumer Discretionary,Homefurnishing Retail,26923939840.0,174190901.4,large,False,sp500
-WTW,Willis Towers Watson,Financials,Insurance Brokers,31197542400.0,211233214.4,large,False,sp500
-WDAY,"Workday, Inc.",Information Technology,Application Software,39599726592.0,821915667.2,large,False,sp500
-WYNN,Wynn Resorts,Consumer Discretionary,Casinos & Gaming,10307059712.0,153508432.5,large,False,sp500
-XEL,Xcel Energy,Utilities,Multi-Utilities,48846401536.0,381282086.0,large,False,sp500
-XYL,Xylem Inc.,Industrials,Industrial Machinery & Supplies & Components,27310952448.0,272037129.0,large,False,sp500
-YUM,Yum! Brands,Consumer Discretionary,Restaurants,41845440512.0,385664742.4,large,False,sp500
-ZBRA,Zebra Technologies,Information Technology,Electronic Equipment & Instruments,13995643904.0,229555689.6,large,False,sp500
-ZBH,Zimmer Biomet,Health Care,Health Care Equipment,18171930624.0,207089349.60000002,large,False,sp500
-AAL,"American Airlines Group, Inc.",Industrials,Airlines,10108280832.0,1392130626.3,large,False,carvana_curated
-ACB,Aurora Cannabis Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,172818576.0,3226495.5,micro,False,carvana_curated
-ACHR,Archer Aviation Inc.,Industrials,Aerospace & Defense,3539693056.0,183170356.79999998,mid,False,carvana_curated
-AFRM,"Affirm Holdings, Inc.",Financial Services,Credit Services,23948597248.0,248073910.8,large,False,carvana_curated
-AG,First Majestic Silver Corp.,Basic Materials,Silver,7408382464.0,169487598.6,mid,False,carvana_curated
-ALT,"Altimmune, Inc.",Healthcare,Biotechnology,552306624.0,13985949.2,small,False,carvana_curated
-AMWL,American Well Corporation,Healthcare,Health Information Services,179616192.0,1251407.5,micro,False,carvana_curated
-ARWR,"Arrowhead Pharmaceuticals, Inc.",Healthcare,Biotechnology,11923547136.0,205614003.5,large,False,carvana_curated
-ASAN,"Asana, Inc.",Technology,Software - Application,1917841664.0,52723673.6,small,False,carvana_curated
-ASTS,"AST SpaceMobile, Inc.",Technology,Communication Equipment,22891587584.0,756190247.4,large,False,carvana_curated
-BB,BlackBerry Limited,Technology,Software - Infrastructure,4981853696.0,141787310.0,mid,False,carvana_curated
-BBAI,"BigBear.ai, Inc.",Technology,Information Technology Services,1337789568.0,69290598.6,small,False,carvana_curated
-BBBY,"Bed Bath & Beyond, Inc.",,,481084576.0,8956124.5,small,False,carvana_curated
-BBWI,"Bath & Body Works, Inc.",Consumer Cyclical,Specialty Retail,4055423744.0,93537477.60000001,mid,False,carvana_curated
-BEAM,Beam Therapeutics Inc.,Healthcare,Biotechnology,2625477632.0,48870544.8,mid,False,carvana_curated
-BEKE,KE Holdings Inc,Real Estate,Real Estate Services,18725367808.0,58184604.0,large,False,carvana_curated
-BIDU,"Baidu, Inc.",Communication Services,Internet Content & Information,37687013376.0,201343542.1,large,False,carvana_curated
-BILI,Bilibili Inc.,Communication Services,Internet Content & Information,7993460224.0,35819185.0,mid,False,carvana_curated
-BILL,"BILL Holdings, Inc.",Technology,Software - Application,4494800384.0,103374326.7,mid,False,carvana_curated
-BLNK,Blink Charging Co.,Industrials,Engineering & Construction,74283728.0,764823.9500000001,micro,False,carvana_curated
-BMBL,Bumble Inc.,Communication Services,Internet Content & Information,432286880.0,5422837.5,small,False,carvana_curated
-BTBT,"Bit Digital, Inc.",Financial Services,Capital Markets,462953984.0,32776160.700000003,small,False,carvana_curated
-BURL,"Burlington Stores, Inc.",Consumer Cyclical,Apparel Retail,23192944640.0,240271068.8,large,False,carvana_curated
-BYND,"Beyond Meat, Inc.",Consumer Defensive,Packaged Foods,291683776.0,13135603.479999999,micro,False,carvana_curated
-CAN,Canaan Inc.,Technology,Computer Hardware,126735744.0,2075174.7000000002,micro,False,carvana_curated
-CGC,Canopy Growth Corporation,Healthcare,Drug Manufacturers - Specialty & Generic,411332320.0,2109725.789,small,False,carvana_curated
-CHPT,"ChargePoint Holdings, Inc.",Consumer Cyclical,Specialty Retail,141401072.0,2072397.6,micro,False,carvana_curated
-CHWY,"Chewy, Inc.",Consumer Cyclical,Internet Retail,9252986880.0,180076574.0,mid,False,carvana_curated
-CIFR,Cipher Digital Inc.,Technology,Information Technology Services,9129977856.0,709758813.6,mid,False,carvana_curated
-CLOV,"Clover Health Investments, Corp",Healthcare,Healthcare Plans,2196273664.0,15342764.4,mid,False,carvana_curated
-CLSK,"CleanSpark, Inc.",Financial Services,Capital Markets,3530934528.0,315117484.8,mid,False,carvana_curated
-COMP,"Compass, Inc.",Real Estate,Real Estate Services,8510073344.0,124751708.60000001,mid,False,carvana_curated
-CRON,Cronos Group Inc. Common Share,Healthcare,Drug Manufacturers - Specialty & Generic,1057463552.0,2529057.8000000003,small,False,carvana_curated
-CRSP,CRISPR Therapeutics AG,Healthcare,Biotechnology,4726253568.0,78024541.5,mid,False,carvana_curated
-CURLF,"Curaleaf Holdings, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,2333188096.0,1072845.0,mid,False,carvana_curated
-DKNG,DraftKings Inc.,Consumer Cyclical,Gambling,11649104896.0,253340042.8,large,False,carvana_curated
-DKS,Dick's Sporting Goods Inc,Consumer Cyclical,Specialty Retail,17534441472.0,214482268.0,large,False,carvana_curated
-DLO,DLocal Limited,Technology,Software - Infrastructure,4437578240.0,27071163.6,mid,False,carvana_curated
-DNLI,Denali Therapeutics Inc.,Healthcare,Biotechnology,3653498368.0,31143988.2,mid,False,carvana_curated
-DOCN,"DigitalOcean Holdings, Inc.",Technology,Software - Infrastructure,13736700928.0,455019925.0,large,False,carvana_curated
-DOCS,"Doximity, Inc.",Healthcare,Health Information Services,3758646528.0,68429856.9,mid,False,carvana_curated
-EDIT,"Editas Medicine, Inc.",Healthcare,Biotechnology,395931520.0,3221052.6,small,False,carvana_curated
-ENPH,"Enphase Energy, Inc.",Technology,Solar,4960710144.0,197559881.0,mid,False,carvana_curated
-EOSE,"Eos Energy Enterprises, Inc.",Industrials,Electrical Equipment & Parts,1222503168.0,85308901.6,small,False,carvana_curated
-ESTC,Elastic N.V.,Technology,Software - Application,6838978048.0,102710032.2,mid,False,carvana_curated
-ETSY,"Etsy, Inc.",Consumer Cyclical,Internet Retail,7751124480.0,188323041.60000002,mid,False,carvana_curated
-EVGO,EVgo Inc.,Consumer Cyclical,Specialty Retail,495897792.0,5687936.8,small,False,carvana_curated
-EVTL,Vertical Aerospace Ltd.,Industrials,Aerospace & Defense,157886720.0,3030312.0,micro,False,carvana_curated
-FIGS,"FIGS, Inc.",Consumer Cyclical,Apparel Manufacturing,1787405568.0,29494121.999999996,small,False,carvana_curated
-FINV,FinVolution Group,Financial Services,Credit Services,1145055872.0,1540360.0,small,False,carvana_curated
-FIVE,"Five Below, Inc.",Consumer Cyclical,Specialty Retail,12006280192.0,226835711.0,large,False,carvana_curated
-FLYW,Flywire Corporation - Voting,Technology,Software - Infrastructure,1975920256.0,31403615.000000004,small,False,carvana_curated
-FOUR,"Shift4 Payments, Inc.",Technology,Software - Infrastructure,5253887488.0,51502220.0,mid,False,carvana_curated
-FSLY,"Fastly, Inc.",Technology,Software - Application,3546289920.0,95634490.6,mid,False,carvana_curated
-FUBO,fuboTV Inc.,Communication Services,Broadcasting,260577264.0,11006214.0,micro,False,carvana_curated
-FUTU,Futu Holdings Limited,Financial Services,Capital Markets,14737246208.0,155458814.4,large,False,carvana_curated
-GDRX,"GoodRx Holdings, Inc.",Healthcare,Health Information Services,1039733312.0,3256594.5999999996,small,False,carvana_curated
-GLBE,Global-E Online Ltd.,Consumer Cyclical,Internet Retail,6602798592.0,70399099.7,mid,False,carvana_curated
-GLXY,Galaxy Digital Inc.,Financial Services,Capital Markets,8191801344.0,125872800.9,mid,False,carvana_curated
-GME,GameStop Corporation,Consumer Cyclical,Specialty Retail,9745573888.0,68686676.39999999,mid,False,carvana_curated
-GOLD,"Gold.com, Inc.",Financial Services,Capital Markets,1199620864.0,14276231.2,small,False,carvana_curated
-GOTU,Gaotu Techedu Inc.,Consumer Defensive,Education & Training Services,433985856.0,588824.6,small,False,carvana_curated
-GTBIF,Green Thumb Industries Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,1554826496.0,3278851.0,small,False,carvana_curated
-GTLB,GitLab Inc.,Technology,Software - Infrastructure,5828738560.0,132636079.1,mid,False,carvana_curated
-HIMS,"Hims & Hers Health, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,6427580416.0,487504849.3,mid,False,carvana_curated
-HIVE,HIVE Digital Technologies Ltd,Financial Services,Capital Markets,774397120.0,47273706.7,small,False,carvana_curated
-HUT,Hut 8 Corp.,Financial Services,Capital Markets,12118504448.0,539591165.6999999,large,False,carvana_curated
-IBRX,"ImmunityBio, Inc.",Healthcare,Biotechnology,7509528064.0,65248720.8,mid,False,carvana_curated
-ILMN,"Illumina, Inc.",Healthcare,Diagnostics & Research,31031631872.0,396741338.0,large,False,carvana_curated
-IONS,"Ionis Pharmaceuticals, Inc.",Healthcare,Biotechnology,8603362304.0,180500246.60000002,mid,False,carvana_curated
-IREN,IREN LIMITED,Financial Services,Capital Markets,13151535104.0,2040015727.9999998,large,False,carvana_curated
-JBLU,JetBlue Airways Corporation,Industrials,Airlines,2275192576.0,286354449.0,mid,False,carvana_curated
-JOBY,"Joby Aviation, Inc.",Industrials,Airports & Air Services,7033046528.0,345330628.5,mid,False,carvana_curated
-LBRDA,Liberty Broadband Corporation,Communication Services,Telecom Services,4899914752.0,8176103.000000001,mid,False,carvana_curated
-LCID,"Lucid Group, Inc.",Consumer Cyclical,Auto Manufacturers,2880095232.0,116125259.39999999,mid,False,carvana_curated
-LI,Li Auto Inc.,Consumer Cyclical,Auto Manufacturers,13407517696.0,50900689.800000004,large,False,carvana_curated
-LMND,"Lemonade, Inc.",Financial Services,Insurance - Property & Casualty,3735653888.0,93594344.7,mid,False,carvana_curated
-LX,LexinFintech Holdings Ltd.,Financial Services,Credit Services,240590880.0,3079870.0,micro,False,carvana_curated
-LYFT,"Lyft, Inc.",Technology,Software - Application,6021764608.0,207369182.79999998,mid,False,carvana_curated
-M,Macy's Inc,Consumer Cyclical,Department Stores,6528602112.0,122144928.6,mid,False,carvana_curated
-MARA,"MARA Holdings, Inc.",Financial Services,Capital Markets,4315981824.0,622800024.4,mid,False,carvana_curated
-MDB,"MongoDB, Inc.",Technology,Software - Infrastructure,27144167424.0,397051969.6,large,False,carvana_curated
-MNDY,monday.com Ltd.,Technology,Software - Application,3684189696.0,177711051.0,mid,False,carvana_curated
-MNPR,Monopar Therapeutics Inc.,Healthcare,Biotechnology,725843328.0,35986285.5,small,False,carvana_curated
-MQ,"Marqeta, Inc.",Technology,Software - Infrastructure,1826307584.0,15870685.6,small,False,carvana_curated
-MSTR,Strategy Inc,Technology,Software - Application,34077014016.0,1483756454.4,large,False,carvana_curated
-MTDR,Matador Resources Company,Energy,Oil & Gas E&P,6195251712.0,116886283.2,mid,False,carvana_curated
-MVST,"Microvast Holdings, Inc.",Consumer Cyclical,Auto Parts,268891328.0,3632950.804,micro,False,carvana_curated
-NTLA,"Intellia Therapeutics, Inc.",Healthcare,Biotechnology,1492233856.0,36232540.8,small,False,carvana_curated
-OCGN,"Ocugen, Inc.",Healthcare,Biotechnology,416381888.0,5845341.3,small,False,carvana_curated
-OKTA,"Okta, Inc.",Technology,Software - Infrastructure,24668477440.0,377082462.6,large,False,carvana_curated
-OLLI,Ollie's Bargain Outlet Holdings,Consumer Defensive,Discount Stores,4441503232.0,111921259.2,mid,False,carvana_curated
-OPEN,Opendoor Technologies Inc,Real Estate,Real Estate Services,3637057024.0,204788247.3,mid,False,carvana_curated
-OPRT,Oportun Financial Corporation,Financial Services,Credit Services,254563168.0,1890358.8,micro,False,carvana_curated
-OPRX,OptimizeRx Corporation,Healthcare,Health Information Services,113528712.0,1242730.5,micro,False,carvana_curated
-OSCR,"Oscar Health, Inc.",Healthcare,Healthcare Plans,9412611072.0,133215115.6,mid,False,carvana_curated
-PAAS,Pan American Silver Corp.,Basic Materials,Gold,18164400128.0,152774511.3,large,False,carvana_curated
-PACB,Pacific Biosciences of Californ,Healthcare,Medical Devices,434842368.0,9649752.0,small,False,carvana_curated
-PAGS,PagSeguro Digital Ltd.,Technology,Software - Infrastructure,2694566400.0,25656667.200000003,mid,False,carvana_curated
-PATH,"UiPath, Inc.",Technology,Software - Infrastructure,6611214336.0,1066584283.6,mid,False,carvana_curated
-PD,"PagerDuty, Inc.",Technology,Software - Application,815956736.0,15870846.4,small,False,carvana_curated
-PINS,"Pinterest, Inc.",Communication Services,Internet Content & Information,13449376768.0,242142290.60000002,large,False,carvana_curated
-PLBY,"Playboy, Inc.",Consumer Cyclical,Leisure,128310720.0,698922.6000000001,micro,False,carvana_curated
-PLNT,"Planet Fitness, Inc.",Consumer Cyclical,Leisure,4441645568.0,109779844.1,mid,False,carvana_curated
-PLUG,"Plug Power, Inc.",Industrials,Electrical Equipment & Parts,2873842176.0,96231746.4,mid,False,carvana_curated
-PR,Permian Resources Corporation,Energy,Oil & Gas E&P,18359334912.0,179754964.39999998,large,False,carvana_curated
-PRTA,Prothena Corporation plc,Healthcare,Biotechnology,425108256.0,4908133.999999999,small,False,carvana_curated
-PSFE,Paysafe Limited,Technology,Software - Infrastructure,417544928.0,1956652.8,small,False,carvana_curated
-PTON,"Peloton Interactive, Inc.",Consumer Cyclical,Leisure,2766818304.0,43726770.0,mid,False,carvana_curated
-QFIN,"Qfin Holdings, Inc.",Financial Services,Credit Services,1689916160.0,11456690.8,small,False,carvana_curated
-QS,QuantumScape Corporation,Consumer Cyclical,Auto Parts,3211057152.0,175079530.79999998,mid,False,carvana_curated
-RARE,Ultragenyx Pharmaceutical Inc.,Healthcare,Biotechnology,2453366528.0,46374199.7,mid,False,carvana_curated
-RBLX,Roblox Corporation,Communication Services,Electronic Gaming & Multimedia,25431781376.0,507075364.0,large,False,carvana_curated
-REAL,"The RealReal, Inc.",Consumer Cyclical,Luxury Goods,1456696704.0,30668461.2,small,False,carvana_curated
-REAX,"The Real Brokerage, Inc.",Real Estate,Real Estate Services,348710624.0,6466096.0,small,False,carvana_curated
-RGEN,Repligen Corporation,Healthcare,Medical Instruments & Supplies,7957986304.0,243490427.6,mid,False,carvana_curated
-RGNX,REGENXBIO Inc.,Healthcare,Biotechnology,620356160.0,13422684.899999999,small,False,carvana_curated
-RH,RH,Consumer Cyclical,Specialty Retail,3132667904.0,115642203.2,mid,False,carvana_curated
-RILY,"BRC Group Holdings, Inc.",Financial Services,Financial Conglomerates,287794016.0,3735944.8000000003,micro,False,carvana_curated
-RIOT,"Riot Platforms, Inc.",Financial Services,Capital Markets,7627310592.0,411360292.20000005,mid,False,carvana_curated
-RIVN,"Rivian Automotive, Inc.",Consumer Cyclical,Auto Manufacturers,22036439040.0,412781315.6,large,False,carvana_curated
-RKLB,Rocket Lab Corporation,Industrials,Aerospace & Defense,40581976064.0,1152872892.0,large,False,carvana_curated
-ROKU,"Roku, Inc.",Communication Services,Entertainment,21511096320.0,354034664.5,large,False,carvana_curated
-RRC,Range Resources Corporation,Energy,Oil & Gas E&P,9379895296.0,155506775.4,mid,False,carvana_curated
-RUN,Sunrun Inc.,Technology,Solar,2340168448.0,91414779.30000001,mid,False,carvana_curated
-RVLV,"Revolve Group, Inc.",Consumer Cyclical,Internet Retail,1796759808.0,19728675.9,small,False,carvana_curated
-RXRX,"Recursion Pharmaceuticals, Inc.",Healthcare,Biotechnology,1592286592.0,52808190.0,small,False,carvana_curated
-RYAAY,Ryanair Holdings plc,Industrials,Airlines,30372937728.0,101125758.5,large,False,carvana_curated
-S,"SentinelOne, Inc.",Technology,Software - Infrastructure,6533838336.0,111401125.6,mid,False,carvana_curated
-SEDG,"SolarEdge Technologies, Inc.",Technology,Solar,2505709824.0,93355904.0,mid,False,carvana_curated
-SHLS,"Shoals Technologies Group, Inc.",Technology,Solar,1466325760.0,39757211.2,small,False,carvana_curated
-SIRI,SiriusXM Holdings Inc.,Communication Services,Entertainment,9983921152.0,128853812.60000001,mid,False,carvana_curated
-SKLZ,Skillz Inc.,Communication Services,Electronic Gaming & Multimedia,137970800.0,1854154.64,micro,False,carvana_curated
-SNAP,Snap Inc.,Communication Services,Internet Content & Information,7772085248.0,141285171.3,mid,False,carvana_curated
-SNDL,SNDL Inc.,Consumer Defensive,Beverages - Wineries & Distilleries,320168992.0,2463505.5,small,False,carvana_curated
-SOFI,"SoFi Technologies, Inc.",Financial Services,Credit Services,21044996096.0,1480223999.1,large,False,carvana_curated
-SOUN,"SoundHound AI, Inc.",Technology,Software - Application,2670682624.0,239811300.9,mid,False,carvana_curated
-STLA,Stellantis N.V.,Consumer Cyclical,Auto Manufacturers,21699786752.0,133987795.19999999,large,False,carvana_curated
-STNE,StoneCo Ltd.,Technology,Software - Infrastructure,2766721024.0,37038820.0,mid,False,carvana_curated
+AOS,A. O. Smith,Industrials,Building Products,8036274176.0,72467954.10000001,mid,False,sp500
+AES,AES Corporation,Utilities,Independent Power Producers & Energy Traders,10516085760.0,117219850.0,large,False,sp500
+A,Agilent Technologies,Health Care,Life Sciences Tools & Services,43298672640.0,443375323.6,large,False,sp500
+AKAM,Akamai Technologies,Information Technology,Internet Services & Infrastructure,15610498048.0,321967059.2,large,False,sp500
+ALB,Albemarle Corporation,Materials,Specialty Chemicals,15927142400.0,246533502.6,large,False,sp500
+ARE,Alexandria Real Estate Equities,Real Estate,Office REITs,8826767360.0,121273153.39999999,mid,False,sp500
+ALGN,Align Technology,Health Care,Health Care Supplies,11351457792.0,135573825.5,large,False,sp500
+ALLE,Allegion,Industrials,Building Products,13201960960.0,163510852.5,large,False,sp500
+LNT,Alliant Energy,Utilities,Electric Utilities,17626175488.0,125790871.80000001,large,False,sp500
+AMCR,Amcor,Materials,Paper & Plastic Packaging Products & Materials,21217044480.0,167605882.6,large,False,sp500
+AEE,Ameren,Utilities,Multi-Utilities,29348155392.0,134264845.3,large,False,sp500
+AIG,American International Group,Financials,Multi-line Insurance,39928123392.0,209942656.8,large,False,sp500
+AWK,American Water Works,Utilities,Water Utilities,27470307328.0,289257333.4,large,False,sp500
+AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,48857985024.0,195480136.20000002,large,False,sp500
+APA,APA Corporation,Energy,Oil & Gas Exploration & Production,15117668352.0,239434172.0,large,False,sp500
+APTV,Aptiv,Consumer Discretionary,Automotive Parts & Equipment,9293667328.0,260916334.79999998,mid,False,sp500
+ACGL,Arch Capital Group,Financials,Property & Casualty Insurance,33464340480.0,191654278.2,large,False,sp500
+ADM,Archer Daniels Midland,Consumer Staples,Agricultural Products & Services,39178493952.0,295919987.0,large,False,sp500
+ARES,Ares Management,Financials,Asset Management & Custody Banks,47224139776.0,261322474.2,large,False,sp500
+AIZ,Assurant,Financials,Multi-line Insurance,13902396416.0,93247743.80000001,large,False,sp500
+ATO,Atmos Energy,Utilities,Gas Utilities,28074070016.0,148495300.5,large,False,sp500
+AVY,Avery Dennison,Materials,Paper & Plastic Packaging Products & Materials,13195473920.0,227788113.00000003,large,False,sp500
+AXON,Axon Enterprise,Industrials,Aerospace & Defense,46025871360.0,379045636.79999995,large,False,sp500
+BALL,Ball Corporation,Materials,"Metal, Glass & Plastic Containers",16668370944.0,98194788.3,large,False,sp500
+BAX,Baxter International,Health Care,Health Care Equipment,13441896448.0,118268800.0,large,False,sp500
+BBY,Best Buy,Consumer Discretionary,Computer & Electronics Retail,16892985344.0,343510877.5,large,False,sp500
+TECH,Bio-Techne,Health Care,Life Sciences Tools & Services,11339526144.0,168978346.6,large,False,sp500
+BIIB,Biogen,Health Care,Biotechnology,32010903552.0,146234417.0,large,False,sp500
+XYZ,"Block, Inc.",Financials,Transaction & Payment Processing Services,49277206528.0,343877872.2,large,False,sp500
+BR,Broadridge Financial Solutions,Industrials,Data Processing & Outsourced Services,20795295744.0,226643626.0,large,False,sp500
+BRO,Brown & Brown,Financials,Insurance Brokers,24148830208.0,113890755.3,large,False,sp500
+BF-B,Brown–Forman,Consumer Staples,Distillers & Vintners,12192023552.0,54125747.0,large,False,sp500
+BLDR,Builders FirstSource,Industrials,Building Products,7144404992.0,119815480.00000001,mid,False,sp500
+BG,Bunge Global,Consumer Staples,Agricultural Products & Services,22326163456.0,160304722.4,large,False,sp500
+BXP,"BXP, Inc.",Real Estate,Office REITs,12297856000.0,80649058.1,large,False,sp500
+CHRW,C.H. Robinson,Industrials,Air Freight & Logistics,17487960064.0,187607789.6,large,False,sp500
+CPT,Camden Property Trust,Real Estate,Multi-Family Residential REITs,12244506624.0,83339718.0,large,False,sp500
+CCL,Carnival Corporation,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",32720916480.0,460706466.1,large,False,sp500
+CARR,Carrier Global,Industrials,Building Products,47992205312.0,321662589.0,large,False,sp500
+CASY,Casey's,Consumer Staples,Food Retail,27835465728.0,240413838.10000002,large,False,sp500
+CBOE,Cboe Global Markets,Financials,Financial Exchanges & Data,31350192128.0,358898106.0,large,False,sp500
+CBRE,CBRE Group,Real Estate,Real Estate Services,42222972928.0,196906198.3,large,False,sp500
+CDW,CDW Corporation,Information Technology,Technology Distributors,18950141952.0,265692455.60000002,large,False,sp500
+CNC,Centene Corporation,Health Care,Managed Health Care,31783636992.0,217927944.20000002,large,False,sp500
+CNP,CenterPoint Energy,Utilities,Multi-Utilities,26085320704.0,237778596.0,large,False,sp500
+CF,CF Industries,Materials,Fertilizers & Agricultural Chemicals,19678496768.0,326478023.7,large,False,sp500
+CRL,Charles River Laboratories,Health Care,Life Sciences Tools & Services,13883865088.0,264774381.6,large,False,sp500
+CHTR,Charter Communications,Communication Services,Cable & Satellite,20545480704.0,502411752.0,large,False,sp500
+CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,48123842560.0,579331145.9,large,False,sp500
+CHD,Church & Dwight,Consumer Staples,Household Products,23668205568.0,166323282.0,large,False,sp500
+CINF,Cincinnati Financial,Financials,Property & Casualty Insurance,26075920384.0,74083196.0,large,False,sp500
+CFG,Citizens Financial Group,Financials,Regional Banks,29006446592.0,192979249.60000002,large,False,sp500
+CLX,Clorox,Consumer Staples,Household Products,11812540416.0,299943045.6,large,False,sp500
+CMS,CMS Energy,Utilities,Multi-Utilities,21342060544.0,215378592.4,large,False,sp500
+CTSH,Cognizant,Information Technology,IT Consulting & Other Services,29089689600.0,386787056.59999996,large,False,sp500
+COIN,Coinbase,Financials,Financial Exchanges & Data,49633001472.0,2239384242.4,large,False,sp500
+ED,Consolidated Edison,Utilities,Multi-Utilities,39579058176.0,231514225.6,large,False,sp500
+STZ,Constellation Brands,Consumer Staples,Distillers & Vintners,22310463488.0,221187989.4,large,False,sp500
+COO,Cooper Companies (The),Health Care,Health Care Supplies,13669695488.0,103241869.10000001,large,False,sp500
+CPRT,Copart,Industrials,Diversified Support Services,30542522368.0,334405444.3,large,False,sp500
+CPAY,Corpay,Financials,Transaction & Payment Processing Services,26546176000.0,164040682.0,large,False,sp500
+CSGP,CoStar Group,Real Estate,Real Estate Services,12994686976.0,253385390.7,large,False,sp500
+CCI,Crown Castle,Real Estate,Telecom Tower REITs,33273180160.0,161412993.0,large,False,sp500
+DRI,Darden Restaurants,Consumer Discretionary,Restaurants,24327456768.0,190074331.2,large,False,sp500
+DVA,DaVita,Health Care,Health Care Services,11229437952.0,101404641.3,large,False,sp500
+DECK,Deckers Brands,Consumer Discretionary,Footwear,11858716672.0,235474769.6,large,False,sp500
+DXCM,Dexcom,Health Care,Health Care Equipment,34362470400.0,379066389.2,large,False,sp500
+DG,Dollar General,Consumer Staples,Consumer Staples Merchandise Retail,27963176960.0,341679975.0,large,False,sp500
+DLTR,Dollar Tree,Consumer Staples,Consumer Staples Merchandise Retail,23752120320.0,342957628.0,large,False,sp500
+DPZ,Domino's,Consumer Discretionary,Restaurants,11315938304.0,336043164.6,large,False,sp500
+DOV,Dover Corporation,Industrials,Industrial Machinery & Supplies & Components,26158940160.0,181546781.0,large,False,sp500
+DOW,Dow Inc.,Materials,Commodity Chemicals,22045839360.0,251759785.2,large,False,sp500
+DHI,D. R. Horton,Consumer Discretionary,Homebuilding,40433614848.0,244982940.8,large,False,sp500
+DTE,DTE Energy,Utilities,Multi-Utilities,28222984192.0,155800893.6,large,False,sp500
+DD,DuPont,Industrials,Industrial Conglomerates,18175432704.0,151656012.0,large,False,sp500
+EBAY,eBay Inc.,Consumer Discretionary,Broadline Retail,46084198400.0,455083028.40000004,large,False,sp500
+ECHO,EchoStar,Communication Services,Wireless Telecommunication Services,25110018048.0,211626730.0,large,False,sp500
+EIX,Edison International,Utilities,Electric Utilities,20772257792.0,299637042.2,large,False,sp500
+EME,Emcor,Industrials,Construction & Engineering,32400484352.0,261459513.0,large,False,sp500
+ETR,Entergy,Utilities,Electric Utilities,49607593984.0,181842191.9,large,False,sp500
+EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,33890459648.0,352861878.6,large,False,sp500
+EFX,Equifax,Industrials,Research & Consulting Services,22223443968.0,205811754.79999998,large,False,sp500
+ERIE,Erie Indemnity,Financials,Insurance Brokers,13363198976.0,102658452.0,large,False,sp500
+ESS,Essex Property Trust,Real Estate,Multi-Family Residential REITs,19505250304.0,135359575.2,large,False,sp500
+EL,Estée Lauder Companies (The),Consumer Staples,Personal Care Products,37011992576.0,516558735.0,large,False,sp500
+EG,Everest Group,Financials,Reinsurance,14365106176.0,90609102.5,large,False,sp500
+EVRG,Evergy,Utilities,Electric Utilities,18680551424.0,161951688.2,large,False,sp500
+ES,Eversource Energy,Utilities,Electric Utilities,26419965952.0,130937352.0,large,False,sp500
+EXC,Exelon,Utilities,Electric Utilities,45042704384.0,256402935.2,large,False,sp500
+EXE,Expand Energy,Energy,Oil & Gas Exploration & Production,22724413440.0,258453316.79999998,large,False,sp500
+EXPE,Expedia Group,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",38061400064.0,388269043.2,large,False,sp500
+EXPD,Expeditors International,Industrials,Air Freight & Logistics,24652720128.0,139684811.0,large,False,sp500
+EXR,Extra Space Storage,Real Estate,Self-Storage REITs,31141130240.0,116382102.0,large,False,sp500
+FFIV,"F5, Inc.",Information Technology,Communications Equipment,23054624768.0,173864866.5,large,False,sp500
+FDS,FactSet,Financials,Financial Exchanges & Data,11151576064.0,258478078.0,large,False,sp500
+FICO,Fair Isaac,Information Technology,Application Software,24777023488.0,266863990.20000002,large,False,sp500
+FRT,Federal Realty Investment Trust,Real Estate,Retail REITs,10143149056.0,68910217.0,large,False,sp500
+FDXF,FedEx Freight,Industrials,Cargo Ground Transportation,19996555264.0,147394854.0,large,False,sp500
+FERG,Ferguson Enterprises,Industrials,Building Products,43432067072.0,299646761.7,large,False,sp500
+FIS,Fidelity National Information Services,Financials,Transaction & Payment Processing Services,21025331200.0,207918438.3,large,False,sp500
+FITB,Fifth Third Bancorp,Financials,Regional Banks,48763613184.0,291353820.40000004,large,False,sp500
+FSLR,First Solar,Information Technology,Semiconductors,21698150400.0,342961473.0,large,False,sp500
+FE,FirstEnergy,Utilities,Electric Utilities,26536427520.0,173221474.8,large,False,sp500
+FISV,Fiserv,Financials,Transaction & Payment Processing Services,28348483584.0,287459248.2,large,False,sp500
+FLEX,Flex Ltd.,Information Technology,Electronic Manufacturing Services,40357273600.0,301323517.5,large,False,sp500
+FTV,Fortive,Industrials,Industrial Machinery & Supplies & Components,17770684416.0,118765598.0,large,False,sp500
+FOXA,Fox Corporation (Class A),Communication Services,Broadcasting,28316463104.0,352891101.0,large,False,sp500
+FOX,Fox Corporation (Class B),Communication Services,Broadcasting,25318744064.0,62916651.6,large,False,sp500
+BEN,Franklin Resources,Financials,Asset Management & Custody Banks,17350825984.0,100908127.5,large,False,sp500
+IT,Gartner,Information Technology,IT Consulting & Other Services,12510443520.0,233058585.10000002,large,False,sp500
+GEHC,GE HealthCare,Health Care,Health Care Equipment,32173613056.0,184574737.5,large,False,sp500
+GEN,Gen Digital,Information Technology,Systems Software,18556196864.0,187594950.0,large,False,sp500
+GNRC,Generac,Industrials,Heavy Electrical Equipment,10938599424.0,206159244.2,large,False,sp500
+GIS,General Mills,Consumer Staples,Packaged Foods & Meats,22026735616.0,336287172.0,large,False,sp500
+GPC,Genuine Parts Company,Consumer Discretionary,Distributors,18703433728.0,159130056.39999998,large,False,sp500
+GPN,Global Payments,Financials,Transaction & Payment Processing Services,24093505536.0,243279226.5,large,False,sp500
+GL,Globe Life,Financials,Life & Health Insurance,13269594112.0,86796028.89999999,large,False,sp500
+GDDY,GoDaddy,Information Technology,Internet Services & Infrastructure,12396276736.0,157351888.0,large,False,sp500
+HAL,Halliburton,Energy,Oil & Gas Equipment & Services,30700853248.0,443417155.5,large,False,sp500
+HIG,Hartford (The),Financials,Property & Casualty Insurance,37212397568.0,197085348.0,large,False,sp500
+HAS,Hasbro,Consumer Discretionary,Leisure Products,13272284160.0,129087320.99999999,large,False,sp500
+DOC,Healthpeak Properties,Real Estate,Health Care REITs,14760282112.0,89555980.8,large,False,sp500
+HSIC,Henry Schein,Health Care,Health Care Distributors,10007900160.0,78587572.0,large,False,sp500
+HSY,Hershey Company (The),Consumer Staples,Packaged Foods & Meats,35405111296.0,176437310.9,large,False,sp500
+HRL,Hormel Foods,Consumer Staples,Packaged Foods & Meats,12025164800.0,152196612.0,large,False,sp500
+HST,Host Hotels & Resorts,Real Estate,Hotel & Resort REITs,15235351552.0,179393979.0,large,False,sp500
+HPQ,HP Inc.,Information Technology,"Technology Hardware, Storage & Peripherals",27071766528.0,463182182.4,large,False,sp500
+HUBB,Hubbell Incorporated,Industrials,Industrial Machinery & Supplies & Components,23933155328.0,208904121.0,large,False,sp500
+HUM,Humana,Health Care,Managed Health Care,46018375680.0,385644349.0,large,False,sp500
+HBAN,Huntington Bancshares,Financials,Regional Banks,33710620672.0,340525666.65,large,False,sp500
+HII,Huntington Ingalls Industries,Industrials,Aerospace & Defense,11474620416.0,121511936.0,large,False,sp500
+IEX,IDEX Corporation,Industrials,Industrial Machinery & Supplies & Components,16855316480.0,131726363.19999999,large,False,sp500
+IDXX,Idexx Laboratories,Health Care,Health Care Equipment,43856662528.0,259701451.90000004,large,False,sp500
+INCY,Incyte,Health Care,Biotechnology,24976416768.0,141890294.4,large,False,sp500
+IR,Ingersoll Rand,Industrials,Industrial Machinery & Supplies & Components,29895356416.0,261582438.5,large,False,sp500
+PODD,Insulet Corporation,Health Care,Health Care Equipment,10310195200.0,212557041.2,large,False,sp500
+IFF,International Flavors & Fragrances,Materials,Specialty Chemicals,22027098112.0,117264628.89999999,large,False,sp500
+IP,International Paper,Materials,Paper & Plastic Packaging Products & Materials,20086585344.0,127211530.5,large,False,sp500
+IVZ,Invesco,Financials,Asset Management & Custody Banks,14472361984.0,111563452.0,large,False,sp500
+INVH,Invitation Homes,Real Estate,Single-Family Residential REITs,17310382080.0,108038881.2,large,False,sp500
+IQV,IQVIA,Health Care,Life Sciences Tools & Services,42991874048.0,346943900.8,large,False,sp500
+IRM,Iron Mountain,Real Estate,Other Specialized REITs,34340020224.0,158513970.0,large,False,sp500
+JBHT,J.B. Hunt,Industrials,Cargo Ground Transportation,24931598336.0,183094659.00000003,large,False,sp500
+JBL,Jabil,Information Technology,Electronic Manufacturing Services,31987306496.0,264291055.4,large,False,sp500
+JKHY,Jack Henry & Associates,Financials,Transaction & Payment Processing Services,11772608512.0,191728033.5,large,False,sp500
+J,Jacobs Solutions,Industrials,Construction & Engineering,17444603904.0,121062881.50000001,large,False,sp500
+KVUE,Kenvue,Consumer Staples,Personal Care Products,36264202240.0,393853225.59999996,large,False,sp500
+KDP,Keurig Dr Pepper,Consumer Staples,Soft Drinks & Non-alcoholic Beverages,43355918336.0,280725787.8,large,False,sp500
+KEY,KeyCorp,Financials,Regional Banks,23060649984.0,207664752.6,large,False,sp500
+KMB,Kimberly-Clark,Consumer Staples,Household Products,35901906944.0,327148952.0,large,False,sp500
+KIM,Kimco Realty,Real Estate,Retail REITs,15904415744.0,100401654.7,large,False,sp500
+KHC,Kraft Heinz,Consumer Staples,Packaged Foods & Meats,30440095744.0,386090661.8,large,False,sp500
+KR,Kroger,Consumer Staples,Food Retail,35251724288.0,346452367.8,large,False,sp500
+LHX,L3Harris,Industrials,Aerospace & Defense,49579642880.0,468291150.0,large,False,sp500
+LH,Labcorp,Health Care,Health Care Services,26978725888.0,215483841.60000002,large,False,sp500
+LVS,Las Vegas Sands,Consumer Discretionary,Casinos & Gaming,28375789568.0,209964682.20000002,large,False,sp500
+LDOS,Leidos,Industrials,Diversified Support Services,17595262976.0,150058350.4,large,False,sp500
+LEN,Lennar,Consumer Discretionary,Homebuilding,20261689344.0,202776593.5,large,False,sp500
+LII,Lennox International,Industrials,Building Products,13224297472.0,161856720.0,large,False,sp500
+LYV,Live Nation Entertainment,Communication Services,Movies & Entertainment,41907085312.0,285077079.7,large,False,sp500
+L,Loews Corporation,Financials,Multi-line Insurance,22137477120.0,67111644.60000001,large,False,sp500
+LULU,Lululemon Athletica,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",13655994368.0,505046301.20000005,large,False,sp500
+LYB,LyondellBasell,Materials,Specialty Chemicals,21023309824.0,213496241.6,large,False,sp500
+MTB,M&T Bank,Financials,Regional Banks,33784739840.0,217837909.8,large,False,sp500
+MLM,Martin Marietta Materials,Materials,Construction Materials,36837756928.0,317159115.0,large,False,sp500
+MAS,Masco,Industrials,Building Products,14229045248.0,117048571.19999999,large,False,sp500
+MKC,McCormick & Company,Consumer Staples,Packaged Foods & Meats,14577131520.0,137341428.8,large,False,sp500
+MTD,Mettler Toledo,Health Care,Life Sciences Tools & Services,28154171392.0,267861838.20000002,large,False,sp500
+MGM,MGM Resorts,Consumer Discretionary,Casinos & Gaming,10582006784.0,75540731.2,large,False,sp500
+MCHP,Microchip Technology,Information Technology,Semiconductors,39883988992.0,608904907.0,large,False,sp500
+MAA,Mid-America Apartment Communities,Real Estate,Multi-Family Residential REITs,15328485376.0,99046995.0,large,False,sp500
+TAP,Molson Coors Beverage Company,Consumer Staples,Brewers,7413408256.0,96098329.6,mid,False,sp500
+MOS,Mosaic Company (The),Materials,Fertilizers & Agricultural Chemicals,7667643392.0,196037229.6,mid,False,sp500
+MSCI,MSCI,Financials,Financial Exchanges & Data,41485529088.0,296647204.0,large,False,sp500
+NTAP,NetApp,Information Technology,"Technology Hardware, Storage & Peripherals",36360245248.0,395925819.09999996,large,False,sp500
+NWSA,News Corp (Class A),Communication Services,Publishing,16491702272.0,108560771.3,large,False,sp500
+NWS,News Corp (Class B),Communication Services,Publishing,18478653440.0,36351412.199999996,large,False,sp500
+NI,NiSource,Utilities,Multi-Utilities,19623598080.0,213447722.4,large,False,sp500
+NDSN,Nordson Corporation,Industrials,Industrial Machinery & Supplies & Components,17919600640.0,171016700.4,large,False,sp500
+NTRS,Northern Trust,Financials,Asset Management & Custody Banks,33949249536.0,174020023.6,large,False,sp500
+NCLH,Norwegian Cruise Line Holdings,Consumer Discretionary,"Hotels, Resorts & Cruise Lines",7411291648.0,228858098.4,mid,False,sp500
+NRG,NRG Energy,Utilities,Independent Power Producers & Energy Traders,23148378112.0,287578380.0,large,False,sp500
+NVR,"NVR, Inc.",Consumer Discretionary,Homebuilding,16913152000.0,190404184.5,large,False,sp500
+ODFL,Old Dominion,Industrials,Cargo Ground Transportation,41585340416.0,248346320.8,large,False,sp500
+OMC,Omnicom Group,Communication Services,Advertising,24013500416.0,166814674.0,large,False,sp500
+ON,ON Semiconductor,Information Technology,Semiconductors,28844615680.0,504527709.40000004,large,False,sp500
+OTIS,Otis Worldwide,Industrials,Industrial Machinery & Supplies & Components,27077009408.0,219972370.2,large,False,sp500
+PKG,Packaging Corporation of America,Materials,Paper & Plastic Packaging Products & Materials,20843655168.0,114740551.8,large,False,sp500
+PSKY,Paramount Skydance Corporation,Communication Services,Movies & Entertainment,12240428032.0,103978082.3,large,False,sp500
+PAYX,Paychex,Industrials,Human Resource & Employment Services,45292654592.0,264807350.20000002,large,False,sp500
+PYPL,PayPal,Financials,Transaction & Payment Processing Services,45052846080.0,673718065.8,large,False,sp500
+PNR,Pentair,Industrials,Industrial Machinery & Supplies & Components,9649416192.0,175058907.0,mid,False,sp500
+PCG,PG&E Corporation,Utilities,Multi-Utilities,29225410560.0,610050961.3,large,False,sp500
+PNW,Pinnacle West Capital,Utilities,Multi-Utilities,11833697280.0,96841304.8,large,False,sp500
+PPG,PPG Industries,Materials,Specialty Chemicals,24935391232.0,133946683.8,large,False,sp500
+PPL,PPL Corporation,Utilities,Electric Utilities,25684355072.0,273470038.0,large,False,sp500
+PFG,Principal Financial Group,Financials,Life & Health Insurance,23585767424.0,90283831.2,large,False,sp500
+PRU,Prudential Financial,Financials,Life & Health Insurance,40571998208.0,194675040.0,large,False,sp500
+PEG,Public Service Enterprise Group,Utilities,Electric Utilities,36549140480.0,158188942.6,large,False,sp500
+PTC,PTC Inc.,Information Technology,Application Software,16898765824.0,173207798.4,large,False,sp500
+PHM,PulteGroup,Consumer Discretionary,Homebuilding,24062236672.0,147838612.0,large,False,sp500
+DGX,Quest Diagnostics,Health Care,Health Care Services,26522718208.0,221455674.0,large,False,sp500
+Q,Qnity Electronics,Information Technology,Semiconductor Materials & Equipment,24985776128.0,219008345.4,large,False,sp500
+RL,Ralph Lauren Corporation,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",20669079552.0,195682821.0,large,False,sp500
+RJF,Raymond James Financial,Financials,Investment Banking & Brokerage,34226456576.0,204950732.7,large,False,sp500
+RDDT,Reddit,Communication Services,Interactive Media & Services,28438128640.0,1222669539.0,large,False,sp500
+REG,Regency Centers,Real Estate,Retail REITs,13978903552.0,71829295.89999999,large,False,sp500
+RF,Regions Financial Corporation,Financials,Regional Banks,25455652864.0,221903820.0,large,False,sp500
+RMD,ResMed|,Health Care,Health Care Equipment,34634977280.0,351280706.0,large,False,sp500
+RVTY,Revvity,Health Care,Health Care Equipment,14357821440.0,194864281.49999997,large,False,sp500
+ROK,Rockwell Automation,Industrials,Electrical Components & Equipment,47228002304.0,275085815.9,large,False,sp500
+ROL,"Rollins, Inc.",Industrials,Environmental & Facilities Services,17354913792.0,141650136.3,large,False,sp500
+ROP,Roper Technologies,Information Technology,Electronic Equipment & Instruments,41997266944.0,274266483.2,large,False,sp500
+SBAC,SBA Communications,Real Estate,Telecom Tower REITs,20120672256.0,136046911.2,large,False,sp500
+SWKS,Skyworks Solutions,Information Technology,Semiconductors,10083181568.0,311075832.3,large,False,sp500
+SJM,J.M. Smucker Company (The),Consumer Staples,Packaged Foods & Meats,14010929152.0,197083639.2,large,False,sp500
+SW,Smurfit Westrock,Materials,Paper & Plastic Packaging Products & Materials,24600125440.0,202413834.0,large,False,sp500
+SNA,Snap-on,Industrials,Industrial Machinery & Supplies & Components,19982704640.0,105466493.1,large,False,sp500
+SOLV,Solventum,Health Care,Health Care Technology,15500572672.0,84830585.4,large,False,sp500
+LUV,Southwest Airlines,Industrials,Passenger Airlines,18849191936.0,171643829.3,large,False,sp500
+SWK,Stanley Black & Decker,Industrials,Industrial Machinery & Supplies & Components,14553474048.0,141146393.1,large,False,sp500
+STLD,Steel Dynamics,Materials,Steel,33340981248.0,341446614.6,large,False,sp500
+STE,Steris,Health Care,Health Care Equipment,22682425344.0,137655414.4,large,False,sp500
+SMCI,Supermicro,Information Technology,"Technology Hardware, Storage & Peripherals",24115425280.0,1457262897.6000001,large,False,sp500
+SYF,Synchrony Financial,Financials,Consumer Finance,25079584768.0,283369974.8,large,False,sp500
+SYY,Sysco,Consumer Staples,Food Distributors,38845104128.0,169178284.79999998,large,False,sp500
+TROW,T. Rowe Price,Financials,Asset Management & Custody Banks,23737788416.0,129276201.6,large,False,sp500
+TTWO,Take-Two Interactive,Communication Services,Interactive Home Entertainment,41079603200.0,542648015.0,large,False,sp500
+TPR,"Tapestry, Inc.",Consumer Discretionary,"Apparel, Accessories & Luxury Goods",24602939392.0,456894661.5,large,False,sp500
+TDY,Teledyne Technologies,Information Technology,Electronic Equipment & Instruments,28413710336.0,147506417.5,large,False,sp500
+TPL,Texas Pacific Land Corporation,Energy,Oil & Gas Exploration & Production,25819981824.0,144540160.79999998,large,False,sp500
+TXT,Textron,Industrials,Aerospace & Defense,13855264768.0,113844975.2,large,False,sp500
+TKO,TKO Group Holdings,Communication Services,Movies & Entertainment,34562543616.0,181870429.5,large,False,sp500
+TTD,Trade Desk (The),Communication Services,Advertising,6446756352.0,218040160.8,mid,False,sp500
+TSCO,Tractor Supply,Consumer Discretionary,Other Specialty Retail,18184300544.0,274357974.0,large,False,sp500
+TRMB,Trimble Inc.,Information Technology,Application Software,13976799232.0,293629876.2,large,False,sp500
+TYL,Tyler Technologies,Information Technology,Application Software,15243254784.0,444977843.40000004,large,False,sp500
+TSN,Tyson Foods,Consumer Staples,Packaged Foods & Meats,19398334464.0,149113999.2,large,False,sp500
+UDR,"UDR, Inc.",Real Estate,Multi-Family Residential REITs,13574108160.0,105662959.00000001,large,False,sp500
+ULTA,Ulta Beauty,Consumer Discretionary,Other Specialty Retail,22965037056.0,445422401.0,large,False,sp500
+UAL,United Airlines Holdings,Industrials,Passenger Airlines,35050283008.0,326741023.4,large,False,sp500
+UHS,Universal Health Services,Health Care,Health Care Facilities,10038657024.0,110174553.9,large,False,sp500
+VEEV,Veeva Systems,Health Care,Health Care Technology,46255738880.0,664460658.9,large,False,sp500
+VTR,Ventas,Real Estate,Health Care REITs,46765318144.0,247276744.20000002,large,False,sp500
+VLTO,Veralto,Industrials,Environmental & Facilities Services,24030709760.0,154357662.89999998,large,False,sp500
+VRSN,Verisign,Information Technology,Internet Services & Infrastructure,26060511232.0,180953355.99999997,large,False,sp500
+VRSK,Verisk Analytics,Industrials,Research & Consulting Services,25221632000.0,224238340.4,large,False,sp500
+VTRS,Viatris,Health Care,Pharmaceuticals,18963234816.0,119859793.30000001,large,False,sp500
+VICI,Vici Properties,Real Estate,Hotel & Resort REITs,28242636800.0,192054888.0,large,False,sp500
+VST,Vistra Corp.,Utilities,Electric Utilities,46106206208.0,552055687.5,large,False,sp500
+VMC,Vulcan Materials Company,Materials,Construction Materials,34931834880.0,215537297.39999998,large,False,sp500
+WRB,W. R. Berkley Corporation,Financials,Property & Casualty Insurance,25080129536.0,105399004.8,large,False,sp500
+WAB,Wabtec,Industrials,Construction Machinery & Heavy Transportation Equipment,48296677376.0,224535110.4,large,False,sp500
+WAT,Waters Corporation,Health Care,Life Sciences Tools & Services,40710803456.0,303770376.9,large,False,sp500
+WEC,WEC Energy Group,Utilities,Electric Utilities,34595426304.0,223165093.20000002,large,False,sp500
+WST,West Pharmaceutical Services,Health Care,Health Care Supplies,24005873664.0,147608530.3,large,False,sp500
+WY,Weyerhaeuser,Real Estate,Timber REITs,16843600896.0,106061239.5,large,False,sp500
+WSM,"Williams-Sonoma, Inc.",Consumer Discretionary,Homefurnishing Retail,26883096576.0,281936682.5,large,False,sp500
+WTW,Willis Towers Watson,Financials,Insurance Brokers,31441793024.0,152841783.0,large,False,sp500
+WDAY,"Workday, Inc.",Information Technology,Application Software,47585447936.0,916645829.0,large,False,sp500
+WYNN,Wynn Resorts,Consumer Discretionary,Casinos & Gaming,9399456768.0,131232343.2,mid,False,sp500
+XEL,Xcel Energy,Utilities,Multi-Utilities,47278571520.0,396007052.4,large,False,sp500
+XYL,Xylem Inc.,Industrials,Industrial Machinery & Supplies & Components,25709234176.0,195434239.0,large,False,sp500
+YUM,Yum! Brands,Consumer Discretionary,Restaurants,41838465024.0,379334933.0,large,False,sp500
+ZBRA,Zebra Technologies,Information Technology,Electronic Equipment & Instruments,16726683648.0,214385649.0,large,False,sp500
+ZBH,Zimmer Biomet,Health Care,Health Care Equipment,19081398272.0,131791695.60000001,large,False,sp500
+ZTS,Zoetis,Health Care,Pharmaceuticals,31859539968.0,348660849.0,large,False,sp500
+AAL,"American Airlines Group, Inc.",Industrials,Airlines,8890256384.0,902921193.8,mid,False,carvana_curated
+ACB,Aurora Cannabis Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,256405760.0,5601960.0,micro,False,carvana_curated
+ACHR,Archer Aviation Inc.,Industrials,Aerospace & Defense,4450755072.0,161561346.20000002,mid,False,carvana_curated
+AFRM,"Affirm Holdings, Inc.",Financial Services,Credit Services,25121011712.0,450587779.0,large,False,carvana_curated
+AG,First Majestic Silver Corp.,Basic Materials,Silver,10148941824.0,213671283.7,large,False,carvana_curated
+AI,"C3.ai, Inc.",Technology,Software - Infrastructure,1732143232.0,48470570.4,small,False,carvana_curated
+ALT,"Altimmune, Inc.",Healthcare,Biotechnology,604950016.0,13181424.0,small,False,carvana_curated
+AMC,"AMC Entertainment Holdings, Inc",Communication Services,Entertainment,2356476160.0,45635647.2,mid,False,carvana_curated
+AMWL,American Well Corporation,Healthcare,Health Information Services,203594832.0,978068.7000000001,micro,False,carvana_curated
+ARWR,"Arrowhead Pharmaceuticals, Inc.",Healthcare,Biotechnology,11637955584.0,90687496.9,large,False,carvana_curated
+ASAN,"Asana, Inc.",Technology,Software - Application,2365030912.0,37680978.6,mid,False,carvana_curated
+ASTS,"AST SpaceMobile, Inc.",Technology,Communication Equipment,22999797760.0,536151063.0,large,False,carvana_curated
+BB,BlackBerry Limited,Technology,Software - Infrastructure,4776718336.0,73104929.5,mid,False,carvana_curated
+BBAI,"BigBear.ai, Inc.",Technology,Information Technology Services,1500817792.0,56612654.3,small,False,carvana_curated
+BBBY,"Bed Bath & Beyond, Inc.",,,414687136.0,9003282.0,small,False,carvana_curated
+BBWI,"Bath & Body Works, Inc.",Consumer Cyclical,Specialty Retail,3881672192.0,157171630.0,mid,False,carvana_curated
+BEAM,Beam Therapeutics Inc.,Healthcare,Biotechnology,3039756032.0,52677345.6,mid,False,carvana_curated
+BEKE,KE Holdings Inc,Real Estate,Real Estate Services,18959431680.0,95622125.4,large,False,carvana_curated
+BIDU,"Baidu, Inc.",Communication Services,Internet Content & Information,32317691904.0,414373672.8,large,False,carvana_curated
+BILI,Bilibili Inc.,Communication Services,Internet Content & Information,6763053056.0,54018840.0,mid,False,carvana_curated
+BILL,"BILL Holdings, Inc.",Technology,Software - Application,4903147008.0,128125997.99999999,mid,False,carvana_curated
+BLNK,Blink Charging Co.,Industrials,Engineering & Construction,75339144.0,552822.8940000001,micro,False,carvana_curated
+BMBL,Bumble Inc.,Communication Services,Internet Content & Information,419813952.0,5483945.600000001,small,False,carvana_curated
+BTBT,"Bit Digital, Inc.",Financial Services,Capital Markets,515705888.0,56997612.099999994,small,False,carvana_curated
+BURL,"Burlington Stores, Inc.",Consumer Cyclical,Apparel Retail,16316875776.0,489520317.59999996,large,False,carvana_curated
+BYND,"Beyond Meat, Inc.",Consumer Defensive,Packaged Foods,228679728.0,22440691.0,micro,False,carvana_curated
+CAN,Canaan Inc.,Technology,Computer Hardware,272034560.0,12160256.01,micro,False,carvana_curated
+CGC,Canopy Growth Corporation,Healthcare,Drug Manufacturers - Specialty & Generic,473182816.0,4677017.4,small,False,carvana_curated
+CHPT,"ChargePoint Holdings, Inc.",Consumer Cyclical,Specialty Retail,142436976.0,1841950.0,micro,False,carvana_curated
+CHWY,"Chewy, Inc.",Consumer Cyclical,Internet Retail,9744295936.0,157877062.0,mid,False,carvana_curated
+CIFR,Cipher Digital Inc.,Technology,Information Technology Services,6432976384.0,574345215.0,mid,False,carvana_curated
+CLOV,"Clover Health Investments, Corp",Healthcare,Healthcare Plans,2204298496.0,14331983.500000002,mid,False,carvana_curated
+CLSK,"CleanSpark, Inc.",Financial Services,Capital Markets,2984214272.0,232252077.39999998,mid,False,carvana_curated
+COMP,"Compass, Inc.",Real Estate,Real Estate Services,8106327552.0,101714976.0,mid,False,carvana_curated
+CRI,"Carter's, Inc.",Consumer Cyclical,Apparel Retail,1189075200.0,42865897.7,small,False,carvana_curated
+CRON,Cronos Group Inc. Common Share,Healthcare,Drug Manufacturers - Specialty & Generic,1241551360.0,5198191.3,small,False,carvana_curated
+CRSP,CRISPR Therapeutics AG,Healthcare,Biotechnology,5509547520.0,106181660.19999999,mid,False,carvana_curated
+CURLF,"Curaleaf Holdings, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,2569211136.0,1919338.9999999998,mid,False,carvana_curated
+DKNG,DraftKings Inc.,Consumer Cyclical,Gambling,12058869760.0,227483865.7,large,False,carvana_curated
+DKS,Dick's Sporting Goods Inc,Consumer Cyclical,Specialty Retail,12091793408.0,1123464580.0,large,False,carvana_curated
+DLO,DLocal Limited,Technology,Software - Infrastructure,4364011008.0,44530189.3,mid,False,carvana_curated
+DNLI,Denali Therapeutics Inc.,Healthcare,Biotechnology,3797974528.0,22842626.400000002,mid,False,carvana_curated
+DOCN,"DigitalOcean Holdings, Inc.",Technology,Software - Infrastructure,13014881280.0,247085538.7,large,False,carvana_curated
+DOCS,"Doximity, Inc.",Healthcare,Health Information Services,4760950272.0,73598870.8,mid,False,carvana_curated
+EDIT,"Editas Medicine, Inc.",Healthcare,Biotechnology,469954880.0,10852565.4,small,False,carvana_curated
+ENPH,"Enphase Energy, Inc.",Technology,Solar,4812707840.0,141573280.8,mid,False,carvana_curated
+EOSE,"Eos Energy Enterprises, Inc.",Industrials,Electrical Equipment & Parts,1164633216.0,75941832.4,small,False,carvana_curated
+ESTC,Elastic N.V.,Technology,Software - Application,10241899520.0,358694276.5,large,False,carvana_curated
+ETSY,"Etsy, Inc.",Consumer Cyclical,Internet Retail,7464609280.0,226045348.79999998,mid,False,carvana_curated
+EVGO,EVgo Inc.,Consumer Cyclical,Specialty Retail,421451072.0,3993052.6,small,False,carvana_curated
+EVTL,Vertical Aerospace Ltd.,Industrials,Aerospace & Defense,116462976.0,2940180.114,micro,False,carvana_curated
+FIGS,"FIGS, Inc.",Consumer Cyclical,Apparel Manufacturing,2548591360.0,32403449.0,mid,False,carvana_curated
+FINV,FinVolution Group,Financial Services,Credit Services,866465024.0,4145228.3,small,False,carvana_curated
+FIVE,"Five Below, Inc.",Consumer Cyclical,Specialty Retail,13649104896.0,278242984.8,large,False,carvana_curated
+FLYW,Flywire Corporation - Voting,Technology,Software - Infrastructure,2298302208.0,26900493.400000002,mid,False,carvana_curated
+FOUR,"Shift4 Payments, Inc.",Technology,Software - Infrastructure,3338433792.0,78053953.60000001,mid,False,carvana_curated
+FSLY,"Fastly, Inc.",Technology,Software - Application,3630447104.0,109179597.2,mid,False,carvana_curated
+FUBO,fuboTV Inc.,Communication Services,Broadcasting,318051008.0,11793494.7,small,False,carvana_curated
+FUTU,Futu Holdings Limited,Financial Services,Capital Markets,17123355648.0,247188153.4,large,False,carvana_curated
+GDRX,"GoodRx Holdings, Inc.",Healthcare,Health Information Services,1190597376.0,6362898.2,small,False,carvana_curated
+GLBE,Global-E Online Ltd.,Consumer Cyclical,Internet Retail,6273582080.0,35622936.0,mid,False,carvana_curated
+GLXY,Galaxy Digital Inc.,Financial Services,Capital Markets,14496714752.0,158755116.0,large,False,carvana_curated
+GME,GameStop Corporation,Consumer Cyclical,Specialty Retail,8246945280.0,107969266.39999999,mid,False,carvana_curated
+GOLD,"Gold.com, Inc.",Financial Services,Capital Markets,1304326784.0,22099607.099999998,small,False,carvana_curated
+GTBIF,Green Thumb Industries Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,1689691264.0,3701278.6,small,False,carvana_curated
+GTLB,GitLab Inc.,Technology,Software - Infrastructure,7860605952.0,168472938.4,mid,False,carvana_curated
+HIMS,"Hims & Hers Health, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,6901410816.0,382481823.59999996,mid,False,carvana_curated
+HIVE,HIVE Digital Technologies Ltd,Financial Services,Capital Markets,762491008.0,72483051.19999999,small,False,carvana_curated
+HUT,Hut 8 Corp.,Financial Services,Capital Markets,9693124608.0,404958252.8,mid,False,carvana_curated
+IBRX,"ImmunityBio, Inc.",Healthcare,Biotechnology,8425698304.0,69980829.0,mid,False,carvana_curated
+ILMN,"Illumina, Inc.",Healthcare,Diagnostics & Research,32258129920.0,429693245.7,large,False,carvana_curated
+INO,"Inovio Pharmaceuticals, Inc.",Healthcare,Biotechnology,131314848.0,5386984.4,micro,False,carvana_curated
+IONS,"Ionis Pharmaceuticals, Inc.",Healthcare,Biotechnology,10030885888.0,141620857.2,large,False,carvana_curated
+IREN,IREN LIMITED,Financial Services,Capital Markets,14625487872.0,1733876587.95,large,False,carvana_curated
+JBLU,JetBlue Airways Corporation,Industrials,Airlines,1735636096.0,104582379.99999999,small,False,carvana_curated
+JD,"JD.com, Inc.",Consumer Cyclical,Internet Retail,38138118144.0,169519919.2,large,False,carvana_curated
+JOBY,"Joby Aviation, Inc.",Industrials,Airports & Air Services,6765609984.0,156558297.6,mid,False,carvana_curated
+KSS,Kohl's Corporation,Consumer Cyclical,Department Stores,2020787840.0,97303615.2,mid,False,carvana_curated
+LBRDA,Liberty Broadband Corporation,Communication Services,Telecom Services,5177567232.0,11078153.88,mid,False,carvana_curated
+LCID,"Lucid Group, Inc.",Consumer Cyclical,Auto Manufacturers,1911240320.0,61810921.99999999,small,False,carvana_curated
+LI,Li Auto Inc.,Consumer Cyclical,Auto Manufacturers,11846232064.0,34749627.0,large,False,carvana_curated
+LMND,"Lemonade, Inc.",Financial Services,Insurance - Property & Casualty,4042425344.0,50118863.4,mid,False,carvana_curated
+LX,LexinFintech Holdings Ltd.,Financial Services,Credit Services,176323456.0,4167885.4000000004,micro,False,carvana_curated
+LYFT,"Lyft, Inc.",Technology,Software - Application,6397330432.0,164914594.0,mid,False,carvana_curated
+M,Macy's Inc,Consumer Cyclical,Department Stores,5776313344.0,118246474.80000001,mid,False,carvana_curated
+MARA,"MARA Holdings, Inc.",Financial Services,Capital Markets,4160443648.0,652711865.1,mid,False,carvana_curated
+MDB,"MongoDB, Inc.",Technology,Software - Infrastructure,36465422336.0,582272158.4,large,False,carvana_curated
+MNDY,monday.com Ltd.,Technology,Software - Application,4275604480.0,116053093.0,mid,False,carvana_curated
+MNPR,Monopar Therapeutics Inc.,Healthcare,Biotechnology,751293440.0,21936041.400000002,small,False,carvana_curated
+MQ,"Marqeta, Inc.",Technology,Software - Infrastructure,1709302784.0,11346220.000000002,small,False,carvana_curated
+MTCH,"Match Group, Inc.",Communication Services,Internet Content & Information,9482285056.0,124791435.0,mid,False,carvana_curated
+MTDR,Matador Resources Company,Energy,Oil & Gas E&P,7178981888.0,109938231.6,mid,False,carvana_curated
+MUR,Murphy Oil Corporation,Energy,Oil & Gas E&P,5220790784.0,55951681.800000004,mid,False,carvana_curated
+MVIS,"Microvision, Inc.",Technology,Scientific & Technical Instruments,55365820.0,3648417.0,micro,False,carvana_curated
+MVST,"Microvast Holdings, Inc.",Consumer Cyclical,Auto Parts,276095776.0,4588666.2,micro,False,carvana_curated
+NIO,NIO Inc.,Consumer Cyclical,Auto Manufacturers,10598971392.0,127534457.70000002,large,False,carvana_curated
+NTLA,"Intellia Therapeutics, Inc.",Healthcare,Biotechnology,1783812736.0,45898906.1,small,False,carvana_curated
+OCGN,"Ocugen, Inc.",Healthcare,Biotechnology,451016832.0,4781749.0,small,False,carvana_curated
+OGI,Organigram Global Inc.,Healthcare,Drug Manufacturers - Specialty & Generic,170617872.0,659643.6,micro,False,carvana_curated
+OKTA,"Okta, Inc.",Technology,Software - Infrastructure,30251012096.0,843071644.8,large,False,carvana_curated
+OLLI,Ollie's Bargain Outlet Holdings,Consumer Defensive,Discount Stores,4559387136.0,106437983.4,mid,False,carvana_curated
+OPEN,Opendoor Technologies Inc,Real Estate,Real Estate Services,3107491584.0,100172480.0,mid,False,carvana_curated
+OPRT,Oportun Financial Corporation,Financial Services,Credit Services,338006304.0,2104966.5,small,False,carvana_curated
+OPRX,OptimizeRx Corporation,Healthcare,Health Information Services,150310896.0,1533995.4000000001,micro,False,carvana_curated
+OSCR,"Oscar Health, Inc.",Healthcare,Healthcare Plans,9247003648.0,137389070.0,mid,False,carvana_curated
+PAAS,Pan American Silver Corp.,Basic Materials,Gold,21526964224.0,319595636.8,large,False,carvana_curated
+PACB,Pacific Biosciences of Californ,Healthcare,Medical Devices,421175680.0,10175873.85,small,False,carvana_curated
+PAGS,PagSeguro Digital Ltd.,Technology,Software - Infrastructure,2486327296.0,19987598.4,mid,False,carvana_curated
+PATH,"UiPath, Inc.",Technology,Software - Infrastructure,9673305088.0,1249916546.2,mid,False,carvana_curated
+PD,"PagerDuty, Inc.",Technology,Software - Application,1112109184.0,23847675.6,small,False,carvana_curated
+PINS,"Pinterest, Inc.",Communication Services,Internet Content & Information,12294654976.0,210653649.70000002,large,False,carvana_curated
+PLNT,"Planet Fitness, Inc.",Consumer Cyclical,Leisure,3913819904.0,89019804.0,mid,False,carvana_curated
+PLUG,"Plug Power, Inc.",Industrials,Electrical Equipment & Parts,3017942016.0,126257313.60000001,mid,False,carvana_curated
+PR,Permian Resources Corporation,Energy,Oil & Gas E&P,19506704384.0,251935848.6,large,False,carvana_curated
+PRTA,Prothena Corporation plc,Healthcare,Biotechnology,480000736.0,3206115.0,small,False,carvana_curated
+PSFE,Paysafe Limited,Technology,Software - Infrastructure,336267648.0,2039032.8,small,False,carvana_curated
+PTON,"Peloton Interactive, Inc.",Consumer Cyclical,Leisure,2352353024.0,32272828.000000004,mid,False,carvana_curated
+QFIN,"Qfin Holdings, Inc.",Financial Services,Credit Services,1052907392.0,39019708.4,small,False,carvana_curated
+QS,QuantumScape Corporation,Consumer Cyclical,Auto Parts,3438661120.0,105260314.89999999,mid,False,carvana_curated
+RARE,Ultragenyx Pharmaceutical Inc.,Healthcare,Biotechnology,2485425408.0,56904768.300000004,mid,False,carvana_curated
+RBLX,Roblox Corporation,Communication Services,Electronic Gaming & Multimedia,29496582144.0,450839316.5,large,False,carvana_curated
+REAL,"The RealReal, Inc.",Consumer Cyclical,Luxury Goods,1245912192.0,30054809.6,small,False,carvana_curated
+REAX,Real REMAX Group Inc.,Real Estate,Real Estate Services,413657952.0,22973278.12,small,False,carvana_curated
+RGEN,Repligen Corporation,Healthcare,Medical Instruments & Supplies,10213718016.0,186747832.6,large,False,carvana_curated
+RGNX,REGENXBIO Inc.,Healthcare,Biotechnology,627125312.0,15543995.0,small,False,carvana_curated
+RH,RH,Consumer Cyclical,Specialty Retail,2822845696.0,108813874.0,mid,False,carvana_curated
+RILY,"BRC Group Holdings, Inc.",Financial Services,Financial Conglomerates,278182304.0,3436610.4,micro,False,carvana_curated
+RIOT,"Riot Platforms, Inc.",Financial Services,Capital Markets,7128044032.0,329765736.7,mid,False,carvana_curated
+RIVN,"Rivian Automotive, Inc.",Consumer Cyclical,Auto Manufacturers,23252639744.0,408461046.4,large,False,carvana_curated
+RKLB,Rocket Lab Corporation,Industrials,Aerospace & Defense,40871149568.0,940092533.6,large,False,carvana_curated
+ROKU,"Roku, Inc.",Communication Services,Entertainment,23291387904.0,308841378.6,large,False,carvana_curated
+RRC,Range Resources Corporation,Energy,Oil & Gas E&P,9655638016.0,93576577.6,mid,False,carvana_curated
+RUN,Sunrun Inc.,Technology,Solar,2044367232.0,61275242.9,mid,False,carvana_curated
+RVLV,"Revolve Group, Inc.",Consumer Cyclical,Internet Retail,1579518080.0,16721216.6,small,False,carvana_curated
+RXRX,"Recursion Pharmaceuticals, Inc.",Healthcare,Biotechnology,1823321728.0,60238208.0,small,False,carvana_curated
+RYAAY,Ryanair Holdings plc,Industrials,Airlines,28725360640.0,73639885.2,large,False,carvana_curated
+S,"SentinelOne, Inc.",Technology,Software - Infrastructure,7691885568.0,192228894.0,mid,False,carvana_curated
+SEDG,"SolarEdge Technologies, Inc.",Technology,Solar,1981129088.0,100027046.00000001,small,False,carvana_curated
+SHLS,"Shoals Technologies Group, Inc.",Technology,Solar,1164635648.0,36478641.6,small,False,carvana_curated
+SIRI,SiriusXM Holdings Inc.,Communication Services,Entertainment,9495174144.0,80946213.30000001,mid,False,carvana_curated
+SNAP,Snap Inc.,Communication Services,Internet Content & Information,9386147840.0,208933746.0,mid,False,carvana_curated
+SNDL,SNDL Inc.,Consumer Defensive,Beverages - Wineries & Distilleries,340667168.0,1868680.0000000002,small,False,carvana_curated
+SOFI,"SoFi Technologies, Inc.",Financial Services,Credit Services,23093276672.0,739174040.4,large,False,carvana_curated
+SOUN,"SoundHound AI, Inc.",Technology,Software - Application,3179826432.0,182177035.20000002,mid,False,carvana_curated
+STLA,Stellantis N.V.,Consumer Cyclical,Auto Manufacturers,20682606592.0,125568652.5,large,False,carvana_curated
+STNE,StoneCo Ltd.,Technology,Software - Infrastructure,2236777472.0,74217222.0,mid,False,carvana_curated
+TAL,TAL Education Group,Consumer Defensive,Education & Training Services,6512192512.0,63743034.4,mid,False,carvana_curated
 TCNNF,Trulieve Cannabis Corporation,,,1699994368.0,11370069.879999999,small,False,carvana_curated
-TCOM,Trip.com Group Limited,Consumer Cyclical,Travel Services,29602441216.0,169275018.29999998,large,False,carvana_curated
-TDOC,"Teladoc Health, Inc.",Healthcare,Health Information Services,1219099776.0,48568657.5,small,False,carvana_curated
-TEAM,Atlassian Corporation,Technology,Software - Application,25634359296.0,421071936.15,large,False,carvana_curated
-TIGR,UP Fintech Holding Limited,Financial Services,Capital Markets,875633216.0,9650844.0,small,False,carvana_curated
-TLRY,"Tilray Brands, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,618364288.0,25410697.8,small,False,carvana_curated
-TWLO,Twilio Inc.,Technology,Software - Infrastructure,29952571392.0,296763089.0,large,False,carvana_curated
-TWST,Twist Bioscience Corporation,Healthcare,Diagnostics & Research,5700938752.0,114981307.0,mid,False,carvana_curated
-U,Unity Software Inc.,Technology,Software - Application,13842525184.0,249658537.8,large,False,carvana_curated
-UA,"Under Armour, Inc.",Consumer Cyclical,Apparel Manufacturing,2766848512.0,14037422.190000001,mid,False,carvana_curated
-UAA,"Under Armour, Inc.",Consumer Cyclical,Apparel Manufacturing,2835060480.0,47882593.5,mid,False,carvana_curated
-UPST,"Upstart Holdings, Inc.",Financial Services,Credit Services,2626325504.0,94568667.2,mid,False,carvana_curated
-VFC,V.F. Corporation,Consumer Cyclical,Apparel Manufacturing,5629686784.0,149895888.8,mid,False,carvana_curated
-VFF,"Village Farms International, In",Consumer Defensive,Farm Products,233877360.0,1380902.4,micro,False,carvana_curated
-VIPS,Vipshop Holdings Limited,Consumer Cyclical,Internet Retail,7367349760.0,22959991.6,mid,False,carvana_curated
-VKTX,"Viking Therapeutics, Inc.",Healthcare,Biotechnology,3702564096.0,71780010.0,mid,False,carvana_curated
-WPM,Wheaton Precious Metals Corp,Basic Materials,Gold,49513259008.0,174975705.2,large,False,carvana_curated
-WULF,TeraWulf Inc.,Financial Services,Capital Markets,8751106048.0,582306005.6,mid,False,carvana_curated
-XPEV,XPeng Inc.,Consumer Cyclical,Auto Manufacturers,12435717120.0,77349090.0,large,False,carvana_curated
-XPOF,"Xponential Fitness, Inc.",Consumer Cyclical,Leisure,320166720.0,4726348.0,small,False,carvana_curated
-YMM,Full Truck Alliance Co. Ltd.,Technology,Software - Application,9925535744.0,61763387.4,mid,False,carvana_curated
-ZM,"Zoom Communications, Inc.",Technology,Software - Application,28170819584.0,311039114.09999996,large,False,carvana_curated
-ZS,"Zscaler, Inc.",Technology,Software - Infrastructure,24450478080.0,307782720.0,large,False,carvana_curated
+TCOM,Trip.com Group Limited,Consumer Cyclical,Travel Services,28116338688.0,90601547.5,large,False,carvana_curated
+TDOC,"Teladoc Health, Inc.",Healthcare,Health Information Services,1151876736.0,21381650.0,small,False,carvana_curated
+TEAM,Atlassian Corporation,Technology,Software - Application,49151963136.0,847247203.0999999,large,False,carvana_curated
+TIGR,UP Fintech Holding Limited,Financial Services,Capital Markets,906420608.0,15511053.6,small,False,carvana_curated
+TLRY,"Tilray Brands, Inc.",Healthcare,Drug Manufacturers - Specialty & Generic,628744768.0,16723549.4,small,False,carvana_curated
+TWLO,Twilio Inc.,Technology,Software - Infrastructure,36186927104.0,426784837.5,large,False,carvana_curated
+TWST,Twist Bioscience Corporation,Healthcare,Biotechnology,9150706688.0,246613800.0,mid,False,carvana_curated
+U,Unity Software Inc.,Technology,Software - Application,18527744000.0,412688618.0,large,False,carvana_curated
+UA,"Under Armour, Inc.",Consumer Cyclical,Apparel Manufacturing,2117659392.0,11429090.819999998,mid,False,carvana_curated
+UAA,"Under Armour, Inc.",Consumer Cyclical,Apparel Manufacturing,2164909568.0,37125295.2,mid,False,carvana_curated
+UPST,"Upstart Holdings, Inc.",Financial Services,Credit Services,2790938368.0,122194294.8,mid,False,carvana_curated
+VFC,V.F. Corporation,Consumer Cyclical,Apparel Manufacturing,5283728384.0,73424870.39999999,mid,False,carvana_curated
+VFF,"Village Farms International, In",Consumer Defensive,Farm Products,352184544.0,2642745.6,small,False,carvana_curated
+VIPS,Vipshop Holdings Limited,Consumer Cyclical,Internet Retail,6229050368.0,50244264.0,mid,False,carvana_curated
+VKTX,"Viking Therapeutics, Inc.",Healthcare,Biotechnology,3823883008.0,59476032.0,mid,False,carvana_curated
+W,Wayfair Inc.,Consumer Cyclical,Internet Retail,13596819456.0,205552432.79999998,large,False,carvana_curated
+WULF,TeraWulf Inc.,Financial Services,Capital Markets,7549395968.0,481025215.3,mid,False,carvana_curated
+XPEV,XPeng Inc.,Consumer Cyclical,Auto Manufacturers,10866903040.0,110950961.6,large,False,carvana_curated
+XPOF,"Xponential Fitness, Inc.",Consumer Cyclical,Leisure,269867648.0,2922780.5,micro,False,carvana_curated
+YMM,Full Truck Alliance Co. Ltd.,Technology,Software - Application,8858724352.0,81466492.80000001,mid,False,carvana_curated
+Z,"Zillow Group, Inc.",Communication Services,Internet Content & Information,7861628416.0,111680768.8,mid,False,carvana_curated
+ZM,"Zoom Communications, Inc.",Technology,Software - Application,28209649664.0,365322782.40000004,large,False,carvana_curated
+ZS,"Zscaler, Inc.",Technology,Software - Infrastructure,30463647744.0,409330463.4,large,False,carvana_curated
 BTC-USD,BTC,Cryptocurrency,,,,crypto,True,crypto
 ETH-USD,ETH,Cryptocurrency,,,,crypto,True,crypto
 BNB-USD,BNB,Cryptocurrency,,,,crypto,True,crypto
