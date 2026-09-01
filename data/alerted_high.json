@@ -1,13 +1,15 @@
 {
   "tickers": [
     "ASAN",
+    "BR",
+    "CLX",
     "FDS",
+    "GIS",
     "IT",
     "JKHY",
     "KMB",
     "MNDY",
     "PAYX",
-    "REAX",
     "TYL",
     "WDAY"
   ]
