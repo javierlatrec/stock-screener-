@@ -1,6 +1,6 @@
 {
-  "scan_date": "2026-09-04T23:03:29.008912+00:00",
-  "scan_date_human": "2026-09-04 23:03",
+  "scan_date": "2026-09-07T23:31:52.536506+00:00",
+  "scan_date_human": "2026-09-07 23:31",
   "total": 43,
   "results": [
     {
@@ -9,12 +9,12 @@
       "group": "Sectorial",
       "current_price": 187.27999877929688,
       "drawdown_from_ath_pct": -1.8410115726622784,
-      "fiftytwo_week_change": 25.06398615343512,
+      "fiftytwo_week_change": 25.06399889706793,
       "monthly_signal": null,
-      "monthly_wt2": 70.23842892242678,
+      "monthly_wt2": 70.23843432308263,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 15.856158047764154,
+      "weekly_mfi": 15.856330113228935,
       "ash_bullish": false
     },
     {
@@ -25,10 +25,10 @@
       "drawdown_from_ath_pct": 0.0,
       "fiftytwo_week_change": 12.293391156505217,
       "monthly_signal": null,
-      "monthly_wt2": 54.0366481972201,
+      "monthly_wt2": 54.036654333722204,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 16.827840897030047,
+      "weekly_mfi": 17.012949319874995,
       "ash_bullish": true
     },
     {
@@ -40,13 +40,13 @@
       "fiftytwo_week_change": 48.63758896334119,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 65.9624435048798,
+        "wt2": 65.96243221204561,
         "bars_ago": 3
       },
-      "monthly_wt2": 67.40076421753213,
+      "monthly_wt2": 67.40075609037557,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 20.597030720113228,
+      "weekly_mfi": 20.597280177034296,
       "ash_bullish": false
     },
     {
@@ -57,10 +57,10 @@
       "drawdown_from_ath_pct": 0.0,
       "fiftytwo_week_change": 20.38156686194667,
       "monthly_signal": null,
-      "monthly_wt2": 50.123750503632984,
+      "monthly_wt2": 50.123750851201315,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 14.935276515676087,
+      "weekly_mfi": 14.935040317203237,
       "ash_bullish": true
     },
     {
@@ -69,16 +69,16 @@
       "group": "Sectorial",
       "current_price": 175.27000427246094,
       "drawdown_from_ath_pct": -5.377094252989459,
-      "fiftytwo_week_change": 14.019348307149688,
+      "fiftytwo_week_change": 14.019336989153642,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 70.83816772158332,
+        "wt2": 70.8381696847337,
         "bars_ago": 1
       },
-      "monthly_wt2": 69.00266310424227,
+      "monthly_wt2": 69.00290768969948,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 12.605696687397517,
+      "weekly_mfi": 12.605454506395967,
       "ash_bullish": false
     },
     {
@@ -86,13 +86,13 @@
       "name": "Consumo discrecional",
       "group": "Sectorial",
       "current_price": 114.91000366210938,
-      "drawdown_from_ath_pct": -4.78643159534908,
+      "drawdown_from_ath_pct": -4.786437614425975,
       "fiftytwo_week_change": -3.639459246706279,
       "monthly_signal": null,
-      "monthly_wt2": 36.77942804753878,
+      "monthly_wt2": 36.77942951078776,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 0.4347438810932401,
+      "weekly_mfi": 0.43456332559363425,
       "ash_bullish": false
     },
     {
@@ -101,12 +101,12 @@
       "group": "Sectorial",
       "current_price": 84.58000183105469,
       "drawdown_from_ath_pct": -4.848074164132173,
-      "fiftytwo_week_change": 13.17956826647076,
+      "fiftytwo_week_change": 13.17955671177792,
       "monthly_signal": null,
-      "monthly_wt2": 56.451304758406884,
+      "monthly_wt2": 56.451280436938326,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 9.714724554079472,
+      "weekly_mfi": 9.714450254778846,
       "ash_bullish": false
     },
     {
@@ -117,10 +117,10 @@
       "drawdown_from_ath_pct": -8.53089862045086,
       "fiftytwo_week_change": -1.2676082812306704,
       "monthly_signal": null,
-      "monthly_wt2": 47.06069968114168,
+      "monthly_wt2": 47.06069591553115,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 3.951590272278939,
+      "weekly_mfi": 3.9513440816696197,
       "ash_bullish": false
     },
     {
@@ -129,12 +129,12 @@
       "group": "Sectorial",
       "current_price": 52.439998626708984,
       "drawdown_from_ath_pct": -1.0107511984420756,
-      "fiftytwo_week_change": 24.06461691747034,
+      "fiftytwo_week_change": 24.064605720687762,
       "monthly_signal": null,
-      "monthly_wt2": 54.88453049682057,
+      "monthly_wt2": 54.88453568999819,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 14.782677851835986,
+      "weekly_mfi": 14.782347760515947,
       "ash_bullish": false
     },
     {
@@ -146,13 +146,13 @@
       "fiftytwo_week_change": 10.269865620167728,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 64.55104415710949,
+        "wt2": 64.55103505537578,
         "bars_ago": 0
       },
-      "monthly_wt2": 64.55104415710949,
+      "monthly_wt2": 64.55103505537578,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 7.213785374038928,
+      "weekly_mfi": 7.608414220079719,
       "ash_bullish": false
     },
     {
@@ -163,10 +163,10 @@
       "drawdown_from_ath_pct": -6.162662123312545,
       "fiftytwo_week_change": -1.5376069581898149,
       "monthly_signal": null,
-      "monthly_wt2": 37.47687401004421,
+      "monthly_wt2": 37.476871115672566,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 10.429566969407936,
+      "weekly_mfi": 10.050179327270765,
       "ash_bullish": false
     },
     {
@@ -175,12 +175,12 @@
       "group": "\u00cdndice",
       "current_price": 770.1900024414062,
       "drawdown_from_ath_pct": 0.0,
-      "fiftytwo_week_change": 13.856682050518584,
+      "fiftytwo_week_change": 13.856692323565472,
       "monthly_signal": null,
-      "monthly_wt2": 68.37117932301871,
+      "monthly_wt2": 68.3711760296113,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 22.27235119798675,
+      "weekly_mfi": 22.27212681258244,
       "ash_bullish": false
     },
     {
@@ -192,13 +192,13 @@
       "fiftytwo_week_change": 14.706823490735182,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 68.80525686833339,
+        "wt2": 68.80525528068706,
         "bars_ago": 1
       },
-      "monthly_wt2": 68.14039190717114,
+      "monthly_wt2": 68.14039050819936,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 17.575023295680214,
+      "weekly_mfi": 17.575333634985995,
       "ash_bullish": false
     },
     {
@@ -207,16 +207,16 @@
       "group": "\u00cdndice",
       "current_price": 296.010009765625,
       "drawdown_from_ath_pct": -1.4777840775545634,
-      "fiftytwo_week_change": 21.121936091677323,
+      "fiftytwo_week_change": 21.121928529284137,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 66.57055783034068,
+        "wt2": 66.57055349998153,
         "bars_ago": 0
       },
-      "monthly_wt2": 66.57055783034068,
+      "monthly_wt2": 66.57055349998153,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 10.900219004493332,
+      "weekly_mfi": 10.900029267426484,
       "ash_bullish": false
     },
     {
@@ -227,10 +227,10 @@
       "drawdown_from_ath_pct": -36.22178352820603,
       "fiftytwo_week_change": -3.1018229176268073,
       "monthly_signal": null,
-      "monthly_wt2": 42.78363950215927,
+      "monthly_wt2": 42.78363952041267,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 5.825227438182048,
+      "weekly_mfi": 5.825120551106704,
       "ash_bullish": false
     },
     {
@@ -241,10 +241,10 @@
       "drawdown_from_ath_pct": -53.460944263032985,
       "fiftytwo_week_change": 51.42949136040894,
       "monthly_signal": null,
-      "monthly_wt2": 51.41301471259495,
+      "monthly_wt2": 51.41301472397057,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 6.7723721197423385,
+      "weekly_mfi": 6.77221283886658,
       "ash_bullish": true
     },
     {
@@ -255,10 +255,10 @@
       "drawdown_from_ath_pct": -8.780739551850141,
       "fiftytwo_week_change": -8.780739551850141,
       "monthly_signal": null,
-      "monthly_wt2": 38.21482895071576,
+      "monthly_wt2": 38.21482892372201,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 11.170584853316095,
+      "weekly_mfi": 11.170612975832837,
       "ash_bullish": false
     },
     {
@@ -269,10 +269,10 @@
       "drawdown_from_ath_pct": -17.004960283384076,
       "fiftytwo_week_change": -16.726403379994355,
       "monthly_signal": null,
-      "monthly_wt2": 14.241515090397007,
+      "monthly_wt2": 14.241515045835763,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 1.9480911534752996,
+      "weekly_mfi": 1.9481258892611093,
       "ash_bullish": true
     },
     {
@@ -284,13 +284,13 @@
       "fiftytwo_week_change": -1.3332027919838991,
       "monthly_signal": {
         "type": "SELL_PLUS",
-        "wt2": 71.71144570785357,
+        "wt2": 71.71144568259056,
         "bars_ago": 3
       },
-      "monthly_wt2": 61.01074562122286,
+      "monthly_wt2": 61.01074560224381,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 7.826569786288118,
+      "weekly_mfi": 7.826330188892631,
       "ash_bullish": false
     },
     {
@@ -308,7 +308,7 @@
       "monthly_wt2": 64.72172743249969,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -0.884831884333062,
+      "weekly_mfi": -0.8854421092313925,
       "ash_bullish": false
     },
     {
@@ -317,16 +317,16 @@
       "group": "Espacio",
       "current_price": 43.70000076293945,
       "drawdown_from_ath_pct": -33.004219046049485,
-      "fiftytwo_week_change": 16.360801692152425,
+      "fiftytwo_week_change": 16.360789872845817,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 75.41803506670095,
+        "wt2": 75.41803076090436,
         "bars_ago": 2
       },
-      "monthly_wt2": 63.5475333051983,
+      "monthly_wt2": 63.547567757071825,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 10.063246448240793,
+      "weekly_mfi": 10.06268123261219,
       "ash_bullish": false
     },
     {
@@ -340,7 +340,7 @@
       "monthly_wt2": 0.649777465617233,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 0.9044159520430163,
+      "weekly_mfi": 0.9045859640577939,
       "ash_bullish": false
     },
     {
@@ -348,13 +348,13 @@
       "name": "Cannabis global",
       "group": "Cannabis",
       "current_price": 25.760000228881836,
-      "drawdown_from_ath_pct": -92.72069129501622,
+      "drawdown_from_ath_pct": -92.72069066726941,
       "fiftytwo_week_change": -18.910168618991975,
       "monthly_signal": null,
-      "monthly_wt2": -24.39711641985069,
+      "monthly_wt2": -24.397116094817523,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -7.562296635757028,
+      "weekly_mfi": -7.836014062255001,
       "ash_bullish": false
     },
     {
@@ -365,10 +365,10 @@
       "drawdown_from_ath_pct": -13.551053209805753,
       "fiftytwo_week_change": 56.678511857277535,
       "monthly_signal": null,
-      "monthly_wt2": 79.23695068940283,
+      "monthly_wt2": 79.23699625031198,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 21.624924381166252,
+      "weekly_mfi": 21.625558458177455,
       "ash_bullish": false
     },
     {
@@ -379,10 +379,10 @@
       "drawdown_from_ath_pct": -10.415994720822722,
       "fiftytwo_week_change": -4.511539580778281,
       "monthly_signal": null,
-      "monthly_wt2": 41.1940980351905,
+      "monthly_wt2": 41.19409749640801,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 6.793032322601758,
+      "weekly_mfi": 6.7926676800321495,
       "ash_bullish": false
     },
     {
@@ -394,13 +394,13 @@
       "fiftytwo_week_change": 14.460566445161962,
       "monthly_signal": {
         "type": "SELL",
-        "wt2": 62.37752396145229,
+        "wt2": 62.37753378151734,
         "bars_ago": 2
       },
-      "monthly_wt2": 56.872228094420564,
+      "monthly_wt2": 56.87223624634647,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 21.087774600923265,
+      "weekly_mfi": 21.08774037108659,
       "ash_bullish": false
     },
     {
@@ -411,10 +411,10 @@
       "drawdown_from_ath_pct": -5.317603792246704,
       "fiftytwo_week_change": 26.505731363699585,
       "monthly_signal": null,
-      "monthly_wt2": 58.78935454900432,
+      "monthly_wt2": 58.78935516882334,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 16.705698654366724,
+      "weekly_mfi": 16.70533141442566,
       "ash_bullish": true
     },
     {
@@ -425,10 +425,10 @@
       "drawdown_from_ath_pct": -5.55167758689606,
       "fiftytwo_week_change": 22.99153311608113,
       "monthly_signal": null,
-      "monthly_wt2": 55.49438965902234,
+      "monthly_wt2": 55.49438792066676,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 12.29184925434816,
+      "weekly_mfi": 12.291056861229643,
       "ash_bullish": true
     },
     {
@@ -440,13 +440,13 @@
       "fiftytwo_week_change": -16.80131039456825,
       "monthly_signal": {
         "type": "BUY",
-        "wt2": -14.252302700030251,
+        "wt2": -14.252301316307914,
         "bars_ago": 1
       },
-      "monthly_wt2": -13.278358893280233,
+      "monthly_wt2": -13.27835747844163,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 0.656260192854651,
+      "weekly_mfi": 0.6562214187897296,
       "ash_bullish": false
     },
     {
@@ -457,10 +457,10 @@
       "drawdown_from_ath_pct": -5.024800692455417,
       "fiftytwo_week_change": -5.024800692455417,
       "monthly_signal": null,
-      "monthly_wt2": 45.17838511601939,
+      "monthly_wt2": 45.178390802506804,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 4.882601625624074,
+      "weekly_mfi": 4.882836870891718,
       "ash_bullish": false
     },
     {
@@ -468,13 +468,13 @@
       "name": "Energ\u00eda limpia",
       "group": "Energ\u00eda limpia",
       "current_price": 17.770000457763672,
-      "drawdown_from_ath_pct": -49.21228491016995,
+      "drawdown_from_ath_pct": -49.212279372972176,
       "fiftytwo_week_change": 3.7937662452831513,
       "monthly_signal": null,
-      "monthly_wt2": 36.855832708317266,
+      "monthly_wt2": 36.85739534012698,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 12.401066080496465,
+      "weekly_mfi": 12.39389916575871,
       "ash_bullish": false
     },
     {
@@ -485,10 +485,10 @@
       "drawdown_from_ath_pct": -76.5964931790588,
       "fiftytwo_week_change": -2.1986930778542293,
       "monthly_signal": null,
-      "monthly_wt2": 25.95667581959024,
+      "monthly_wt2": 25.957421987067676,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 3.6771430605519786,
+      "weekly_mfi": 3.6781502127358525,
       "ash_bullish": false
     },
     {
@@ -496,13 +496,13 @@
       "name": "Litio y bater\u00edas",
       "group": "Energ\u00eda limpia",
       "current_price": 74.18000030517578,
-      "drawdown_from_ath_pct": -16.825265683543527,
+      "drawdown_from_ath_pct": -16.825258568359704,
       "fiftytwo_week_change": 19.86709352174922,
       "monthly_signal": null,
-      "monthly_wt2": 41.70678329123623,
+      "monthly_wt2": 41.70675671803071,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 19.075363178557613,
+      "weekly_mfi": 19.07543572966993,
       "ash_bullish": false
     },
     {
@@ -510,13 +510,13 @@
       "name": "Uranio",
       "group": "Energ\u00eda limpia",
       "current_price": 46.060001373291016,
-      "drawdown_from_ath_pct": -44.24395976188424,
+      "drawdown_from_ath_pct": -44.24394946324018,
       "fiftytwo_week_change": -12.447823901857417,
       "monthly_signal": null,
-      "monthly_wt2": 37.815599591471404,
+      "monthly_wt2": 37.815599977622256,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 9.383165379188208,
+      "weekly_mfi": 9.382567571014663,
       "ash_bullish": false
     },
     {
@@ -530,7 +530,7 @@
       "monthly_wt2": 12.24864057686027,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -7.730371660099462,
+      "weekly_mfi": -7.72960943204239,
       "ash_bullish": false
     },
     {
@@ -548,7 +548,7 @@
       "monthly_wt2": -10.09253988580645,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -7.805137196548091,
+      "weekly_mfi": -7.80499768379465,
       "ash_bullish": false
     },
     {
@@ -559,10 +559,10 @@
       "drawdown_from_ath_pct": -14.312840750873654,
       "fiftytwo_week_change": 38.74674120977129,
       "monthly_signal": null,
-      "monthly_wt2": 58.943618067956386,
+      "monthly_wt2": 58.94361722699018,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 21.960533447265494,
+      "weekly_mfi": 21.95989687089268,
       "ash_bullish": false
     },
     {
@@ -570,13 +570,13 @@
       "name": "Tierras raras",
       "group": "Materias primas",
       "current_price": 75.66000366210938,
-      "drawdown_from_ath_pct": -64.32906254093815,
+      "drawdown_from_ath_pct": -64.3290651070922,
       "fiftytwo_week_change": 9.277969722768354,
       "monthly_signal": null,
-      "monthly_wt2": 30.368366111163642,
+      "monthly_wt2": 30.36836555688969,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 9.61519534697867,
+      "weekly_mfi": 9.614605742567958,
       "ash_bullish": false
     },
     {
@@ -587,10 +587,10 @@
       "drawdown_from_ath_pct": 0.0,
       "fiftytwo_week_change": 45.961555875157345,
       "monthly_signal": null,
-      "monthly_wt2": 60.031176893936276,
+      "monthly_wt2": 60.03117560223694,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 19.810694851803273,
+      "weekly_mfi": 19.810495225980887,
       "ash_bullish": true
     },
     {
@@ -601,10 +601,10 @@
       "drawdown_from_ath_pct": 0.0,
       "fiftytwo_week_change": 33.2250111057702,
       "monthly_signal": null,
-      "monthly_wt2": 57.258167571837106,
+      "monthly_wt2": 57.258168134007114,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 17.128161725860352,
+      "weekly_mfi": 17.128022780435362,
       "ash_bullish": true
     },
     {
@@ -615,10 +615,10 @@
       "drawdown_from_ath_pct": -65.25099415161827,
       "fiftytwo_week_change": -30.8209060156835,
       "monthly_signal": null,
-      "monthly_wt2": -10.55166220651047,
+      "monthly_wt2": -10.551661787761859,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -6.582345585747258,
+      "weekly_mfi": -6.5825723907221745,
       "ash_bullish": false
     },
     {
@@ -629,10 +629,10 @@
       "drawdown_from_ath_pct": -13.30524329086411,
       "fiftytwo_week_change": 17.888307625403986,
       "monthly_signal": null,
-      "monthly_wt2": 57.68782311197781,
+      "monthly_wt2": 57.68782312771523,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": 2.711416270840059,
+      "weekly_mfi": 2.7112046507863443,
       "ash_bullish": false
     },
     {
@@ -640,13 +640,13 @@
       "name": "Bonos largos USA",
       "group": "Otros tem\u00e1ticos",
       "current_price": 82.20999908447266,
-      "drawdown_from_ath_pct": -41.677388939766914,
-      "fiftytwo_week_change": -5.107630522229821,
+      "drawdown_from_ath_pct": -41.67738262627846,
+      "fiftytwo_week_change": -5.107638878798262,
       "monthly_signal": null,
-      "monthly_wt2": -16.023026575073754,
+      "monthly_wt2": -16.023023553231127,
       "weekly_entry": null,
       "weekly_exit": null,
-      "weekly_mfi": -1.1071635760841962,
+      "weekly_mfi": -1.1073028369586286,
       "ash_bullish": false
     }
   ]
