@@ -1,6 +1,6 @@
 {
-  "scan_date": "2026-09-22T23:40:15.122256+00:00",
-  "scan_date_human": "2026-09-22 23:40",
+  "scan_date": "2026-09-23T23:39:35.305652+00:00",
+  "scan_date_human": "2026-09-23 23:39",
   "total_scanned": 470,
   "total_active": 131,
   "total_carvana_setups": 47,
@@ -62,6 +62,6 @@
     "ASH_HIGH": 3,
     "ASH_BUY_STRONG": 0,
     "WT_BUY_GOLD": 0,
-    "WT_SELL_PLUS": 17
+    "WT_SELL_PLUS": 18
   }
 }
