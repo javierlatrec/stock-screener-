@@ -1,11 +1,15 @@
 {
   "tickers": [
     "AAVE-USD",
+    "ALGO-USD",
+    "DOCS",
     "EOS-USD",
     "GOTU",
     "ICP-USD",
     "KAVA-USD",
+    "OPRX",
     "SWKS",
+    "THETA-USD",
     "VET-USD"
   ]
 }
