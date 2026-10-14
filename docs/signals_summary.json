@@ -1,13 +1,13 @@
 {
-  "scan_date": "2026-10-14T00:20:53.543517+00:00",
-  "scan_date_human": "2026-10-14 00:20",
+  "scan_date": "2026-10-14T23:57:12.076385+00:00",
+  "scan_date_human": "2026-10-14 23:57",
   "total_scanned": 479,
-  "total_active": 119,
+  "total_active": 118,
   "total_carvana_setups": 53,
   "total_carvana_hunter": 11,
   "by_signal": {
     "BUY_GOLD": 10,
-    "BUY": 74,
+    "BUY": 73,
     "SELL_PLUS": 3,
     "SELL": 32
   },
@@ -15,7 +15,7 @@
     "micro": 4,
     "small": 6,
     "mid": 14,
-    "large": 73,
+    "large": 72,
     "mega": 0,
     "crypto": 22,
     "unknown": 0
@@ -34,7 +34,7 @@
       "micro": 4,
       "small": 4,
       "mid": 12,
-      "large": 36,
+      "large": 35,
       "mega": 0,
       "crypto": 18,
       "unknown": 0
