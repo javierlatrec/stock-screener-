@@ -1,9 +1,9 @@
 {
-  "scan_date": "2026-10-13T02:37:31.877700+00:00",
-  "scan_date_human": "2026-10-13 02:37",
+  "scan_date": "2026-10-14T00:20:53.543517+00:00",
+  "scan_date_human": "2026-10-14 00:20",
   "total_scanned": 479,
   "total_active": 119,
-  "total_carvana_setups": 52,
+  "total_carvana_setups": 53,
   "total_carvana_hunter": 11,
   "by_signal": {
     "BUY_GOLD": 10,
