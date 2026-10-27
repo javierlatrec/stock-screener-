@@ -1,19 +1,20 @@
 {
   "tickers": [
-    "AAVE-USD",
     "ALGO-USD",
     "ASAN",
+    "BF-B",
     "BMBL",
     "CTSH",
     "DOCS",
     "FIGS",
     "FIL-USD",
+    "GOTU",
     "INJ-USD",
     "KAVA-USD",
     "PAGS",
     "PTC",
-    "THETA-USD",
     "TRMB",
-    "WDAY"
+    "WDAY",
+    "ZBRA"
   ]
 }
