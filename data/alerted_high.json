@@ -2,7 +2,6 @@
   "tickers": [
     "ALGO-USD",
     "ASAN",
-    "BF-B",
     "BMBL",
     "CTSH",
     "DOCS",
@@ -14,7 +13,6 @@
     "PAGS",
     "PTC",
     "TRMB",
-    "WDAY",
-    "ZBRA"
+    "WDAY"
   ]
 }
