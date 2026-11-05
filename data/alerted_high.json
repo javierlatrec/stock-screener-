@@ -1,7 +1,9 @@
 {
   "tickers": [
     "ASAN",
+    "BF-B",
     "BMBL",
+    "BR",
     "CTSH",
     "FIGS",
     "INJ-USD",
@@ -9,6 +11,7 @@
     "PAGS",
     "TRMB",
     "TYL",
-    "WDAY"
+    "WDAY",
+    "ZTS"
   ]
 }
