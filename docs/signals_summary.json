@@ -1,9 +1,9 @@
 {
-  "scan_date": "2026-11-06T01:34:05.047927+00:00",
-  "scan_date_human": "2026-11-06 01:34",
+  "scan_date": "2026-11-07T00:54:33.482542+00:00",
+  "scan_date_human": "2026-11-07 00:54",
   "total_scanned": 475,
   "total_active": 106,
-  "total_carvana_setups": 59,
+  "total_carvana_setups": 57,
   "total_carvana_hunter": 13,
   "by_signal": {
     "BUY_GOLD": 11,
@@ -62,6 +62,6 @@
     "ASH_HIGH": 13,
     "ASH_BUY_STRONG": 0,
     "WT_BUY_GOLD": 0,
-    "WT_SELL_PLUS": 15
+    "WT_SELL_PLUS": 16
   }
 }
